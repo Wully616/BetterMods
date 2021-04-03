@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Welcome to the documentation for BetterMods. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Welcome to the documentation for BetterMods. ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<p><img src="https://staticdelivery.nexusmods.com/mods/2673/images/headers/3668_1617314074.jpg" alt="alt text" title="BetterMods"></p>
+<h1 id="welcome-to-the-documentation-for-bettermods">Welcome to the documentation for <strong>BetterMods</strong>.</h1>
+<p>Refer to <a href="api/index.html">the documentation here</a> for BetterMods.</p>
+<h2 id="quick-start-notes">Quick Start Notes:</h2>
+<ol>
+<li>Download BetterMods from Nexus <a href="https://www.nexusmods.com/bladeandsorcery/mods/3668">here</a></li>
+<li>Extract the <code>!BetterMods</code> folder to your Blade and Sorcery mod folder <code>\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods</code></li>
+<li>In your mod project, add a reference to <code>!BetterMods.dll</code></li>
+<li>Start making your mod!</li>
+<li>When packaging your mod and putting it on nexus, make sure you add BetterMods as a dependency for your mod</li>
+</ol>
+<h2 id="example-mod">Example Mod:</h2>
+<ol>
+<li>Wully&#39;s Choking mod is available on Nexus <a href="https://www.nexusmods.com/bladeandsorcery/mods/3672">here</a>.</li>
+<li>You can view the source for it <a href="https://github.com/Wully616/baschokingmod">here</a></li>
+</ol>
+<h2 id="using-betterevents">Using BetterEvents</h2>
+<p>BetterEvents is a collection of events which you can listen to, eliminating complex logic from handling BAS events yourself!</p>
+<p>Simply import the static class with</p>
+<pre><code>using static Wully.Events.BetterEvents;
+</code></pre><p>You can then start typing On&lt;...&gt; and intelliSense will show you the available events you can listen to. Such as:</p>
+<pre><code>OnPlayerDismemberCreatureHead += MyClass_OnPlayerDismemberCreatureHead;
+</code></pre><p>Check out the using static Wully.Events.BetterEvents; functions <a href="/api/Wully.Events.BetterEvents.html#events">here</a></p>
+<h2 id="using-betterhelpers">Using BetterHelpers</h2>
+<p>BetterHelpers is a collection of static functions to simplify your code and make it easier to read</p>
+<p>Simply import the static functions with</p>
+<pre><code>using static Wully.Helpers.BetterHelpers;
+</code></pre><p>You can then start using the functions right away. Such as:</p>
+<pre><code>if ( !IsPlayerUsingTelekinesis(side) &amp;&amp; (IsGripPressed() || IsGripAndCastPressed()) ) {
+    Debug.Log(&quot;Player isnt using TK but is holding some buttons..&quot;);
+}
+</code></pre><p>Check out the BetterHelper functions <a href="/api/Wully.Helpers.BetterHelpers.html">here</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
