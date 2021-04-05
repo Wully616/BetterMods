@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "2k3jFmwb7INlg906T7hZSA=="
+          "hash": "p3P/TxzG9brr/+FW5tjXdg=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "rzAGtqwXHI/uuxpHTP9OlQ=="
+          "hash": "N10jPxkSZozuUO0yLmeeuQ=="
         }
       },
       "is_incremental": false,
@@ -40,6 +40,28 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/loggercommands.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/loggercommands.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logoutput.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logoutput.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "log_codes": [
         "InvalidFileLink"
       ],
@@ -48,7 +70,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "hVFJhKkeT0QWFQvrnjObPQ=="
+          "hash": "XA3SiqXmMuM81KbtU2KrPg=="
         }
       },
       "is_incremental": false,
@@ -60,7 +82,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.html",
-          "hash": "0LAuWAZY6B3Mr2YCYiFCAg=="
+          "hash": "/xQiA9JkdNzDX1fs/JYd8g=="
         }
       },
       "is_incremental": false,
@@ -72,7 +94,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.html",
-          "hash": "JT5XWDujld4vi+8HI6zNow=="
+          "hash": "s1y97p1CkthvB47Av1EQGA=="
         }
       },
       "is_incremental": false,
@@ -84,7 +106,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.html",
-          "hash": "9ppnjSz4WN45BVhtvCEh4g=="
+          "hash": "ooTXz6utqgizXzNqYaxE9g=="
         }
       },
       "is_incremental": false,
@@ -96,7 +118,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureState.html",
-          "hash": "JQR1nIeLMyDG4JLbcfBXMg=="
+          "hash": "dCP59kselm6olsKJ1qXMEA=="
         }
       },
       "is_incremental": false,
@@ -108,7 +130,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DamageArea.html",
-          "hash": "WJQb3Wa4feHgdJiFFUVqWA=="
+          "hash": "MIah0UiahVni+QFnVB+TGg=="
         }
       },
       "is_incremental": false,
@@ -120,7 +142,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.html",
-          "hash": "jeZSV8mDxI7dULFGeZmhNA=="
+          "hash": "LyzTNuL+zQ8sDoFD5yXyjg=="
         }
       },
       "is_incremental": false,
@@ -132,7 +154,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.Direction.html",
-          "hash": "3KvP5/dXDUczUG8nsNkzlA=="
+          "hash": "+1/R4jkNn2p2bZYEcDMA3A=="
         }
       },
       "is_incremental": false,
@@ -144,7 +166,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.html",
-          "hash": "pzuQj+wT3zifuapQ+QpSMw=="
+          "hash": "LcL9Cs724E3m0Cyw6pEqZA=="
         }
       },
       "is_incremental": false,
@@ -156,7 +178,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.HitState.html",
-          "hash": "SD6mzh5gI9pgIidzI4FBEw=="
+          "hash": "uYErBpaZGMJY8O0mHVmADw=="
         }
       },
       "is_incremental": false,
@@ -168,7 +190,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ParryEvent.html",
-          "hash": "yLkuwSOCED5Mvv1eXqmQsQ=="
+          "hash": "77VN02Q0d89/KTwLKUsK8g=="
         }
       },
       "is_incremental": false,
@@ -180,7 +202,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.html",
-          "hash": "pqriIBzChKkOUOhzEmo1LA=="
+          "hash": "apZtK4+9PCkGvkycBYoi0w=="
         }
       },
       "is_incremental": false,
@@ -192,7 +214,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.html",
-          "hash": "YzHxfW7TNFgwU+LnODocRQ=="
+          "hash": "RyJ0qLM/PT1NsbZyi6Wtag=="
         }
       },
       "is_incremental": false,
@@ -204,7 +226,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.html",
-          "hash": "vqWZHLa3lCFUgkSacqZZ+Q=="
+          "hash": "nMdf1U54qhpuDsjb7CNULQ=="
         }
       },
       "is_incremental": false,
@@ -216,7 +238,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.html",
-          "hash": "2aL+aamTHEnkmqe7fJRA1g=="
+          "hash": "5X2qEnkCU0pzwt1rDUHtMw=="
         }
       },
       "is_incremental": false,
@@ -228,7 +250,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.html",
-          "hash": "mdXVlukjcfBDKUBLetIVCQ=="
+          "hash": "w7+DoOYO0ngFl8jGSF0SZA=="
         }
       },
       "is_incremental": false,
@@ -240,7 +262,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.html",
-          "hash": "hqUsdULHY2CAM3BWNWeAmA=="
+          "hash": "PUVoDkqpmDiSXt8BSSdT+w=="
         }
       },
       "is_incremental": false,
@@ -252,7 +274,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterItemEvents.html",
-          "hash": "AjGQ5kPMvOkONLO98CENdg=="
+          "hash": "wEUFv8ez2lImWkcgpl99tw=="
         }
       },
       "is_incremental": false,
@@ -276,7 +298,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterHelpers.html",
-          "hash": "c39k32thK01yF+YJvI0b/Q=="
+          "hash": "JCRp6WeC1O4j9eaCJVu00Q=="
         }
       },
       "is_incremental": false,
@@ -284,11 +306,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Helpers.BetterLogger.level.yml",
+      "source_relative_path": "obj/api/Wully.Helpers.BetterLogger.Loglevel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Wully.Helpers.BetterLogger.level.html",
-          "hash": "OftSIQunQ9eOOCRH/KawWg=="
+          "relative_path": "api/Wully.Helpers.BetterLogger.Loglevel.html",
+          "hash": "2N776QAtX6eNxg3TPPhQow=="
         }
       },
       "is_incremental": false,
@@ -300,7 +322,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterLogger.html",
-          "hash": "okWr+Sl4Ngs11ohTeRYNOw=="
+          "hash": "mfBTPH3BX6SWH+0DynHP+A=="
         }
       },
       "is_incremental": false,
@@ -312,7 +334,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.html",
-          "hash": "TOg24MgDCm7cERy6WXKOyg=="
+          "hash": "YkwFSALNtCkFUcjYMNEoEg=="
         }
       },
       "is_incremental": false,
@@ -324,7 +346,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Module.LevelModuleBetterEvents.html",
-          "hash": "F15qgAlEhezno9TNGruqsg=="
+          "hash": "wL6HInYW6ZQJO8WEDOYpHQ=="
         }
       },
       "is_incremental": false,
@@ -348,7 +370,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "j+1ynk1Egce6XT2sjjRdnw=="
+          "hash": "MCBBTuIkR8qWTom6OYOHqw=="
         }
       },
       "is_incremental": false,
@@ -388,6 +410,13 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 24,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

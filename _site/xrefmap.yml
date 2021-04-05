@@ -1489,42 +1489,42 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.Info
   nameWithType: BetterLogger.Info
-- uid: Wully.Helpers.BetterLogger.level
-  name: BetterLogger.level
-  href: api/Wully.Helpers.BetterLogger.level.html
-  commentId: T:Wully.Helpers.BetterLogger.level
-  fullName: Wully.Helpers.BetterLogger.level
-  nameWithType: BetterLogger.level
-- uid: Wully.Helpers.BetterLogger.level.Debug
+- uid: Wully.Helpers.BetterLogger.Loglevel
+  name: BetterLogger.Loglevel
+  href: api/Wully.Helpers.BetterLogger.Loglevel.html
+  commentId: T:Wully.Helpers.BetterLogger.Loglevel
+  fullName: Wully.Helpers.BetterLogger.Loglevel
+  nameWithType: BetterLogger.Loglevel
+- uid: Wully.Helpers.BetterLogger.Loglevel.Debug
   name: Debug
-  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Debug
-  commentId: F:Wully.Helpers.BetterLogger.level.Debug
-  fullName: Wully.Helpers.BetterLogger.level.Debug
-  nameWithType: BetterLogger.level.Debug
-- uid: Wully.Helpers.BetterLogger.level.Error
+  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Debug
+  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Debug
+  fullName: Wully.Helpers.BetterLogger.Loglevel.Debug
+  nameWithType: BetterLogger.Loglevel.Debug
+- uid: Wully.Helpers.BetterLogger.Loglevel.Error
   name: Error
-  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Error
-  commentId: F:Wully.Helpers.BetterLogger.level.Error
-  fullName: Wully.Helpers.BetterLogger.level.Error
-  nameWithType: BetterLogger.level.Error
-- uid: Wully.Helpers.BetterLogger.level.Info
+  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Error
+  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Error
+  fullName: Wully.Helpers.BetterLogger.Loglevel.Error
+  nameWithType: BetterLogger.Loglevel.Error
+- uid: Wully.Helpers.BetterLogger.Loglevel.Info
   name: Info
-  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Info
-  commentId: F:Wully.Helpers.BetterLogger.level.Info
-  fullName: Wully.Helpers.BetterLogger.level.Info
-  nameWithType: BetterLogger.level.Info
-- uid: Wully.Helpers.BetterLogger.level.Warn
+  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Info
+  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Info
+  fullName: Wully.Helpers.BetterLogger.Loglevel.Info
+  nameWithType: BetterLogger.Loglevel.Info
+- uid: Wully.Helpers.BetterLogger.Loglevel.Warn
   name: Warn
-  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Warn
-  commentId: F:Wully.Helpers.BetterLogger.level.Warn
-  fullName: Wully.Helpers.BetterLogger.level.Warn
-  nameWithType: BetterLogger.level.Warn
-- uid: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
-  name: SetLoggingLevel(BetterLogger.level)
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_Wully_Helpers_BetterLogger_level_
-  commentId: M:Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
-  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
-  nameWithType: BetterLogger.SetLoggingLevel(BetterLogger.level)
+  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Warn
+  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Warn
+  fullName: Wully.Helpers.BetterLogger.Loglevel.Warn
+  nameWithType: BetterLogger.Loglevel.Warn
+- uid: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
+  name: SetLoggingLevel(BetterLogger.Loglevel)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_Wully_Helpers_BetterLogger_Loglevel_
+  commentId: M:Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
+  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
+  nameWithType: BetterLogger.SetLoggingLevel(BetterLogger.Loglevel)
 - uid: Wully.Helpers.BetterLogger.SetLoggingLevel*
   name: SetLoggingLevel
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_
@@ -1566,12 +1566,12 @@ references:
   commentId: F:Wully.Module.LevelModuleBetterEvents.currentLevel
   fullName: Wully.Module.LevelModuleBetterEvents.currentLevel
   nameWithType: LevelModuleBetterEvents.currentLevel
-- uid: Wully.Module.LevelModuleBetterEvents.debugMessages
-  name: debugMessages
-  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_debugMessages
-  commentId: F:Wully.Module.LevelModuleBetterEvents.debugMessages
-  fullName: Wully.Module.LevelModuleBetterEvents.debugMessages
-  nameWithType: LevelModuleBetterEvents.debugMessages
+- uid: Wully.Module.LevelModuleBetterEvents.enableLogging
+  name: enableLogging
+  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_enableLogging
+  commentId: F:Wully.Module.LevelModuleBetterEvents.enableLogging
+  fullName: Wully.Module.LevelModuleBetterEvents.enableLogging
+  nameWithType: LevelModuleBetterEvents.enableLogging
 - uid: Wully.Module.LevelModuleBetterEvents.GetCreatureState(ThunderRoad.Creature)
   name: GetCreatureState(Creature)
   href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_GetCreatureState_ThunderRoad_Creature_
@@ -1662,6 +1662,12 @@ references:
   commentId: F:Wully.Module.LevelModuleBetterEvents.local
   fullName: Wully.Module.LevelModuleBetterEvents.local
   nameWithType: LevelModuleBetterEvents.local
+- uid: Wully.Module.LevelModuleBetterEvents.loglevel
+  name: loglevel
+  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_loglevel
+  commentId: F:Wully.Module.LevelModuleBetterEvents.loglevel
+  fullName: Wully.Module.LevelModuleBetterEvents.loglevel
+  nameWithType: LevelModuleBetterEvents.loglevel
 - uid: Wully.Module.LevelModuleBetterEvents.OnLoadCoroutine(ThunderRoad.Level)
   name: OnLoadCoroutine(Level)
   href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_OnLoadCoroutine_ThunderRoad_Level_
@@ -1700,19 +1706,6 @@ references:
   commentId: F:Wully.Module.LevelModuleBetterEvents.spellCasterRight
   fullName: Wully.Module.LevelModuleBetterEvents.spellCasterRight
   nameWithType: LevelModuleBetterEvents.spellCasterRight
-- uid: Wully.Module.LevelModuleBetterEvents.ToggleDebug
-  name: ToggleDebug()
-  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_ToggleDebug
-  commentId: M:Wully.Module.LevelModuleBetterEvents.ToggleDebug
-  fullName: Wully.Module.LevelModuleBetterEvents.ToggleDebug()
-  nameWithType: LevelModuleBetterEvents.ToggleDebug()
-- uid: Wully.Module.LevelModuleBetterEvents.ToggleDebug*
-  name: ToggleDebug
-  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_ToggleDebug_
-  commentId: Overload:Wully.Module.LevelModuleBetterEvents.ToggleDebug
-  isSpec: "True"
-  fullName: Wully.Module.LevelModuleBetterEvents.ToggleDebug
-  nameWithType: LevelModuleBetterEvents.ToggleDebug
 - uid: Wully.Module.LevelModuleBetterEvents.Update(ThunderRoad.Level)
   name: Update(Level)
   href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_Update_ThunderRoad_Level_

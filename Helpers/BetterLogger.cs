@@ -50,8 +50,7 @@ namespace Wully.Helpers {
         /// </summary>
         public void DisableLogging() {
             enabled = false;
-		}
-
+		}        
         
         BetterLogger( Type classType ) {
             this.classType = classType;

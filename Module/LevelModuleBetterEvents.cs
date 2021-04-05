@@ -470,24 +470,16 @@ namespace Wully.Module {
 
 		}
 
-		private void OnCreatureHit( Creature creature, CollisionInstance collisionInstance ) {
-		
+		private void OnCreatureHit( Creature creature, CollisionInstance collisionInstance ) {		
 			if ( creature != null ) {
-
 				BetterEvents.InvokeCreatureHitEvent(creature, collisionInstance,
 					GetDamageType(collisionInstance),
 					GetPenetrationType(collisionInstance),
 					GetHitDirection(creature, collisionInstance),
 					GetCreatureState(creature), GetHitStates(collisionInstance),GetDamageArea(creature,collisionInstance));
-				
-				
-
-
 			} else {
-				//Debug.LogFormat(Time.time + " OnCreatureHit - Creature was null");
+				Debug.LogFormat(Time.time + " OnCreatureHit - Creature was null");
 			}
-
-
 		}
 
 
@@ -579,7 +571,6 @@ namespace Wully.Module {
 				if ( ch.isItem ) {
 					//Debug.LogFormat(Time.time + " Action - hit with item " + ch.item.itemId + " type: " + ch.item.data.type.ToString());
 					//maybe count favourite weapon based on what weapon they hit with?
-
 
 					if ( ch.item.data.type == ItemData.Type.Body ) {
 						//Debug.LogFormat(Time.time + " Action - punch or kick");
