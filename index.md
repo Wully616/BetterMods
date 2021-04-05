@@ -18,7 +18,7 @@ Refer to [the documentation here](api/index.html) for BetterMods.
 ## Using BetterEvents
 BetterEvents is a collection of events which you can listen to, eliminating complex logic from handling BAS events yourself!
 
-Simply import the static class with
+Simply import the static class with:
 ```
 using static Wully.Events.BetterEvents;
 ```
@@ -32,7 +32,7 @@ Check out the using static Wully.Events.BetterEvents; functions [here](/api/Wull
 ## Using BetterHelpers
 BetterHelpers is a collection of static functions to simplify your code and make it easier to read
 
-Simply import the static functions with
+Simply import the static functions with:
 ```
 using static Wully.Helpers.BetterHelpers;
 ```
@@ -43,3 +43,42 @@ if ( !IsPlayerUsingTelekinesis(side) && (IsGripPressed() || IsGripAndCastPressed
 }
 ```
 Check out the BetterHelper functions [here](/api/Wully.Helpers.BetterHelpers.html)
+
+## Using BetterLogger
+BetterLogger is a simple wrapper around UnityDebug Logs and UnityIngameDebugConsole which BAS uses.
+It dynamically creates new console commands for enabling and disabling logging and setting the log level per class at run time!
+The set log level will log that level and everything below it. 
+```
+Debug > Info > Warn > Error
+```
+For example setting log level to `Info` will log `Info`, `Warn` and `Error` messages
+
+Sample class showing BetterLogger:
+```
+using UnityEngine;
+using Wully.Helpers;
+using static Wully.Helpers.BetterHelpers;
+
+public class MyClass : MonoBehaviour {
+
+	BetterLogger logger = BetterLogger.GetLogger(typeof(MyClass));
+
+	void Start() {
+		name = "my Mono";
+		logger.EnableLogging();
+		logger.SetLoggingLevel(BetterLogger.level.Info);
+		logger.Info("My Class started!");
+	}
+
+	void Update() {
+		for ( int i = 0; i < 3; i++ ) {
+			logger.Debug("Update {0} go brrr", i);
+		}
+	}
+
+	void OnEnable() {
+		logger.Error("Something bad happened at : {1} in our object {2}, while at position: {3}", Time.time, gameObject.name, transform.position);
+	}
+}
+
+```

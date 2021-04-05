@@ -6,12 +6,20 @@ using System.Linq;
 using ThunderRoad;
 using UnityEngine;
 using Wully.Events;
+using Wully.Helpers;
 using static Wully.Helpers.BetterHelpers;
+using static Wully.Helpers.BetterLogger;
 
 namespace Wully.Module {
+	/// <summary>
+	/// LevelModule which monitors, tracks and invokes events with rich data
+	/// </summary>
 	public class LevelModuleBetterEvents : LevelModule {
+		BetterLogger log = BetterLogger.GetLogger(typeof(LevelModuleBetterEvents));
+
 		// Configurables
-		public bool debugMessages = false;
+		public bool enableLogging = true;
+		public Loglevel loglevel = Loglevel.Debug;
 
 
 		public static LevelModuleBetterEvents local;
@@ -36,15 +44,26 @@ namespace Wully.Module {
 			this.ragdollHits = new Dictionary<Ragdoll, HashSet<RagdollPart>>();
 		}
 
-		
+		/// <summary>
+		/// Called when a level is loaded
+		/// </summary>
+		/// <param name="level"></param>
+		/// <returns></returns>
 		public override IEnumerator OnLoadCoroutine( Level level ) {
-			DebugLogConsole.AddCommand("betterEventsToggleDebug", "Toggle Better Events Debug Messages", ToggleDebug);
+
+			log.SetLoggingLevel(loglevel);
+			log.DisableLogging();
+			if ( enableLogging ) {
+				log.EnableLogging();
+			}
 			//UnityEngine.Debug.LogFormat("AlignmentSystem OnLoadCoroutine level on {0}", level.data.id);
 			this.currentLevel = level;
 			InitVars();
 			//master scene is always loaded and this module gets loaded with it
 			if ( level.data.id.ToLower() == "master" ) {
-				UnityEngine.Debug.Log("Initialized Wully's BetterMods - BetterEvents Module");
+				log.Info("Initialized Wully's BetterMods - BetterEvents Module");
+				//UnityEngine.Debug.Log("Initialized Wully's BetterMods - BetterEvents Module");
+
 				local = this;
 				EventManager.onCreatureHit += this.OnCreatureHit;
 				EventManager.onCreatureKill += this.OnCreatureKill;
@@ -68,23 +87,24 @@ namespace Wully.Module {
 
 			yield break;
 		}
-
+		/// <summary>
+		/// Called every frame
+		/// </summary>
+		/// <param name="level"></param>
 		public override void Update( Level level ) {
 			base.Update(level);
 
 			//since TK doesnt have events for grabbing, we need to monitor it and subscribe to the item the player TKs
 			if ( spellCasterLeft ) {
-				MonitorTK(spellCasterLeft, ref tkLeftHandle);
+				MonitorTK(spellCasterLeft, Side.Left, ref tkLeftHandle);
 			}
 			//left hand check
 			if ( spellCasterRight ) {
-				MonitorTK(spellCasterRight, ref tkRightHandle);
+				MonitorTK(spellCasterRight, Side.Right, ref tkRightHandle);
 			}
 		}
 
-		private void MonitorTK( SpellCaster spellCaster, ref Handle handle ) {
-			Side side = spellCaster.ragdollHand.side;
-			
+		private void MonitorTK( SpellCaster spellCaster, Side side, ref Handle handle ) {
 
 			if ( spellCaster?.telekinesis != null ) {
 					
@@ -95,7 +115,8 @@ namespace Wully.Module {
 					if ( caught == handle) { return; }
 					
 					if ( handle == null ) {
-						//Debug.Log("Spellcaster hand " + spellCaster.ragdollHand.side.ToString() + " grabbed a handle");						
+						log.Debug("Spellcaster hand " + side.ToString() + " grabbed a handle");
+						
 						if ( caught is HandleRagdoll handleRagdoll ) {
 							//subscribe to ragdoll slice					
 							SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
@@ -731,14 +752,6 @@ namespace Wully.Module {
 				return BetterEvents.Direction.Above;
 			}
 			return BetterEvents.Direction.None;
-
-		}
-
-		
-		public static void ToggleDebug() {
-			if ( LevelModuleBetterEvents.local != null ) {
-				LevelModuleBetterEvents.local.debugMessages = !LevelModuleBetterEvents.local.debugMessages;
-			}
 
 		}
 		

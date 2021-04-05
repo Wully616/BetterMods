@@ -38,6 +38,7 @@
     <Compile Include="Events\BetterEvents.cs" />
     <Compile Include="Events\BetterItemEvents.cs" />
     <Compile Include="Helpers\BetterHelpers.cs" />
+    <Compile Include="Helpers\BetterLogger.cs" />
     <Compile Include="Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,11 +88,11 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir  $(SolutionDir)\..\..\Catalog\!BetterMods
-del /S /Q $(SolutionDir)\..\..\Catalog\!BetterMods\
-robocopy "$(SolutionDir)\JSON" "$(SolutionDir)\..\..\Catalog\!BetterMods" /E
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.dll"
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.xml"</PostBuildEvent>
+    <PostBuildEvent>mkdir  $(ProjectDir)\..\..\Catalog\!BetterMods
+del /S /Q $(ProjectDir)\..\..\Catalog\!BetterMods\
+robocopy "$(ProjectDir)\JSON" "$(SolutionDir)\..\..\Catalog\!BetterMods" /E
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\..\Catalog\!BetterMods\!BetterMods.dll"
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\..\Catalog\!BetterMods\!BetterMods.xml"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('packages\docfx.console.2.56.7\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

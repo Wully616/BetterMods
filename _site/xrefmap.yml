@@ -1396,6 +1396,158 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterHelpers.WasBeingChoked
   nameWithType: BetterHelpers.WasBeingChoked
+- uid: Wully.Helpers.BetterLogger
+  name: BetterLogger
+  href: api/Wully.Helpers.BetterLogger.html
+  commentId: T:Wully.Helpers.BetterLogger
+  fullName: Wully.Helpers.BetterLogger
+  nameWithType: BetterLogger
+- uid: Wully.Helpers.BetterLogger.Debug(System.String,System.Object[])
+  name: Debug(String, Object[])
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Debug_System_String_System_Object___
+  commentId: M:Wully.Helpers.BetterLogger.Debug(System.String,System.Object[])
+  name.vb: Debug(String, Object())
+  fullName: Wully.Helpers.BetterLogger.Debug(System.String, System.Object[])
+  fullName.vb: Wully.Helpers.BetterLogger.Debug(System.String, System.Object())
+  nameWithType: BetterLogger.Debug(String, Object[])
+  nameWithType.vb: BetterLogger.Debug(String, Object())
+- uid: Wully.Helpers.BetterLogger.Debug*
+  name: Debug
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Debug_
+  commentId: Overload:Wully.Helpers.BetterLogger.Debug
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.Debug
+  nameWithType: BetterLogger.Debug
+- uid: Wully.Helpers.BetterLogger.DisableLogging
+  name: DisableLogging()
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_DisableLogging
+  commentId: M:Wully.Helpers.BetterLogger.DisableLogging
+  fullName: Wully.Helpers.BetterLogger.DisableLogging()
+  nameWithType: BetterLogger.DisableLogging()
+- uid: Wully.Helpers.BetterLogger.DisableLogging*
+  name: DisableLogging
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_DisableLogging_
+  commentId: Overload:Wully.Helpers.BetterLogger.DisableLogging
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.DisableLogging
+  nameWithType: BetterLogger.DisableLogging
+- uid: Wully.Helpers.BetterLogger.EnableLogging
+  name: EnableLogging()
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_EnableLogging
+  commentId: M:Wully.Helpers.BetterLogger.EnableLogging
+  fullName: Wully.Helpers.BetterLogger.EnableLogging()
+  nameWithType: BetterLogger.EnableLogging()
+- uid: Wully.Helpers.BetterLogger.EnableLogging*
+  name: EnableLogging
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_EnableLogging_
+  commentId: Overload:Wully.Helpers.BetterLogger.EnableLogging
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.EnableLogging
+  nameWithType: BetterLogger.EnableLogging
+- uid: Wully.Helpers.BetterLogger.Error(System.String,System.Object[])
+  name: Error(String, Object[])
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Error_System_String_System_Object___
+  commentId: M:Wully.Helpers.BetterLogger.Error(System.String,System.Object[])
+  name.vb: Error(String, Object())
+  fullName: Wully.Helpers.BetterLogger.Error(System.String, System.Object[])
+  fullName.vb: Wully.Helpers.BetterLogger.Error(System.String, System.Object())
+  nameWithType: BetterLogger.Error(String, Object[])
+  nameWithType.vb: BetterLogger.Error(String, Object())
+- uid: Wully.Helpers.BetterLogger.Error*
+  name: Error
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Error_
+  commentId: Overload:Wully.Helpers.BetterLogger.Error
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.Error
+  nameWithType: BetterLogger.Error
+- uid: Wully.Helpers.BetterLogger.GetLogger(System.Type)
+  name: GetLogger(Type)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_GetLogger_System_Type_
+  commentId: M:Wully.Helpers.BetterLogger.GetLogger(System.Type)
+  fullName: Wully.Helpers.BetterLogger.GetLogger(System.Type)
+  nameWithType: BetterLogger.GetLogger(Type)
+- uid: Wully.Helpers.BetterLogger.GetLogger*
+  name: GetLogger
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_GetLogger_
+  commentId: Overload:Wully.Helpers.BetterLogger.GetLogger
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.GetLogger
+  nameWithType: BetterLogger.GetLogger
+- uid: Wully.Helpers.BetterLogger.Info(System.String,System.Object[])
+  name: Info(String, Object[])
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Info_System_String_System_Object___
+  commentId: M:Wully.Helpers.BetterLogger.Info(System.String,System.Object[])
+  name.vb: Info(String, Object())
+  fullName: Wully.Helpers.BetterLogger.Info(System.String, System.Object[])
+  fullName.vb: Wully.Helpers.BetterLogger.Info(System.String, System.Object())
+  nameWithType: BetterLogger.Info(String, Object[])
+  nameWithType.vb: BetterLogger.Info(String, Object())
+- uid: Wully.Helpers.BetterLogger.Info*
+  name: Info
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Info_
+  commentId: Overload:Wully.Helpers.BetterLogger.Info
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.Info
+  nameWithType: BetterLogger.Info
+- uid: Wully.Helpers.BetterLogger.level
+  name: BetterLogger.level
+  href: api/Wully.Helpers.BetterLogger.level.html
+  commentId: T:Wully.Helpers.BetterLogger.level
+  fullName: Wully.Helpers.BetterLogger.level
+  nameWithType: BetterLogger.level
+- uid: Wully.Helpers.BetterLogger.level.Debug
+  name: Debug
+  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Debug
+  commentId: F:Wully.Helpers.BetterLogger.level.Debug
+  fullName: Wully.Helpers.BetterLogger.level.Debug
+  nameWithType: BetterLogger.level.Debug
+- uid: Wully.Helpers.BetterLogger.level.Error
+  name: Error
+  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Error
+  commentId: F:Wully.Helpers.BetterLogger.level.Error
+  fullName: Wully.Helpers.BetterLogger.level.Error
+  nameWithType: BetterLogger.level.Error
+- uid: Wully.Helpers.BetterLogger.level.Info
+  name: Info
+  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Info
+  commentId: F:Wully.Helpers.BetterLogger.level.Info
+  fullName: Wully.Helpers.BetterLogger.level.Info
+  nameWithType: BetterLogger.level.Info
+- uid: Wully.Helpers.BetterLogger.level.Warn
+  name: Warn
+  href: api/Wully.Helpers.BetterLogger.level.html#Wully_Helpers_BetterLogger_level_Warn
+  commentId: F:Wully.Helpers.BetterLogger.level.Warn
+  fullName: Wully.Helpers.BetterLogger.level.Warn
+  nameWithType: BetterLogger.level.Warn
+- uid: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
+  name: SetLoggingLevel(BetterLogger.level)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_Wully_Helpers_BetterLogger_level_
+  commentId: M:Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
+  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.level)
+  nameWithType: BetterLogger.SetLoggingLevel(BetterLogger.level)
+- uid: Wully.Helpers.BetterLogger.SetLoggingLevel*
+  name: SetLoggingLevel
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_
+  commentId: Overload:Wully.Helpers.BetterLogger.SetLoggingLevel
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel
+  nameWithType: BetterLogger.SetLoggingLevel
+- uid: Wully.Helpers.BetterLogger.Warn(System.String,System.Object[])
+  name: Warn(String, Object[])
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Warn_System_String_System_Object___
+  commentId: M:Wully.Helpers.BetterLogger.Warn(System.String,System.Object[])
+  name.vb: Warn(String, Object())
+  fullName: Wully.Helpers.BetterLogger.Warn(System.String, System.Object[])
+  fullName.vb: Wully.Helpers.BetterLogger.Warn(System.String, System.Object())
+  nameWithType: BetterLogger.Warn(String, Object[])
+  nameWithType.vb: BetterLogger.Warn(String, Object())
+- uid: Wully.Helpers.BetterLogger.Warn*
+  name: Warn
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Warn_
+  commentId: Overload:Wully.Helpers.BetterLogger.Warn
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.Warn
+  nameWithType: BetterLogger.Warn
 - uid: Wully.Module
   name: Wully.Module
   href: api/Wully.Module.html
