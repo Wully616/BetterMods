@@ -1,2 +1,0 @@
-
-# BetterMods - Created by Wully

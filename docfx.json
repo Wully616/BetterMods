@@ -14,26 +14,26 @@
           ]
         }
       ],
-      "dest": "obj/api"
+      "dest": "docs/obj/api"
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "api/**.yml"
+          "docs/api/**.yml"
         ],
         "cwd": "obj"
       },
       {
         "files": [
-          "api/*.md",
-          "articles/**.md",
-          "toc.yml",
-          "*.md"
+          "docs/api/*.md",
+          "docs/articles/**.md",
+          "docs/toc.yml",
+          "docs/*.md"
         ],
         "exclude": [
-          "obj/**",
+          "docs/obj/**",
           "_site/**"
         ]
       }
@@ -41,10 +41,10 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "docs/images/**"
         ],
         "exclude": [
-          "obj/**",
+          "docs/obj/**",
           "_site/**"
         ]
       }
@@ -52,10 +52,10 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
+          "docs/apidoc/**.md"
         ],
         "exclude": [
-          "obj/**",
+          "docs/obj/**",
           "_site/**"
         ]
       }

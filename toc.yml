@@ -1,4 +1,4 @@
 
 - name: BetterMods Documentation
-  href: obj/api/
-  homepage: api/index.md
+  href: docs/obj/api/
+  homepage: docs/api/index.md

@@ -35,11 +35,11 @@
     <DocumentationFile>bin\Release\BetterMods.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Events\BetterEvents.cs" />
-    <Compile Include="Events\BetterItemEvents.cs" />
-    <Compile Include="Helpers\BetterHelpers.cs" />
-    <Compile Include="Helpers\BetterLogger.cs" />
-    <Compile Include="Module\LevelModuleBetterEvents.cs" />
+    <Compile Include="Wully\Events\BetterEvents.cs" />
+    <Compile Include="Wully\Events\BetterItemEvents.cs" />
+    <Compile Include="Wully\Helpers\BetterHelpers.cs" />
+    <Compile Include="Wully\Helpers\BetterLogger.cs" />
+    <Compile Include="Wully\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,15 +77,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="api\index.md" />
-    <None Include="articles\intro.md" />
-    <None Include="articles\toc.md" />
+    <None Include="docs\api\index.md" />
+    <None Include="docs\articles\intro.md" />
+    <None Include="docs\articles\toc.md" />
     <None Include="docfx.json" />
-    <None Include="index.md" />
+    <None Include="docs\index.md" />
     <None Include="packages.config" />
     <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="docs\images\loggercommands.jpg" />
+    <Content Include="docs\images\logoutput.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir  $(ProjectDir)\..\..\Catalog\!BetterMods

@@ -1,3 +1,0 @@
-
-# Wully's BetterMods Toolbox
-

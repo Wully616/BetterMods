@@ -5,11 +5,11 @@
   "files": [
     {
       "type": "Conceptual",
-      "source_relative_path": "api/index.md",
+      "source_relative_path": "docs/api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "p3P/TxzG9brr/+FW5tjXdg=="
+          "relative_path": "docs/api/index.html",
+          "hash": "zh0Q5I/2EmbMcx+0kUd7/Q=="
         }
       },
       "is_incremental": false,
@@ -17,11 +17,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
+      "source_relative_path": "docs/articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "N10jPxkSZozuUO0yLmeeuQ=="
+          "relative_path": "docs/articles/intro.html",
+          "hash": "P7PneWUEaXo3s1LcuopPtQ=="
         }
       },
       "is_incremental": false,
@@ -29,10 +29,10 @@
     },
     {
       "type": "Toc",
-      "source_relative_path": "articles/toc.md",
+      "source_relative_path": "docs/articles/toc.md",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
+          "relative_path": "docs/articles/toc.html",
           "hash": "gB8AESyvNru97tzIZofEEg=="
         }
       },
@@ -41,10 +41,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/loggercommands.jpg",
+      "source_relative_path": "docs/images/loggercommands.jpg",
       "output": {
         "resource": {
-          "relative_path": "images/loggercommands.jpg"
+          "relative_path": "docs/images/loggercommands.jpg"
         }
       },
       "is_incremental": false,
@@ -52,10 +52,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/logoutput.jpg",
+      "source_relative_path": "docs/images/logoutput.jpg",
       "output": {
         "resource": {
-          "relative_path": "images/logoutput.jpg"
+          "relative_path": "docs/images/logoutput.jpg"
         }
       },
       "is_incremental": false,
@@ -66,323 +66,11 @@
         "InvalidFileLink"
       ],
       "type": "Conceptual",
-      "source_relative_path": "index.md",
+      "source_relative_path": "docs/index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "XA3SiqXmMuM81KbtU2KrPg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.ChokeEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.html",
-          "hash": "/xQiA9JkdNzDX1fs/JYd8g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.CreatureHitEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.html",
-          "hash": "s1y97p1CkthvB47Av1EQGA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.CreatureKillEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.html",
-          "hash": "ooTXz6utqgizXzNqYaxE9g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.CreatureState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.CreatureState.html",
-          "hash": "dCP59kselm6olsKJ1qXMEA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.DamageArea.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.DamageArea.html",
-          "hash": "MIah0UiahVni+QFnVB+TGg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.DeflectEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.html",
-          "hash": "LyzTNuL+zQ8sDoFD5yXyjg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.Direction.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.Direction.html",
-          "hash": "+1/R4jkNn2p2bZYEcDMA3A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.DismemberEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.html",
-          "hash": "LcL9Cs724E3m0Cyw6pEqZA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.HitState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.HitState.html",
-          "hash": "uYErBpaZGMJY8O0mHVmADw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.ParryEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.ParryEvent.html",
-          "hash": "77VN02Q0d89/KTwLKUsK8g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.PlayerGroundEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.html",
-          "hash": "apZtK4+9PCkGvkycBYoi0w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.PlayerHandGrabEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.html",
-          "hash": "RyJ0qLM/PT1NsbZyi6Wtag=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.html",
-          "hash": "nMdf1U54qhpuDsjb7CNULQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.html",
-          "hash": "5X2qEnkCU0pzwt1rDUHtMw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.html",
-          "hash": "w7+DoOYO0ngFl8jGSF0SZA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterEvents.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterEvents.html",
-          "hash": "PUVoDkqpmDiSXt8BSSdT+w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.BetterItemEvents.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.BetterItemEvents.html",
-          "hash": "wEUFv8ez2lImWkcgpl99tw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Events.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Events.html",
-          "hash": "09nYPzt84coRu+ZIausBrg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Helpers.BetterHelpers.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Helpers.BetterHelpers.html",
-          "hash": "JCRp6WeC1O4j9eaCJVu00Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Helpers.BetterLogger.Loglevel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Helpers.BetterLogger.Loglevel.html",
-          "hash": "2N776QAtX6eNxg3TPPhQow=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Helpers.BetterLogger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Helpers.BetterLogger.html",
-          "hash": "mfBTPH3BX6SWH+0DynHP+A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Helpers.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Helpers.html",
-          "hash": "YkwFSALNtCkFUcjYMNEoEg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Module.LevelModuleBetterEvents.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Module.LevelModuleBetterEvents.html",
-          "hash": "wL6HInYW6ZQJO8WEDOYpHQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Wully.Module.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Wully.Module.html",
-          "hash": "HWpY8mBcsqhfiOLdvmvbuw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "obj/api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "MCBBTuIkR8qWTom6OYOHqw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "toc.html",
-          "hash": "pxAVmHxL0oreHoZQKU7OkQ=="
+          "relative_path": "docs/index.html",
+          "hash": "FqJQvK/CLe8DlOl+Bu6bOA=="
         }
       },
       "is_incremental": false,
@@ -404,12 +92,6 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 24,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
