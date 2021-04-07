@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThunderRoad;
 using static Wully.Helpers.BetterHelpers;
+
 namespace Wully.Extensions {
 	/// <summary>
 	/// Class extensions for BAS

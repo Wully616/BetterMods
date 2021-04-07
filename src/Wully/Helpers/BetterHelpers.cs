@@ -247,7 +247,7 @@ namespace Wully.Helpers {
 		/// Tries to return the handle the spellcaster is currently holding with telekinesis
 		/// </summary>
 		/// <param name="spellCaster">side specific spellcaster</param>
-		/// <param name=handle"">The handle held by the spellcaster with telekinesis</param>
+		/// <param name="handle">The handle held by the spellcaster with telekinesis</param>
 		/// <returns></returns>
 		public static bool TryGetTelekinesisCaughtHandle(SpellCaster spellCaster, out Handle handle) {
 			handle = spellCaster?.telekinesis?.catchedHandle;

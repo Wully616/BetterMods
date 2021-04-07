@@ -4,65 +4,62 @@
       "src": [
         {
           "files": [
-            "*.csproj"
+            "**.csproj"
           ],
-          "cwd": ".",
-          "exclude": [
-            "**/obj/**",
-            "**/bin/**",
-            "_site/**"
-          ]
+          "src": "."
         }
       ],
-      "dest": "docs/obj/api"
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "docs/api/**.yml"
-        ],
-        "cwd": "obj"
+          "api/**.yml",
+          "api/index.md"
+        ]
       },
       {
         "files": [
-          "docs/api/*.md",
-          "docs/articles/**.md",
-          "docs/toc.yml",
-          "docs/*.md"
-        ],
-        "exclude": [
-          "docs/obj/**",
-          "_site/**"
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
         ]
       }
     ],
     "resource": [
       {
         "files": [
-          "docs/images/**"
-        ],
-        "exclude": [
-          "docs/obj/**",
-          "_site/**"
+          "images/**"
         ]
       }
     ],
     "overwrite": [
       {
         "files": [
-          "docs/apidoc/**.md"
+          "apidoc/**.md"
         ],
         "exclude": [
-          "docs/obj/**",
-          "_site/**"
+          "obj/**",
+          "docs/**"
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "docs",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
     "template": [
       "default"
-    ]
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
   }
 }
