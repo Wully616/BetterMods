@@ -101,7 +101,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
-		public static void MakeItemCollideWithOtherItem( Item item, Item otherItem ) {
+		public static void MakeItemCollideWith( Item item, Item otherItem ) {
 			if(item == null ) {
 				log.Debug("MakeItemCollideWithOtherItem: item is null");
 				return;
@@ -113,7 +113,7 @@ namespace Wully.Helpers {
 	
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
-					MakeItemCollideWithCollider(otherItem, collider);
+					MakeItemCollideWith(otherItem, collider);
 				}
 			}
 
@@ -124,7 +124,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
-		public static void MakeItemCollideWithCollider( Item item, Collider otherCollider ) {
+		public static void MakeItemCollideWith( Item item, Collider otherCollider ) {
 			if ( item == null ) {
 				log.Debug("MakeItemCollideWithCollider: item is null");
 				return;
@@ -145,7 +145,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
-		public static void MakeItemNotCollideWithOtherItem( Item item, Item otherItem ) {
+		public static void MakeItemNotCollideWith( Item item, Item otherItem ) {
 			if ( item == null ) {
 				log.Debug("MakeItemNotCollideWithOtherItem: item is null");
 				return;
@@ -156,7 +156,7 @@ namespace Wully.Helpers {
 			}
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
-					MakeItemNotCollideWithCollider(otherItem, collider);					
+					MakeItemNotCollideWith(otherItem, collider);					
 				}
 			}
 		}
@@ -166,7 +166,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
-		public static void MakeItemNotCollideWithCollider(Item item, Collider otherCollider) {
+		public static void MakeItemNotCollideWith(Item item, Collider otherCollider) {
 			if ( item == null ) {
 				log.Debug("MakeItemNotCollideWithCollider: item is null");
 				return;
@@ -242,6 +242,22 @@ namespace Wully.Helpers {
 			return PlayerControl.GetHand(side).castPressed;
 		}
 
+		/// <summary>
+		/// returns true if alternate use button is being pressed on any controller
+		/// </summary>
+		/// <returns></returns>
+		public static bool IsAlternateUsePressed() {
+			return IsAlternateUsePressed(Side.Left) || IsAlternateUsePressed(Side.Right);
+		}
+
+		/// <summary>
+		/// returns true if alternate use button is being pressed on controller side
+		/// </summary>
+		/// <param name="side"></param>
+		/// <returns></returns>
+		public static bool IsAlternateUsePressed(Side side ) {
+			return PlayerControl.GetHand(side).alternateUsePressed;
+		}
 
 		/// <summary>
 		/// Tries to return the handle the spellcaster is currently holding with telekinesis
@@ -275,6 +291,23 @@ namespace Wully.Helpers {
 			}
 			if ( ragdollHand ) { return true;  }
 			log.Debug("TryGetRagdollHand: Could not get ragdollHand");
+			return false;
+		}
+
+		/// <summary>
+		/// Tries to return both ragdoll hands for a creature
+		/// </summary>
+		/// <param name="creature"></param>
+		/// <param name="leftRagdollHand"></param>
+		/// <param name="rightRagdollHand"></param>
+		/// <returns></returns>
+		public static bool TryGetRagdollHand( Creature creature, out RagdollHand leftRagdollHand, out RagdollHand rightRagdollHand ) {
+
+			leftRagdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
+			rightRagdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
+
+			if ( leftRagdollHand && rightRagdollHand  ) { return true; }
+			log.Debug("TryGetRagdollHand: Could not get both ragdollHands");
 			return false;
 		}
 		/// <summary>
