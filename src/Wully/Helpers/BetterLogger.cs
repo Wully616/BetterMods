@@ -15,7 +15,7 @@ namespace Wully.Helpers {
 	public class BetterLogger {
 
         private bool enabled = true;
-        private Loglevel logLevel = Loglevel.Debug;
+        private Loglevel logLevel = Loglevel.Warn;
         private string className;
         private Type classType;
 
@@ -58,7 +58,7 @@ namespace Wully.Helpers {
             DebugLogConsole.AddCommand("BetterLogger_" + className + "_EnableLogging", "Enable Logging for: "+className, EnableLogging);
             DebugLogConsole.AddCommand("BetterLogger_" + className + "_DisableLogging", "Disable Logging for: " + className, DisableLogging);
             DebugLogConsole.AddCommand("BetterLogger_" + className + "_ToggleLogging", "Toggle Logging for: " + className, ToggleLogging);
-            DebugLogConsole.AddCommand<Loglevel>("BetterLogger_" + className + "_LogLevel", "Set Log loglevel for: " + className, SetLoggingLevel);
+            DebugLogConsole.AddCommand<Loglevel>("BetterLogger_" + className + "_LogLevel", "Set log level for: " + className, SetLoggingLevel);
         }
 
         /// <summary>

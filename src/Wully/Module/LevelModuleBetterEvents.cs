@@ -15,27 +15,54 @@ namespace Wully.Module {
 	/// LevelModule which monitors, tracks and invokes events with rich data
 	/// </summary>
 	public class LevelModuleBetterEvents : LevelModule {
-		BetterLogger log = BetterLogger.GetLogger(typeof(LevelModuleBetterEvents));
+		private static BetterLogger log = BetterLogger.GetLogger(typeof(LevelModuleBetterEvents));
 
 		// Configurables
+		/// <summary>
+		/// Enable/Disable Better Logging for BetterEvents
+		/// </summary>
 		public bool enableLogging = true;
-		public Loglevel loglevel = Loglevel.Debug;
+		/// <summary>
+		/// Set the LogLevel for BetterEvents
+		/// </summary>
+		public Loglevel loglevel = Loglevel.Warn;
 
-
+		/// <summary>
+		/// Local static reference to the currently loaded BetterEvents level module
+		/// </summary>
 		public static LevelModuleBetterEvents local;
 
-
+		/// <summary>
+		/// Current level the game is on
+		/// </summary>
 		public Level currentLevel;
+		/// <summary>
+		/// Currently loaded Wave levelmodule
+		/// </summary>
+		/// <remarks>nullable</remarks>
 		protected LevelModuleWave levelModuleWave;
 
 		private HashSet<CollisionHandler> grabbedCollisionHandlers;
 		private Dictionary<Ragdoll, HashSet<RagdollPart>> ragdollHits;
 
-
+		/// <summary>
+		/// Players left spellcaster
+		/// </summary>
 		public SpellCaster spellCasterLeft;
 		private Handle tkLeftHandle;
+		/// <summary>
+		/// Returns the players left telekinesis grabbed handle
+		/// </summary>
+		public Handle SpellCasterLeftGrabbedHandle => tkLeftHandle;
+		/// <summary>
+		/// Players right spellcaster
+		/// </summary>
 		public SpellCaster spellCasterRight;
 		private Handle tkRightHandle;
+		/// <summary>
+		/// Returns the players right telekinesis grabbed handle
+		/// </summary>
+		public Handle SpellCasterRightGrabbedHandle => tkRightHandle;
 
 		private static int ALLYFACTION = 2;
 
@@ -56,13 +83,13 @@ namespace Wully.Module {
 			if ( enableLogging ) {
 				log.EnableLogging();
 			}
-			//UnityEngine.Debug.LogFormat("AlignmentSystem OnLoadCoroutine level on {0}", level.data.id);
+			log.Debug("BetterEvents Module OnLoadCoroutine on level {0}", level.data.id);
+
 			this.currentLevel = level;
 			InitVars();
 			//master scene is always loaded and this module gets loaded with it
 			if ( level.data.id.ToLower() == "master" ) {
 				log.Info("Initialized Wully's BetterMods - BetterEvents Module");
-				//UnityEngine.Debug.Log("Initialized Wully's BetterMods - BetterEvents Module");
 
 				local = this;
 				EventManager.onCreatureHit += this.OnCreatureHit;
@@ -78,7 +105,7 @@ namespace Wully.Module {
 			if ( !(level.data.id.Equals("CharacterSelection") || level.data.id.Equals("Master")) ) {
 				this.levelModuleWave = level.modeRank.mode.GetModule<LevelModuleWave>();
 				if ( this.levelModuleWave != null ) {
-					//UnityEngine.Debug.LogFormat("Subscribed to levelModule wave on {0}", level.data.id);
+					log.Debug("Subscribing to levelModuleWave events on level: {0}", level.data.id);					
 					this.levelModuleWave.OnWaveBeginEvent += this.OnWaveBegin;
 					this.levelModuleWave.OnWaveLoopEvent += this.OnWaveLoop;
 				}
@@ -104,58 +131,64 @@ namespace Wully.Module {
 			}
 		}
 
+		/// <summary>
+		/// Continually checks if the player has grabbed something with Telekinesis and updates a handle reference
+		/// </summary>
+		/// <param name="spellCaster"></param>
+		/// <param name="side"></param>
+		/// <param name="handle"></param>
 		private void MonitorTK( SpellCaster spellCaster, Side side, ref Handle handle ) {
 
-			if ( spellCaster?.telekinesis != null ) {
-					
-				if ( spellCaster.telekinesis.catchedHandle != null ) {
-					Handle caught = spellCaster.telekinesis.catchedHandle;
+			if( TryGetTelekinesisCaughtHandle (spellCaster, out Handle caught) ) {
+				log.Debug("TK grabbing something! {0}", caught.data.id);
 
-					//if the handle is currently set, check its not the same one
-					if ( caught == handle) { return; }
+				
+				//if the handle is currently set, check its not the same one
+				if ( caught == handle) { return; }
 					
-					if ( handle == null ) {
-						log.Debug("Spellcaster hand " + side.ToString() + " grabbed a handle");
+				if ( handle == null ) {
+					log.Debug("Spellcaster hand " + side.ToString() + " grabbed a handle");
 						
-						if ( caught is HandleRagdoll handleRagdoll ) {
-							//subscribe to ragdoll slice					
-							SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
-						} else {
-							SubscribeToHandleColliders(caught);
-						}
-						BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
-						
+					if ( caught is HandleRagdoll handleRagdoll ) {
+						//subscribe to ragdoll slice					
+						SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
 					} else {
-						//something weird happend but the TK is now holding a different item and didnt drop the old one
-						//unsubscribe to old handle and call ungrab event
-						BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
-						UnsubscribeToHandleColliders(handle);
+						SubscribeToHandleColliders(caught);
+					}
+					BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
+						
+				} else {
+					//something weird happend but the TK is now holding a different item and didnt drop the old one
+					//unsubscribe to old handle and call ungrab event
+					BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
+					UnsubscribeToHandleColliders(handle);
 
-						//add the new handle
-						if ( caught is HandleRagdoll handleRagdoll ) {
-							//subscribe to ragdoll slice					
-							SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
-						} else {
-							SubscribeToHandleColliders(caught);
-						}
-						BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
+					//add the new handle
+					if ( caught is HandleRagdoll handleRagdoll ) {
+						//subscribe to ragdoll slice					
+						SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
+					} else {
+						SubscribeToHandleColliders(caught);
+					}
+					BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
 
 						
-					}
-					handle = caught;
-
-				} else {
-					//player dropped what they were Tking
-					if ( handle != null ) {
-
-						BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
-						// unsubscribe to handles colliders
-						UnsubscribeToHandleColliders(handle);
-						handle = null;
-					}
-					
 				}
+				handle = caught;
+				
+
+			} else {
+				//player dropped what they were Tking
+				if ( handle != null ) {
+
+					BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
+					// unsubscribe to handles colliders
+					UnsubscribeToHandleColliders(handle);
+					handle = null;
+				}
+					
 			}
+			
 			
 		}
 

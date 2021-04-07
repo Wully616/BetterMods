@@ -106,23 +106,23 @@ using static Wully.Helpers.BetterHelpers;
 
 public class MyClass : MonoBehaviour {
 
-    BetterLogger logger = BetterLogger.GetLogger(typeof(MyClass));
+    private static BetterLogger log = BetterLogger.GetLogger(typeof(MyClass));
 
     void Start() {
         name = &quot;my Mono&quot;;
-        logger.EnableLogging();
-        logger.SetLoggingLevel(BetterLogger.level.Info);
-        logger.Info(&quot;My Class started!&quot;);
+        log.EnableLogging();
+        log.SetLoggingLevel(BetterLogger.level.Info);
+        log.Info(&quot;My Class started!&quot;);
     }
 
     void Update() {
         for ( int i = 0; i &lt; 3; i++ ) {
-            logger.Debug(&quot;Update {0} go brrr&quot;, i);
+            log.Debug(&quot;Update {0} go brrr&quot;, i);
         }
     }
 
     void OnEnable() {
-        logger.Error(&quot;Something bad happened at : {1} in our object {2}, while at position: {3}&quot;, Time.time, gameObject.name, transform.position);
+        log.Error(&quot;Something bad happened at : {1} in our object {2}, while at position: {3}&quot;, Time.time, gameObject.name, transform.position);
     }
 }
 </code></pre><h3 id="example-commands-generated-for-a-class">Example commands generated for a class</h3>

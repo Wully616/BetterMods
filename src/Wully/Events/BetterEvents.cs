@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ThunderRoad;
 using UnityEngine;
+using Wully.Helpers;
 using Wully.Module;
 using static Wully.Helpers.BetterHelpers;
 
@@ -9,6 +10,8 @@ namespace Wully.Events {
 	/// A system for managing Blade and Sorcery events
 	/// </summary>
 	public class BetterEvents {
+		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterEvents));
+
 		#region choking
 
 		/// <summary>

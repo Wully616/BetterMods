@@ -35,11 +35,12 @@
     <DocumentationFile>bin\Release\BetterMods.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Wully\Events\BetterEvents.cs" />
-    <Compile Include="Wully\Events\BetterItemEvents.cs" />
-    <Compile Include="Wully\Helpers\BetterHelpers.cs" />
-    <Compile Include="Wully\Helpers\BetterLogger.cs" />
-    <Compile Include="Wully\Module\LevelModuleBetterEvents.cs" />
+    <Compile Include="src\Wully\Events\BetterEvents.cs" />
+    <Compile Include="src\Wully\Events\BetterItemEvents.cs" />
+    <Compile Include="src\Wully\Extensions\BetterExtensions.cs" />
+    <Compile Include="src\Wully\Helpers\BetterHelpers.cs" />
+    <Compile Include="src\Wully\Helpers\BetterLogger.cs" />
+    <Compile Include="src\Wully\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

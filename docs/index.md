@@ -61,23 +61,23 @@ using static Wully.Helpers.BetterHelpers;
 
 public class MyClass : MonoBehaviour {
 
-	BetterLogger logger = BetterLogger.GetLogger(typeof(MyClass));
+	private static BetterLogger log = BetterLogger.GetLogger(typeof(MyClass));
 
 	void Start() {
 		name = "my Mono";
-		logger.EnableLogging();
-		logger.SetLoggingLevel(BetterLogger.level.Info);
-		logger.Info("My Class started!");
+		log.EnableLogging();
+		log.SetLoggingLevel(BetterLogger.level.Info);
+		log.Info("My Class started!");
 	}
 
 	void Update() {
 		for ( int i = 0; i < 3; i++ ) {
-			logger.Debug("Update {0} go brrr", i);
+			log.Debug("Update {0} go brrr", i);
 		}
 	}
 
 	void OnEnable() {
-		logger.Error("Something bad happened at : {1} in our object {2}, while at position: {3}", Time.time, gameObject.name, transform.position);
+		log.Error("Something bad happened at : {1} in our object {2}, while at position: {3}", Time.time, gameObject.name, transform.position);
 	}
 }
 ```
