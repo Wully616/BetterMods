@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ThunderRoad;
-using Wully.Module;
 using UnityEngine;
+using Wully.Extensions;
+using Wully.Module;
 
 namespace Wully.Helpers {
 	/// <summary>
@@ -13,6 +11,262 @@ namespace Wully.Helpers {
 	/// </summary>
 	public class BetterHelpers {
 		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterHelpers));
+
+		/// <summary>
+		/// Returns true if the players held item was hit by a flying item
+		/// </summary>
+		/// <param name="sourceItem"></param>
+		/// <param name="targetItem"></param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
+		public static bool DidFlyingItemHitPlayersItem(Item sourceItem, Item targetItem) {
+			//items not null
+			if ( !sourceItem || !targetItem ) { return false; }
+			//source item not being held at all
+			if ( sourceItem.IsHanded() ) { return false; }
+			//source item wasn't last touched by the player
+			if (sourceItem.lastHandler?.creature?.isPlayer == true) { return false;}
+
+			// player is holding target item
+			if ( !targetItem.IsPlayerHolding() ) { return false; }
+			// creature isnt holding target
+			if ( targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
+			return true;
+		}
+
+		/// <summary>
+		/// Returns true if the players ragdoll part, normally fists, hit the world/ground
+		/// </summary>
+		/// <param name="sourcePart"></param>
+		/// <param name="collisionInstance"></param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
+		public static bool DidPlayersRagdollPartHitGround( RagdollPart sourcePart, CollisionInstance collisionInstance ) {
+			//not null
+			if ( !sourcePart ) { return false; }
+			// collisionInstance has no target, which means it hit the world, not a item/ragdoll
+			if ( collisionInstance.targetColliderGroup ) { return false; }
+			// source part is the player
+			if ( !sourcePart.ragdoll.creature.isPlayer ) { return false; }
+
+
+			return true;
+		}
+
+		/// <summary>
+		/// Returns true if the item only held by the player hit the world/ground, not a item or ragdoll
+		/// </summary>
+		/// <param name="sourceItem"></param>
+		/// <param name="collisionInstance"></param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
+		public static bool DidPlayersItemHitGround(Item sourceItem, CollisionInstance collisionInstance) {
+			//not null
+			if (!sourceItem) { return false; }
+			// collisionInstance has no target, which means it hit the world, not a item/ragdoll
+			if (collisionInstance.targetColliderGroup) { return false; }
+			// source item is held by the player
+			if ( !sourceItem.IsPlayerHolding() ) { return false; }
+			// and only the player
+			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
+
+			return true;
+		}
+		/// <summary>
+		/// Returns true if the source Item was held only the player and it hit the player
+		/// </summary>
+		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
+		/// <param name="targetPart">RagdollPart from targetCollider CollisionInstance</param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
+		public static bool DidPlayersItemHitPlayersRagdollPart( Item sourceItem, RagdollPart targetPart ) {
+			// not null
+			if ( !sourceItem || !targetPart ) { return false; }
+			// source item is held by the player
+			if ( !sourceItem.IsPlayerHolding() ) { return false; }
+			// and only the player
+			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
+
+			// target ragdoll part is the player
+			if ( !targetPart.ragdoll.creature.isPlayer ) { return false; }
+
+			return true;
+		}
+
+		/// <summary>
+		/// Returns true if the source Item was held only the player and it hit a creature that wasnt the player
+		/// </summary>
+		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
+		/// <param name="targetPart">RagdollPart from targetCollider CollisionInstance</param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
+		public static bool DidPlayersItemHitCreaturesRagdollPart(Item sourceItem, RagdollPart targetPart) {
+			// not null
+			if ( !sourceItem || !targetPart ) { return false; }
+			// source item is held by the player
+			if ( !sourceItem.IsPlayerHolding() ) { return false; }
+			// and only the player
+			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
+
+			// target ragdoll part is not the player
+			if (targetPart.ragdoll.creature.isPlayer) { return false; }
+
+			return true;
+		}
+		/// <summary>
+		/// Returns true if the source item was held by the player and hit the target Item held only by a creature that wasn't the player
+		/// </summary>
+		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
+		/// <param name="targetItem">Item from targetCollider CollisionInstance</param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both items hit each other and came from a collisionInstance</remarks>
+		public static bool DidCreaturesItemHitPlayersItem( Item sourceItem, Item targetItem ) {
+			//items not null
+			if ( !sourceItem || !targetItem) { return false; }
+			//source item is held by a creature
+			if ( !sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
+			// but not by the player as well
+			if ( sourceItem.IsPlayerHolding() ) { return false; } 
+			// player is holding target item
+			if ( !targetItem.IsPlayerHolding() ) { return false; } 
+			// creature isnt holding target
+			if ( targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
+
+			return true;
+		}
+
+		/// <summary>
+		/// Returns true if the source item was held by the player and hit the target Item held only by a creature that wasn't the player
+		/// </summary>
+		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
+		/// <param name="targetItem">Item from targetCollider CollisionInstance</param>
+		/// <returns></returns>
+		/// <remarks>This function assumes both items hit each other and came from a collisionInstance</remarks>
+		public static bool DidPlayersItemHitCreaturesItem( Item sourceItem, Item targetItem ) {
+			//items not null
+			if ( !sourceItem || !targetItem ) { return false; }
+			// source item is held by the player
+			if ( !sourceItem.IsPlayerHolding() ) { return false; }
+			// and only the player
+			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
+			// target is held by the a creature
+			if ( !targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
+			// by not the player
+			if ( targetItem.IsPlayerHolding() ) { return false; }
+			
+			return true;
+		}
+		/// <summary>
+		/// Tries to return the item if there is one on a collider group
+		/// </summary>
+		/// <param name="colliderGroup"></param>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool TryGetObjFromColliderGroup( ColliderGroup colliderGroup, out Item item ) {
+			item = colliderGroup?.collisionHandler?.item;
+			return item != null;
+		}
+		/// <summary>
+		/// Tries to return the ragdoll part if there is one on a collider group
+		/// </summary>
+		/// <param name="colliderGroup"></param>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
+		public static bool TryGetObjFromColliderGroup( ColliderGroup colliderGroup, out RagdollPart ragdollPart ) {
+			ragdollPart = colliderGroup?.collisionHandler?.ragdollPart;
+			return ragdollPart != null;
+		}
+
+		/// <summary>
+		/// Returns true if a creature other than the player is holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsCreatureExceptPlayerHolding( Item item ) {
+			if ( item != null ) {
+				foreach ( RagdollHand hand in item.handlers ) {
+					if ( !hand.creature.isPlayer ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// Returns true ifa creature other than the player is holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsCreatureExceptPlayerHolding( Handle handle ) {
+			if ( handle != null ) {
+				foreach ( RagdollHand hand in handle?.handlers ) {
+					if ( !hand.creature.isPlayer ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// Returns true if the player is holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsPlayerHolding( Item item ) {
+			if ( item != null ) {
+				foreach ( RagdollHand hand in item.handlers ) {
+					if ( hand.creature.isPlayer ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// Returns true if the player is holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsPlayerHolding( Handle handle ) {
+			if ( handle != null ) {
+				foreach ( RagdollHand hand in handle?.handlers ) {
+					if ( hand.creature.isPlayer ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+		/// <summary>
+		/// Get a list of item Ids's for a particular ItemData type
+		/// </summary>
+		/// <param name="type">ItemData type, such as Weapon, Spell, Shield</param>
+		/// <returns></returns>
+		public static List<string> GetItemDataIdList( ItemData.Type type ) {
+			return (
+				from item in Catalog.GetDataList(Catalog.Category.Item)
+				where ((ItemData)item).type == type
+				select item.id).ToList<string>();
+		}
+
+		/// <summary>
+		/// Get a list of ItemData's for a particular ItemData type
+		/// </summary>
+		/// <param name="type">ItemData type, such as Weapon, Spell, Shield</param>
+		/// <returns></returns>
+		public static List<ItemData> GetItemDataList( ItemData.Type type ) {
+			return (
+				from item in Catalog.GetDataList(Catalog.Category.Item)
+				where ((ItemData)item).type == type
+				select ((ItemData)item)).ToList<ItemData>();
+		}
 
 		/// <summary>
 		/// Returns true if the player is currently pointing at a book menu
@@ -29,7 +283,7 @@ namespace Wully.Helpers {
 			if ( creature == null ) {
 				log.Debug("DisarmCreature: creature is null");
 				return;
-			}			
+			}
 			DisarmCreature(creature, Side.Left);
 			DisarmCreature(creature, Side.Right);
 		}
@@ -39,13 +293,13 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="creature"></param>
 		/// <param name="side"></param>
-		public static void DisarmCreature(Creature creature, Side side ) {
-			if(creature == null ) {
+		public static void DisarmCreature( Creature creature, Side side ) {
+			if ( creature == null ) {
 				log.Debug("DisarmCreature: creature is null");
 				return;
 			}
-			if(side == Side.Left ) {
-				if(IsCreatureGrabbingHandle(creature, side) ) {
+			if ( side == Side.Left ) {
+				if ( IsCreatureGrabbingHandle(creature, side) ) {
 					log.Debug("DisarmCreature: Disarming creature left");
 					creature.handLeft.UnGrab(false);
 				}
@@ -79,8 +333,8 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="creature"></param>
 		/// <returns></returns>
-		public static bool IsCreatureGrabbingHandle( Creature creature ) {			
-			return IsCreatureGrabbingHandle(creature,Side.Left) || IsCreatureGrabbingHandle(creature, Side.Right);						
+		public static bool IsCreatureGrabbingHandle( Creature creature ) {
+			return IsCreatureGrabbingHandle(creature, Side.Left) || IsCreatureGrabbingHandle(creature, Side.Right);
 		}
 		/// <summary>
 		/// Returns true if the creature is holding something in a particular side
@@ -88,8 +342,8 @@ namespace Wully.Helpers {
 		/// <param name="creature"></param>
 		/// <param name="side"></param>
 		/// <returns></returns>
-		public static bool IsCreatureGrabbingHandle(Creature creature, Side side ) {
-			if(side == Side.Left ) {
+		public static bool IsCreatureGrabbingHandle( Creature creature, Side side ) {
+			if ( side == Side.Left ) {
 				return creature?.handLeft.grabbedHandle != null;
 			} else {
 				return creature?.handRight.grabbedHandle != null;
@@ -102,7 +356,7 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
 		public static void MakeItemCollideWith( Item item, Item otherItem ) {
-			if(item == null ) {
+			if ( item == null ) {
 				log.Debug("MakeItemCollideWithOtherItem: item is null");
 				return;
 			}
@@ -110,7 +364,7 @@ namespace Wully.Helpers {
 				log.Debug("MakeItemCollideWithOtherItem: otherItem is null");
 				return;
 			}
-	
+
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
 					MakeItemCollideWith(otherItem, collider);
@@ -156,7 +410,7 @@ namespace Wully.Helpers {
 			}
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
-					MakeItemNotCollideWith(otherItem, collider);					
+					MakeItemNotCollideWith(otherItem, collider);
 				}
 			}
 		}
@@ -166,7 +420,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
-		public static void MakeItemNotCollideWith(Item item, Collider otherCollider) {
+		public static void MakeItemNotCollideWith( Item item, Collider otherCollider ) {
 			if ( item == null ) {
 				log.Debug("MakeItemNotCollideWithCollider: item is null");
 				return;
@@ -176,8 +430,8 @@ namespace Wully.Helpers {
 				return;
 			}
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
-				foreach ( Collider collider in colliderGroup.colliders ) {					
-					Physics.IgnoreCollision(collider, otherCollider, true);					
+				foreach ( Collider collider in colliderGroup.colliders ) {
+					Physics.IgnoreCollision(collider, otherCollider, true);
 				}
 			}
 		}
@@ -255,7 +509,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="side"></param>
 		/// <returns></returns>
-		public static bool IsAlternateUsePressed(Side side ) {
+		public static bool IsAlternateUsePressed( Side side ) {
 			return PlayerControl.GetHand(side).alternateUsePressed;
 		}
 
@@ -265,7 +519,7 @@ namespace Wully.Helpers {
 		/// <param name="spellCaster">side specific spellcaster</param>
 		/// <param name="handle">The handle held by the spellcaster with telekinesis</param>
 		/// <returns></returns>
-		public static bool TryGetTelekinesisCaughtHandle(SpellCaster spellCaster, out Handle handle) {
+		public static bool TryGetTelekinesisCaughtHandle( SpellCaster spellCaster, out Handle handle ) {
 			handle = spellCaster?.telekinesis?.catchedHandle;
 			if ( handle ) {
 				log.Debug("TryGetTelekinesisCaughtHandle: spellcaster is holding a handle with telekinesis");
@@ -282,14 +536,14 @@ namespace Wully.Helpers {
 		/// <param name="side"></param>
 		/// <param name="ragdollHand"></param>
 		/// <returns></returns>
-		public static bool TryGetRagdollHand(Creature creature, Side side, out RagdollHand ragdollHand ) {
+		public static bool TryGetRagdollHand( Creature creature, Side side, out RagdollHand ragdollHand ) {
 			ragdollHand = null;
 			if ( side == Side.Left ) {
-				ragdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));				
+				ragdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 			} else {
 				ragdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 			}
-			if ( ragdollHand ) { return true;  }
+			if ( ragdollHand ) { return true; }
 			log.Debug("TryGetRagdollHand: Could not get ragdollHand");
 			return false;
 		}
@@ -306,7 +560,7 @@ namespace Wully.Helpers {
 			leftRagdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 			rightRagdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 
-			if ( leftRagdollHand && rightRagdollHand  ) { return true; }
+			if ( leftRagdollHand && rightRagdollHand ) { return true; }
 			log.Debug("TryGetRagdollHand: Could not get both ragdollHands");
 			return false;
 		}
@@ -319,7 +573,7 @@ namespace Wully.Helpers {
 		/// <returns></returns>
 		public static bool TryGetHeldItem( Creature creature, Side side, out Item item ) {
 			item = null;
-			if(side == Side.Left ) {
+			if ( side == Side.Left ) {
 				if ( TryGetRagdollHand(creature, side, out RagdollHand ragdollHand) ) {
 					TryGetHeldItem(ragdollHand, out item);
 				}
@@ -353,9 +607,9 @@ namespace Wully.Helpers {
 		/// <param name="spellCaster"></param>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		public static bool TryGetHeldItem(SpellCaster spellCaster, out Item item ) {
+		public static bool TryGetHeldItem( SpellCaster spellCaster, out Item item ) {
 			item = spellCaster?.ragdollHand?.grabbedHandle?.item;
-			if(item) {
+			if ( item ) {
 				return true;
 			}
 			log.Debug("TryGetHeldItem: Could not get heldItem");
@@ -392,19 +646,19 @@ namespace Wully.Helpers {
 		public static bool IsPlayerUsingTelekinesis( Side side ) {
 
 			//Tries to get the betterevents module first since that will be monitoring the players TK
-			if ( TryGetLevelModuleBetterEvents(out LevelModuleBetterEvents module)){
-			
+			if ( TryGetLevelModuleBetterEvents(out LevelModuleBetterEvents module) ) {
+
 				if ( side == Side.Left ) {
-					if(module.SpellCasterLeftGrabbedHandle != null ) {
+					if ( module.SpellCasterLeftGrabbedHandle != null ) {
 						log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
 						return true;
-					}					
+					}
 				} else {
 					if ( module.SpellCasterRightGrabbedHandle != null ) {
 						log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
 						return true;
 					}
-				}							
+				}
 			}
 
 			// if betterevents module is disabled or unavailable, check directly

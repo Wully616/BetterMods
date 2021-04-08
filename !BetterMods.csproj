@@ -35,12 +35,12 @@
     <DocumentationFile>bin\Release\BetterMods.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src\Wully\Events\BetterEvents.cs" />
-    <Compile Include="src\Wully\Events\BetterItemEvents.cs" />
-    <Compile Include="src\Wully\Extensions\BetterExtensions.cs" />
-    <Compile Include="src\Wully\Helpers\BetterHelpers.cs" />
-    <Compile Include="src\Wully\Helpers\BetterLogger.cs" />
-    <Compile Include="src\Wully\Module\LevelModuleBetterEvents.cs" />
+    <Compile Include="src\Events\BetterEvents.cs" />
+    <Compile Include="src\Events\BetterItemEvents.cs" />
+    <Compile Include="src\Extensions\BetterExtensions.cs" />
+    <Compile Include="src\Helpers\BetterHelpers.cs" />
+    <Compile Include="src\Helpers\BetterLogger.cs" />
+    <Compile Include="src\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,12 +83,18 @@
     <None Include="docs\articles\toc.yml" />
     <None Include="docs\index.md" />
     <None Include="docs\toc.yml" />
+    <None Include="index.md" />
+    <None Include="JSON\Levels\Level_Master.json" />
+    <None Include="JSON\manifest.json" />
     <None Include="packages.config" />
+    <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="docs\images\loggercommands.jpg" />
     <Content Include="docs\images\logoutput.jpg" />
+    <Content Include="images\loggercommands.jpg" />
+    <Content Include="images\logoutput.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

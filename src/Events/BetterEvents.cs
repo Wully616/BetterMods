@@ -12,6 +12,10 @@ namespace Wully.Events {
 	public class BetterEvents {
 		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterEvents));
 
+		#region item hit events
+
+		#endregion
+
 		#region choking
 
 		/// <summary>
@@ -498,7 +502,7 @@ namespace Wully.Events {
 		/// <summary>
 		/// Invokes PlayerParryingCreature Event
 		/// </summary>
-		/// <param name="creature"></param>
+		/// <param name="creature">The creature the player parried</param>
 		/// <param name="collisionInstance"></param>
 		public static void InvokePlayerParryingCreature( Creature creature, CollisionInstance collisionInstance ) {
 			OnPlayerParryingCreature?.Invoke(creature, collisionInstance);
@@ -508,9 +512,10 @@ namespace Wully.Events {
 		/// <summary>
 		/// Invokes CreatureParryingPlayer Event
 		/// </summary>
-		/// <param name="creature"></param>
+		/// <param name="creature">The creature that parried the player</param>
 		/// <param name="collisionInstance"></param>
 		public static void InvokeCreatureParryingPlayer( Creature creature, CollisionInstance collisionInstance ) {
+			log.Debug("InvokeCreatureParryingPlayer");
 			OnCreatureParryingPlayer?.Invoke(creature, collisionInstance);
 			//Debug.Log("creature parried player");
 			//TODO this is only for items, check for fists too

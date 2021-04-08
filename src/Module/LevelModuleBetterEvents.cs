@@ -1,5 +1,4 @@
-﻿using IngameDebugConsole;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,7 @@ using ThunderRoad;
 using UnityEngine;
 using Wully.Events;
 using Wully.Helpers;
+using static Wully.Extensions.BetterExtensions;
 using static Wully.Helpers.BetterHelpers;
 using static Wully.Helpers.BetterLogger;
 
@@ -105,7 +105,7 @@ namespace Wully.Module {
 			if ( !(level.data.id.Equals("CharacterSelection") || level.data.id.Equals("Master")) ) {
 				this.levelModuleWave = level.modeRank.mode.GetModule<LevelModuleWave>();
 				if ( this.levelModuleWave != null ) {
-					log.Debug("Subscribing to levelModuleWave events on level: {0}", level.data.id);					
+					log.Debug("Subscribing to levelModuleWave events on level: {0}", level.data.id);
 					this.levelModuleWave.OnWaveBeginEvent += this.OnWaveBegin;
 					this.levelModuleWave.OnWaveLoopEvent += this.OnWaveLoop;
 				}
@@ -118,118 +118,121 @@ namespace Wully.Module {
 		/// Called every frame
 		/// </summary>
 		/// <param name="level"></param>
-		public override void Update( Level level ) {
+		public virtual void Update( Level level ) {
 			base.Update(level);
 
 			//since TK doesnt have events for grabbing, we need to monitor it and subscribe to the item the player TKs
 			if ( spellCasterLeft ) {
-				MonitorTK(spellCasterLeft, Side.Left, ref tkLeftHandle);
+				MonitorTk(spellCasterLeft, Side.Left, ref tkLeftHandle);
 			}
 			//left hand check
 			if ( spellCasterRight ) {
-				MonitorTK(spellCasterRight, Side.Right, ref tkRightHandle);
+				MonitorTk(spellCasterRight, Side.Right, ref tkRightHandle);
 			}
 		}
 
+		public virtual void TkCaughtHandle( Handle handle, Side side ) {
+			//add the new handle
+			if ( handle is HandleRagdoll handleRagdoll ) {
+				//subscribe to ragdoll slice					
+				SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
+			} else {
+				SubscribeToHandleColliders(handle);
+			}
+			BetterEvents.InvokePlayerTelekinesisGrabEvent(side, handle);
+		}
 		/// <summary>
 		/// Continually checks if the player has grabbed something with Telekinesis and updates a handle reference
 		/// </summary>
 		/// <param name="spellCaster"></param>
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
-		private void MonitorTK( SpellCaster spellCaster, Side side, ref Handle handle ) {
+		public virtual void MonitorTk( SpellCaster spellCaster, Side side, ref Handle handle ) {
 
-			if( TryGetTelekinesisCaughtHandle (spellCaster, out Handle caught) ) {
-				log.Debug("TK grabbing something! {0}", caught.data.id);
+			if ( spellCaster.TryGetTKHandle(out Handle caught) ) {
+				log.Debug("Spellcaster hand {0} grabbed a handle {1}", side, caught.name);
 
-				
 				//if the handle is currently set, check its not the same one
-				if ( caught == handle) { return; }
-					
-				if ( handle == null ) {
-					log.Debug("Spellcaster hand " + side.ToString() + " grabbed a handle");
-						
-					if ( caught is HandleRagdoll handleRagdoll ) {
-						//subscribe to ragdoll slice					
-						SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
-					} else {
-						SubscribeToHandleColliders(caught);
-					}
-					BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
-						
-				} else {
+				if ( caught == handle ) { return; }
+
+				if ( handle != null ) {
+					log.Debug("Spellcaster hand {0} dropped a handle {1}", side, handle.name);
 					//something weird happend but the TK is now holding a different item and didnt drop the old one
 					//unsubscribe to old handle and call ungrab event
 					BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
 					UnsubscribeToHandleColliders(handle);
-
-					//add the new handle
-					if ( caught is HandleRagdoll handleRagdoll ) {
-						//subscribe to ragdoll slice					
-						SubscribeToRagdollSlice(handleRagdoll.ragdollPart);
-					} else {
-						SubscribeToHandleColliders(caught);
-					}
-					BetterEvents.InvokePlayerTelekinesisGrabEvent(side, caught);
-
-						
 				}
+				TkCaughtHandle(handle, side);
+
 				handle = caught;
-				
+
 
 			} else {
 				//player dropped what they were Tking
 				if ( handle != null ) {
-
+					log.Debug("Spellcaster hand {0} dropped a handle {1}", side, handle.name);
 					BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
 					// unsubscribe to handles colliders
 					UnsubscribeToHandleColliders(handle);
 					handle = null;
 				}
-					
+
 			}
+
+		}
+
+		public virtual void OnUnPossessEvent( Creature creature, EventTime eventTime ) {
+			//do it for onstart
+			if(eventTime == EventTime.OnEnd ) { return;}
+			if (Player.local?.creature == null) { return; }
+
+			log.Debug("OnUnPossessEvent - UnSubscribed to player hand/foot events");
+			//Subscribe to what the player picks up so we can track other things
+			Player.local.creature.handLeft.OnGrabEvent -= Hand_OnGrabEvent;
+			Player.local.creature.handRight.OnGrabEvent -= Hand_OnGrabEvent;
+			Player.local.creature.handLeft.OnUnGrabEvent -= Hand_OnUnGrabEvent;
+			Player.local.creature.handRight.OnUnGrabEvent -= Hand_OnUnGrabEvent;
+			creature.handRight.colliderGroup.collisionHandler.OnCollisionStartEvent -= PlayerItemFootHand_OnCollisionStartEvent;
+			creature.handLeft.colliderGroup.collisionHandler.OnCollisionStartEvent -= PlayerItemFootHand_OnCollisionStartEvent;
+			creature.footRight.colliderGroup.collisionHandler.OnCollisionStartEvent -= PlayerItemFootHand_OnCollisionStartEvent;
+			creature.footLeft.colliderGroup.collisionHandler.OnCollisionStartEvent -= PlayerItemFootHand_OnCollisionStartEvent;
+			spellCasterLeft = null;
+			spellCasterRight = null;
+
+		}
+
+		public virtual void OnPossessEvent( Creature creature, EventTime eventTime ) {
+			//do it for on end
+			if ( eventTime == EventTime.OnStart ) { return; }
+			if ( Player.local?.creature == null ) { return; }
 			
+			log.Debug("OnPossessEvent - Subscribed to player hand/foot events");
+			//Subscribe to what the player picks up so we can track other things
+			creature.handLeft.OnGrabEvent += Hand_OnGrabEvent;
+			creature.handRight.OnGrabEvent += Hand_OnGrabEvent;
+			creature.handLeft.OnUnGrabEvent += Hand_OnUnGrabEvent;
+			creature.handRight.OnUnGrabEvent += Hand_OnUnGrabEvent;
+			//subscribe to player hands collisions
+			creature.handRight.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
+			creature.handLeft.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
+			creature.footRight.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
+			creature.footLeft.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
+			Player.local.locomotion.OnGroundEvent += Locomotion_OnGroundEvent;
+
+			spellCasterLeft = Player.local?.creature?.mana?.casterLeft;
+			spellCasterRight = Player.local?.creature?.mana?.casterRight;
+				
 			
 		}
 
-		private void OnUnPossessEvent( Creature creature, EventTime eventTime ) {
-			if ( eventTime == EventTime.OnStart ) {
-				if ( Player.local.creature != null ) {
-					//UnityEngine.Debug.LogFormat("UnSubscribed to player hand events");
-					//Subscribe to what the player picks up so we can track other things
-					Player.local.creature.handLeft.OnGrabEvent -= Hand_OnGrabEvent;
-					Player.local.creature.handRight.OnGrabEvent -= Hand_OnGrabEvent;
-					Player.local.creature.handLeft.OnUnGrabEvent -= Hand_OnUnGrabEvent;
-					Player.local.creature.handRight.OnUnGrabEvent -= Hand_OnUnGrabEvent;
-					spellCasterLeft = null;
-					spellCasterRight = null;
-				}
-			}
-		}
 
-		private void OnPossessEvent( Creature creature, EventTime eventTime ) {
-			if ( eventTime == EventTime.OnEnd ) {
-				if ( Player.local.creature != null ) {
-					//UnityEngine.Debug.LogFormat("Subscribed to player hand events");
-					//Subscribe to what the player picks up so we can track other things
-					Player.local.creature.handLeft.OnGrabEvent += Hand_OnGrabEvent;
-					Player.local.creature.handRight.OnGrabEvent += Hand_OnGrabEvent;
-					Player.local.creature.handLeft.OnUnGrabEvent += Hand_OnUnGrabEvent;
-					Player.local.creature.handRight.OnUnGrabEvent += Hand_OnUnGrabEvent;
-					Player.local.locomotion.OnGroundEvent += Locomotion_OnGroundEvent;
-					spellCasterLeft = Player.local.creature.mana.casterLeft;
-					spellCasterRight = Player.local.creature.mana.casterRight;
-				}
-			}
-		}
 
-		private void Locomotion_OnGroundEvent( bool grounded, Vector3 velocity ) {
+		public virtual void Locomotion_OnGroundEvent( bool grounded, Vector3 velocity ) {
+			log.Debug("Locomotion_OnGroundEvent - grounded: {0} , velocity : {1}", grounded, velocity);
 			BetterEvents.InvokePlayerGroundEvent(grounded, velocity);
 		}
 
-		private void SubscribeToRagdollSlice( RagdollPart ragdollPart ) {
-			//Debug.LogFormat(Time.time + " DamageArea - Subscribing to ragdolls onSliceEvent");
-
+		public virtual void SubscribeToRagdollSlice( RagdollPart ragdollPart ) {
 			Ragdoll ragdoll = ragdollPart.ragdoll;
 			//ragdoll already exists
 			if ( ragdollHits.TryGetValue(ragdoll, out HashSet<RagdollPart> existingParts) ) {
@@ -248,145 +251,119 @@ namespace Wully.Module {
 			}
 		}
 
-		private void Hand_OnUnGrabEvent( Side side, Handle handle, bool throwing, EventTime eventTime ) {
-
-			//Debug.Log("on ungrabevent - event time: " + eventTime.ToString());
+		public virtual void Hand_OnUnGrabEvent( Side side, Handle handle, bool throwing, EventTime eventTime ) {
 			if ( eventTime == EventTime.OnEnd ) {
+				log.Debug("Hand_OnUnGrabEvent side: {0}, handle: {1}, throwing: {2} ", side, handle.name, throwing);
 				BetterEvents.InvokePlayerHandUnGrabEvent(side, handle, throwing, eventTime);
 				UnsubscribeToHandleColliders(handle);
 			}
 		}
 
-		private void Hand_OnGrabEvent( Side side, Handle handle, float axisPosition, HandleOrientation orientation, EventTime eventTime ) {
+		public virtual void Hand_OnGrabEvent( Side side, Handle handle, float axisPosition, HandleOrientation orientation, EventTime eventTime ) {
 
-			//Debug.Log("on grabevent - event time: " + eventTime.ToString());
 			if ( eventTime == EventTime.OnEnd ) {
+				log.Debug("Hand_OnGrabEvent side: {0}, handle: {1} ", side, handle.name);
 				BetterEvents.InvokePlayerHandGrabEvent(side, handle, axisPosition, orientation, eventTime);
 				SubscribeToHandleColliders(handle);
 			}
 
 		}
 
-		private void SubscribeToHandleColliders( Handle handle ) {
-			//when the player grabs something, we want to subscribe to that items collision handlers
-			if ( handle.item != null && handle.item.collisionHandlers.Count > 0 ) {
-				foreach ( CollisionHandler collisionHandler in handle.item.collisionHandlers ) {
-					if ( !grabbedCollisionHandlers.Contains(collisionHandler) ) {
-						collisionHandler.OnCollisionStartEvent += this.GrabbedItem_OnCollisionStartEvent;
-						grabbedCollisionHandlers.Add(collisionHandler);
-					}
+		public virtual void SubscribeToHandleColliders( Handle handle ) {
+			//when the player grabs something, we want to subscribe to that items collision handlers	
+			if ( handle?.item == null ) { return; }
+			foreach ( CollisionHandler collisionHandler in handle.item.collisionHandlers ) {
+				if ( !grabbedCollisionHandlers.Contains(collisionHandler) ) {
+					collisionHandler.OnCollisionStartEvent += this.PlayerItemFootHand_OnCollisionStartEvent;
+					grabbedCollisionHandlers.Add(collisionHandler);
 				}
 			}
-
 		}
 
-		private void UnsubscribeToHandleColliders( Handle handle ) {
-			if ( handle.item != null && handle.item.collisionHandlers.Count > 0 ) {
-				// check the players not still holding it though
-				foreach ( RagdollHand hand in handle.item.handlers ) {
-					if ( hand.creature.isPlayer ) {
-						return;
-					}
+		public virtual void UnsubscribeToHandleColliders( Handle handle ) {
+			if ( handle != null ) {
+				if ( handle.IsPlayerHolding() ) {
+					return;
 				}
-				foreach ( CollisionHandler collisionHandler in handle.item.collisionHandlers ) {
-					collisionHandler.OnCollisionStartEvent -= this.GrabbedItem_OnCollisionStartEvent;
+
+				// check the players not still holding it though				
+				foreach ( CollisionHandler collisionHandler in handle?.item?.collisionHandlers ) {
+					collisionHandler.OnCollisionStartEvent -= this.PlayerItemFootHand_OnCollisionStartEvent;
 					grabbedCollisionHandlers.Remove(collisionHandler);
 				}
 			}
 		}
 
-		private void GrabbedItem_OnCollisionStartEvent( CollisionInstance collisionInstance ) {
+		/// <summary>
+		/// This is called when the players grabbed, TKed item or fists has begun touching another rigidbody/collider
+		/// </summary>
+		/// <param name="collisionInstance"></param>
+		public virtual void PlayerItemFootHand_OnCollisionStartEvent( CollisionInstance collisionInstance ) {
 			//this is called when this GrabbedItem has begun touching another rigidbody/collider.
-			//our grabbed item is the source, the thing we hit is the target
+			//source is what did the hitting, target is the thing being hit
+			log.Debug("PlayerItemFootHand_OnCollisionStartEvent {0}", collisionInstance.ToStringExt());
+
+			Item targetItem = collisionInstance.GetItemFromTarget();
+			Item sourceItem = collisionInstance.GetItemFromSource();
+			RagdollPart targetPart = collisionInstance.GetRagdollPartFromTarget();
+			RagdollPart sourcePart = collisionInstance.GetRagdollPartFromSource();
+
+			
+			if ( DidPlayersItemHitCreaturesItem(sourceItem, targetItem) ) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit a creatures {1}",
+					sourceItem.data.id, targetItem.data.id);
+				BetterEvents.InvokeCreatureParryingPlayer(targetItem.handlers[0].creature,
+					collisionInstance);
+			}
+
+			if (DidCreaturesItemHitPlayersItem(sourceItem, targetItem)) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Creatures {0} hit players {1}",
+					sourceItem.data.id, targetItem.data.id);
+			}
 
 
-			//source was the player
-			if ( collisionInstance.IsDoneByPlayer() ) {
-				//Debug.Log(Time.time + " GrabbedItem - collision done by player");
-				if ( collisionInstance.targetColliderGroup != null ) {
-					//get the collision handler of the thing we hit					
-					CollisionHandler ch = collisionInstance.targetColliderGroup.collisionHandler;
-					if ( ch != null && ch.isItem && ch.item.handlers.Count > 0 ) {
-						//check if players grabbed item hit a item held by an enemy -- we can assume it means their attack was blocked
-						bool isCreatureHoldingItem = true;
-						foreach ( RagdollHand hand in ch.item.handlers ) {
-							if ( hand.creature.isPlayer ) {
-								isCreatureHoldingItem = false; //player was also holding the creatures item
-									
-							}
-						}
-						//only creature was holding the thing we hit
-						if ( isCreatureHoldingItem ) {
-							//Debug.Log(Time.time + " GrabbedItem - Players attack hit a creatures item they were holding " + ch.item.itemId + " type: " + ch.item.data.type.ToString());
-							// player attack  with grabbed Item was parried
-							BetterEvents.InvokeCreatureParryingPlayer(ch.item.handlers[0].creature, collisionInstance);
-						}
-						if ( ch.item.tkHandlers.Contains(spellCasterLeft) || ch.item.tkHandlers.Contains(spellCasterLeft) ) {
-							//Debug.Log(Time.time + " GrabbedItemTK - Players attack hit a creatures item they were holding " + ch.item.itemId + " type: " + ch.item.data.type.ToString());
-							// player attack with TKgrabbed Item was parried 
-//TODO this is probably wrong? its checking the collision handler of the thing we hit, rather than if the thing we were holding was held with TK
-						}
-					}
-					if ( ch.isRagdollPart ) {
-						if ( ch.ragdollPart.ragdoll != null && ch.ragdollPart.ragdoll.creature != null ) {
-							if ( ch.ragdollPart.ragdoll.creature.isKilled ) {
-								SubscribeToRagdollSlice(ch.ragdollPart);
-								//Debug.Log(Time.time + " GrabbedItem - Player hitting a dead ragdoll! " +" type: " + ch.ragdollPart.type.ToString());
-								// player hit a dead ragdoll with a grabbed item
-
-							}
-						}
-					}
-
+			if (DidPlayersItemHitCreaturesRagdollPart(sourceItem, targetPart)) {
+				
+				if (targetPart.ragdoll.creature.isKilled) {
+					log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit a dead creatures {1}",
+						sourceItem.data.id, targetPart.name);
+					SubscribeToRagdollSlice(targetPart);
 				} else {
-					// hit the ground?
-
-				}
-			} else {
-				//source was the creature
-				//nulls
-				//Debug.Log(Time.time + " GrabbedItem - collision done by creature");
-				if ( collisionInstance.sourceColliderGroup != null ) {
-					CollisionHandler ch = collisionInstance.sourceColliderGroup.collisionHandler;
-					//Debug.Log(Time.time + " GrabbedItem - checking creature as source");
-					CheckFlyingItemHit(ch);
-				}
-
-			}
-		}
-
-		private void CheckFlyingItemHit( CollisionHandler ch ) {
-			//check if its not behing held, but last holder was not the player
-			if ( ch != null && ch.isItem && ch.item.handlers != null ) {
-				if ( ch.item.handlers.Count == 0 ) {
-					//ignore stuff the player had touched
-					if ( ch.item.lastHandler != null && ch.item.lastHandler.creature.isPlayer ) { return; }
-
-					
-					//if the item has no handlers, and it doesnt have a last handler, then its probably a spell
-					if ( ch.item.lastHandler == null ) {
-						//spell 4 sure
-//TODO: add playerblockspell
-						//Debug.Log(Time.time + " GrabbedItem - Player hit a spell item no one ever held " + ch.item.itemId + " type: " + ch.item.data.type.ToString() + " isFlying: " + ch.item.isFlying + " isThrown " + ch.item.isThrowed);
-					} else {
-						//otherwise it was probably held by the creature, like an arrow, sometimes a spell though		
-						//Debug.Log(Time.time + " GrabbedItem - Player hit a creatures item they are no longer holding " + ch.item.itemId + " type: " + ch.item.data.type.ToString() + " isFlying: " + ch.item.isFlying + " isThrown " + ch.item.isThrowed);
-
-					}
+					log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit a creatures {1}",
+						sourceItem.data.id, targetPart.name);
 				}
 			}
-		}
 
-		private void OnCreatureHeal( Creature creature, float heal, Creature healer ) {
-			//UnityEngine.Debug.Log("OnCreatureHeal");
-			if ( healer.isPlayer ) {
+			if (DidPlayersItemHitPlayersRagdollPart(sourceItem, targetPart)) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit players {1}",
+					sourceItem.data.id, targetPart.name);
+			}
 
+			if (DidPlayersItemHitGround(sourceItem, collisionInstance)) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit ground",
+					sourceItem.data.id);
+			}
+
+			if ( DidPlayersRagdollPartHitGround(sourcePart, collisionInstance) ) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit ground",
+					sourceItem.data.id);
+			}
+
+			if ( DidFlyingItemHitPlayersItem(sourceItem, targetItem) ) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Unheld(flying) item {0} hit players {1}",
+					sourceItem.data.id, targetItem.data.id);
 			}
 
 		}
 
-		public override void OnUnload( Level level ) {
-			//UnityEngine.Debug.LogFormat("AlignmentSystem unload level on {0}", level.data.id);
+
+
+		public virtual void OnCreatureHeal( Creature creature, float heal, Creature healer ) {
+			log.Debug("OnCreatureHeal - Creature {0} healed {1} by {2}", healer.name, creature.name, heal);
+		}
+
+		public virtual void OnUnload( Level level ) {
+
 			if ( this.levelModuleWave != null ) {
 				this.levelModuleWave.OnWaveBeginEvent -= this.OnWaveBegin;
 				this.levelModuleWave.OnWaveLoopEvent -= this.OnWaveLoop;
@@ -395,17 +372,17 @@ namespace Wully.Module {
 		}
 
 
-		private void OnWaveBegin() {
+		public virtual void OnWaveBegin() {
 			//UnityEngine.Debug.Log("OnWaveBegin");
 			InitVars();
 		}
-		private void OnWaveLoop() {
+		public virtual void OnWaveLoop() {
 			//UnityEngine.Debug.Log("OnWaveLoop");
 
 		}
 
 
-		private void Ragdoll_OnSliceEvent( RagdollPart ragdollPart, EventTime eventTime ) {
+		public virtual void Ragdoll_OnSliceEvent( RagdollPart ragdollPart, EventTime eventTime ) {
 			//ragdoll is being sliced. This calls at the end of slicing
 			Ragdoll ragdoll = ragdollPart.ragdoll;
 
@@ -455,7 +432,7 @@ namespace Wully.Module {
 			}
 
 		}
-		private void OnDeflectEvent( Creature source, Item item, Creature target ) {
+		public virtual void OnDeflectEvent( Creature source, Item item, Creature target ) {
 			//UnityEngine.Debug.Log("OnDeflectEvent");
 			BetterEvents.InvokeDeflectEvent(source, item, target);
 			if ( source.player && target ) {
@@ -470,7 +447,7 @@ namespace Wully.Module {
 
 		}
 
-		private void OnCreatureParry( Creature creature, CollisionInstance collisionInstance ) {
+		public virtual void OnCreatureParry( Creature creature, CollisionInstance collisionInstance ) {
 			//Debug.Log(Time.time + " OnCreatureParry ");
 
 			if ( creature != null && !creature.isPlayer && !collisionInstance.IsDoneByPlayer() ) {
@@ -480,7 +457,7 @@ namespace Wully.Module {
 
 		}
 
-		private void OnCreatureKill( Creature creature, Player player, CollisionInstance collisionInstance, EventTime eventTime ) {
+		public virtual void OnCreatureKill( Creature creature, Player player, CollisionInstance collisionInstance, EventTime eventTime ) {
 
 			//return if the kill was not done by the player, or if the player was the one killed
 			//Event time is the start/end of the kill class on the creature, we want the start event so we know what it was doing
@@ -503,13 +480,13 @@ namespace Wully.Module {
 
 		}
 
-		private void OnCreatureHit( Creature creature, CollisionInstance collisionInstance ) {		
+		public virtual void OnCreatureHit( Creature creature, CollisionInstance collisionInstance ) {
 			if ( creature != null ) {
 				BetterEvents.InvokeCreatureHitEvent(creature, collisionInstance,
 					GetDamageType(collisionInstance),
 					GetPenetrationType(collisionInstance),
 					GetHitDirection(creature, collisionInstance),
-					GetCreatureState(creature), GetHitStates(collisionInstance),GetDamageArea(creature,collisionInstance));
+					GetCreatureState(creature), GetHitStates(collisionInstance), GetDamageArea(creature, collisionInstance));
 			} else {
 				Debug.LogFormat(Time.time + " OnCreatureHit - Creature was null");
 			}
@@ -522,7 +499,7 @@ namespace Wully.Module {
 		/// <param name="creature"></param>
 		/// <param name="collisionInstance"></param>
 		/// <returns></returns>
-		public BetterEvents.DamageArea GetDamageArea( Creature creature, CollisionInstance collisionInstance ) {			
+		public virtual BetterEvents.DamageArea GetDamageArea( Creature creature, CollisionInstance collisionInstance ) {
 			DamageStruct ds = collisionInstance.damageStruct;
 			if ( ds.hitRagdollPart ) {
 				if ( !creature.isPlayer ) {
@@ -530,23 +507,23 @@ namespace Wully.Module {
 				}
 				//try parse ragdoll part to our damage area
 				string ragdollpart = ds.hitRagdollPart.type.ToString();
-				
+
 				if ( Enum.TryParse(ragdollpart, true, out BetterEvents.DamageArea damageAreaRagdollPart) ) {
 					if ( Enum.IsDefined(typeof(BetterEvents.DamageArea), damageAreaRagdollPart) ) {
 						return damageAreaRagdollPart;
 					}
-				}									
+				}
 			}
 			return BetterEvents.DamageArea.None;
 
 		}
-		
+
 		/// <summary>
 		/// The type of damage, stabbing, blunt, energy, shock etc
 		/// </summary>
 		/// <param name="collisionInstance"></param>
 		/// <returns></returns>
-		public DamageType GetDamageType( CollisionInstance collisionInstance ) {
+		public virtual DamageType GetDamageType( CollisionInstance collisionInstance ) {
 			return collisionInstance.damageStruct.damageType;
 		}
 
@@ -555,11 +532,11 @@ namespace Wully.Module {
 		/// </summary>
 		/// <param name="collisionInstance"></param>
 		/// <returns></returns>
-		public DamageStruct.Penetration GetPenetrationType( CollisionInstance collisionInstance ) {
+		public virtual DamageStruct.Penetration GetPenetrationType( CollisionInstance collisionInstance ) {
 			return collisionInstance.damageStruct.penetration;
 		}
 
-		public HashSet<BetterEvents.HitState> GetHitStates( CollisionInstance collisionInstance ) {
+		public virtual HashSet<BetterEvents.HitState> GetHitStates( CollisionInstance collisionInstance ) {
 
 			//source collider group is the thing is the thing doing the hitting
 			//no source collider group means it was something magical, htting it I think
@@ -581,9 +558,9 @@ namespace Wully.Module {
 							states.Add(BetterEvents.HitState.PlayerRagdollPart);
 						} else {
 							//	Debug.LogFormat(Time.time + " Action - creature punch or kick ");
-							
+
 							states.Add(BetterEvents.HitState.CreatureRagdollPart);
-														
+
 						}
 						if ( ch.ragdollPart.isGrabbed ) {
 							//	Debug.LogFormat(Time.time + " Action - ragdoll part was grabbed ");
@@ -635,11 +612,11 @@ namespace Wully.Module {
 
 		}
 
-		public HashSet<BetterEvents.CreatureState> GetCreatureState( Creature creature ) {
+		public virtual HashSet<BetterEvents.CreatureState> GetCreatureState( Creature creature ) {
 
 			HashSet<BetterEvents.CreatureState> states = new HashSet<BetterEvents.CreatureState>();
 
-			if(creature.ragdoll.parts.Any(p => p.isSliced)) {
+			if ( creature.ragdoll.parts.Any(p => p.isSliced) ) {
 				//one of the ragdoll parts is sliced
 				states.Add(BetterEvents.CreatureState.Dismembered);
 			}
@@ -648,13 +625,13 @@ namespace Wully.Module {
 				//Debug.LogFormat(Time.time + " Modifier - creature was dead ");
 				states.Add(BetterEvents.CreatureState.Dead);
 			}
-			if( creature.currentHealth > 0 && creature.currentHealth < creature.maxHealth ) {
+			if ( creature.currentHealth > 0 && creature.currentHealth < creature.maxHealth ) {
 				states.Add(BetterEvents.CreatureState.Injured);
 			}
 			if ( creature.currentHealth == creature.maxHealth ) {
 				states.Add(BetterEvents.CreatureState.Fullhealth);
 			}
-			if ( creature.fallState == Creature.FallState.Falling) {
+			if ( creature.fallState == Creature.FallState.Falling ) {
 				// falling
 				states.Add(BetterEvents.CreatureState.Falling);
 			}
@@ -662,7 +639,7 @@ namespace Wully.Module {
 				//Debug.LogFormat(Time.time + " Modifier - creature was destablized near ground ");
 				states.Add(BetterEvents.CreatureState.LayingOnGround);
 
-			} 
+			}
 			if ( creature.state == Creature.State.Destabilized ) {
 				//Debug.LogFormat(Time.time + " Modifier - creature was destablized ");
 				states.Add(BetterEvents.CreatureState.Destabilized);
@@ -703,7 +680,7 @@ namespace Wully.Module {
 				//Debug.LogFormat(Time.time + " Modifier - creature was attacking with cast");
 				states.Add(BetterEvents.CreatureState.IsAttackingWithCast);
 			}
-			if ( creature.brain.IsAttacking) {
+			if ( creature.brain.IsAttacking ) {
 				//Debug.LogFormat(Time.time + " Modifier - creature was attacking");
 				states.Add(BetterEvents.CreatureState.IsAttacking);
 			}
@@ -723,7 +700,7 @@ namespace Wully.Module {
 				//Debug.LogFormat(Time.time + " Modifier - creature was being choked");
 				states.Add(BetterEvents.CreatureState.IsBeingChoked);
 			}
-			if(creature.brain?.instance?.targetCreature?.isPlayer == true ) {
+			if ( creature.brain?.instance?.targetCreature?.isPlayer == true ) {
 				states.Add(BetterEvents.CreatureState.IsTargetingPlayer);
 			}
 			if ( creature.brain?.instance?.targetCreature?.isPlayer == false ) {
@@ -745,15 +722,15 @@ namespace Wully.Module {
 
 		}
 
-		
+
 		/// <summary>
 		/// Returns the direction a creature was hit, ie Direction.back is backstabbed
 		/// </summary>
 		/// <param name="creature"></param>
 		/// <param name="collisionInstance"></param>
 		/// <returns></returns>
-		public BetterEvents.Direction GetHitDirection( Creature creature, CollisionInstance collisionInstance) {
-			
+		public virtual BetterEvents.Direction GetHitDirection( Creature creature, CollisionInstance collisionInstance ) {
+
 			//get impact direction
 			Vector3 lhs = Utils.ClosestDirection(creature.transform.InverseTransformDirection(collisionInstance.impactVelocity).normalized, Cardinal.XZ);
 
@@ -778,6 +755,6 @@ namespace Wully.Module {
 			return BetterEvents.Direction.None;
 
 		}
-		
+
 	}
 }
