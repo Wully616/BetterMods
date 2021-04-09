@@ -19,6 +19,9 @@ namespace Wully.Helpers {
         private string className;
         private Type classType;
 
+        /// <summary>
+        /// Log Levels
+        /// </summary>
         public enum Loglevel {
             Error = 0,
             Warn = 1,
