@@ -615,11 +615,9 @@ namespace Wully.Events {
 		/// <param name="ragdollPartType"></param>
 		public static void InvokeDismemberEvent( RagdollPart ragdollPart, bool creatureIsKilled, RagdollPart.Type ragdollPartType) {
 			Ragdoll ragdoll = ragdollPart.ragdoll;
-			bool tkUsed = false;
+			bool tkUsed = IsPlayerTkHolding(ragdollPart);
 			//player was holding with TK when dismembered
-			if ( ragdoll.tkHandlers.Contains(Player.local?.creature?.mana?.casterLeft) || ragdoll.tkHandlers.Contains(Player.local?.creature?.mana?.casterLeft) ) {
-				tkUsed = true;
-			}
+			
 			CollisionInstance ch = ragdoll.creature.lastDamage;
 			if ( ch.IsDoneByPlayer() ) {
 				OnPlayerDismemberCreature?.Invoke(ragdollPart, creatureIsKilled, ragdollPartType, tkUsed);

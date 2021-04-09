@@ -13,149 +13,78 @@ namespace Wully.Helpers {
 		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterHelpers));
 
 		/// <summary>
-		/// Returns true if the players held item was hit by a flying item
+		/// Returns true if the item isnt being held
 		/// </summary>
-		/// <param name="sourceItem"></param>
-		/// <param name="targetItem"></param>
+		/// <param name="item"></param>
 		/// <returns></returns>
-		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
-		public static bool DidFlyingItemHitPlayersItem(Item sourceItem, Item targetItem) {
+		public static bool IsNotHeld( Item item ) {
 			//items not null
-			if ( !sourceItem || !targetItem ) { return false; }
+			if ( !item ) { return false; }
 			//source item not being held at all
-			if ( sourceItem.IsHanded() ) { return false; }
+			if ( item.IsHanded() ) { return false; }
+			//item not being tk held
+			if ( item.IsPlayerTkHolding() ) { return false; }
 			//source item wasn't last touched by the player
-			if (sourceItem.lastHandler?.creature?.isPlayer == true) { return false;}
-
-			// player is holding target item
-			if ( !targetItem.IsPlayerHolding() ) { return false; }
-			// creature isnt holding target
-			if ( targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
-			return true;
-		}
-
-		/// <summary>
-		/// Returns true if the players ragdoll part, normally fists, hit the world/ground
-		/// </summary>
-		/// <param name="sourcePart"></param>
-		/// <param name="collisionInstance"></param>
-		/// <returns></returns>
-		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
-		public static bool DidPlayersRagdollPartHitGround( RagdollPart sourcePart, CollisionInstance collisionInstance ) {
-			//not null
-			if ( !sourcePart ) { return false; }
-			// collisionInstance has no target, which means it hit the world, not a item/ragdoll
-			if ( collisionInstance.targetColliderGroup ) { return false; }
-			// source part is the player
-			if ( !sourcePart.ragdoll.creature.isPlayer ) { return false; }
-
+			if ( item.lastHandler?.creature?.isPlayer == true ) { return false; }
 
 			return true;
 		}
 
 		/// <summary>
-		/// Returns true if the item only held by the player hit the world/ground, not a item or ragdoll
+		/// Returns true if the items last holder was the player
 		/// </summary>
-		/// <param name="sourceItem"></param>
-		/// <param name="collisionInstance"></param>
+		/// <param name="item"></param>
 		/// <returns></returns>
-		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
-		public static bool DidPlayersItemHitGround(Item sourceItem, CollisionInstance collisionInstance) {
-			//not null
-			if (!sourceItem) { return false; }
-			// collisionInstance has no target, which means it hit the world, not a item/ragdoll
-			if (collisionInstance.targetColliderGroup) { return false; }
-			// source item is held by the player
-			if ( !sourceItem.IsPlayerHolding() ) { return false; }
-			// and only the player
-			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
-
-			return true;
-		}
-		/// <summary>
-		/// Returns true if the source Item was held only the player and it hit the player
-		/// </summary>
-		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
-		/// <param name="targetPart">RagdollPart from targetCollider CollisionInstance</param>
-		/// <returns></returns>
-		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
-		public static bool DidPlayersItemHitPlayersRagdollPart( Item sourceItem, RagdollPart targetPart ) {
-			// not null
-			if ( !sourceItem || !targetPart ) { return false; }
-			// source item is held by the player
-			if ( !sourceItem.IsPlayerHolding() ) { return false; }
-			// and only the player
-			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
-
-			// target ragdoll part is the player
-			if ( !targetPart.ragdoll.creature.isPlayer ) { return false; }
-
-			return true;
-		}
-
-		/// <summary>
-		/// Returns true if the source Item was held only the player and it hit a creature that wasnt the player
-		/// </summary>
-		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
-		/// <param name="targetPart">RagdollPart from targetCollider CollisionInstance</param>
-		/// <returns></returns>
-		/// <remarks>This function assumes both things hit each other and came from a collisionInstance</remarks>
-		public static bool DidPlayersItemHitCreaturesRagdollPart(Item sourceItem, RagdollPart targetPart) {
-			// not null
-			if ( !sourceItem || !targetPart ) { return false; }
-			// source item is held by the player
-			if ( !sourceItem.IsPlayerHolding() ) { return false; }
-			// and only the player
-			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
-
-			// target ragdoll part is not the player
-			if (targetPart.ragdoll.creature.isPlayer) { return false; }
-
-			return true;
-		}
-		/// <summary>
-		/// Returns true if the source item was held by the player and hit the target Item held only by a creature that wasn't the player
-		/// </summary>
-		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
-		/// <param name="targetItem">Item from targetCollider CollisionInstance</param>
-		/// <returns></returns>
-		/// <remarks>This function assumes both items hit each other and came from a collisionInstance</remarks>
-		public static bool DidCreaturesItemHitPlayersItem( Item sourceItem, Item targetItem ) {
+		public static bool IsLastHeldByPlayer(Item item) {
 			//items not null
-			if ( !sourceItem || !targetItem) { return false; }
-			//source item is held by a creature
-			if ( !sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
-			// but not by the player as well
-			if ( sourceItem.IsPlayerHolding() ) { return false; } 
-			// player is holding target item
-			if ( !targetItem.IsPlayerHolding() ) { return false; } 
-			// creature isnt holding target
-			if ( targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
-
-			return true;
-		}
-
-		/// <summary>
-		/// Returns true if the source item was held by the player and hit the target Item held only by a creature that wasn't the player
-		/// </summary>
-		/// <param name="sourceItem">Item from sourceCollider CollisionInstance</param>
-		/// <param name="targetItem">Item from targetCollider CollisionInstance</param>
-		/// <returns></returns>
-		/// <remarks>This function assumes both items hit each other and came from a collisionInstance</remarks>
-		public static bool DidPlayersItemHitCreaturesItem( Item sourceItem, Item targetItem ) {
-			//items not null
-			if ( !sourceItem || !targetItem ) { return false; }
-			// source item is held by the player
-			if ( !sourceItem.IsPlayerHolding() ) { return false; }
-			// and only the player
-			if ( sourceItem.IsCreatureExceptPlayerHolding() ) { return false; }
-			// target is held by the a creature
-			if ( !targetItem.IsCreatureExceptPlayerHolding() ) { return false; }
-			// by not the player
-			if ( targetItem.IsPlayerHolding() ) { return false; }
+			if ( !item ) { return false; }
+			//source item was last touched by the player
+			return item.lastHandler?.creature?.isPlayer == true;
 			
+		} 
+
+		
+		/// <summary>
+		/// Returns true if only the player is holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsOnlyPlayerHolding( Handle handle ) {
+			//handle not null
+			if ( !handle ) { return false; }
+			// player is holding handle
+			if ( !handle.IsPlayerHolding() ) { return false; }
+			// creature isnt holding handle
+			if ( handle.IsOnlyCreatureExceptPlayerHolding() ) { return false; }
+
 			return true;
 		}
+		/// <summary>
+		/// Returns true if only the player is holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsOnlyPlayerHolding(Item item) {
+			//items not null
+			if ( !item ) { return false; }
+			// player is holding item
+			if ( !item.IsPlayerHolding() ) { return false; }
+			// creature isnt holding item
+			if ( item.IsOnlyCreatureExceptPlayerHolding() ) { return false; }
+
+			return true;
+		}
+
+		/// <summary>
+		/// Returns true if ragdollPart is the player
+		/// </summary>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
+		public static bool IsPlayer(RagdollPart ragdollPart) {
+			if (!ragdollPart) { return false;}
+			return ragdollPart.ragdoll?.creature?.isPlayer == true;
+		}
+
 		/// <summary>
 		/// Tries to return the item if there is one on a collider group
 		/// </summary>
@@ -177,12 +106,13 @@ namespace Wully.Helpers {
 			return ragdollPart != null;
 		}
 
+
 		/// <summary>
 		/// Returns true if a creature other than the player is holding the item
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		public static bool IsCreatureExceptPlayerHolding( Item item ) {
+		public static bool IsOnlyCreatureExceptPlayerHolding( Item item ) {
 			if ( item != null ) {
 				foreach ( RagdollHand hand in item.handlers ) {
 					if ( !hand.creature.isPlayer ) {
@@ -195,13 +125,13 @@ namespace Wully.Helpers {
 		}
 
 		/// <summary>
-		/// Returns true ifa creature other than the player is holding the handle
+		/// Returns true if a creature other than the player is holding the handle
 		/// </summary>
 		/// <param name="handle"></param>
 		/// <returns></returns>
-		public static bool IsCreatureExceptPlayerHolding( Handle handle ) {
+		public static bool IsOnlyCreatureExceptPlayerHolding( Handle handle ) {
 			if ( handle != null ) {
-				foreach ( RagdollHand hand in handle?.handlers ) {
+				foreach ( RagdollHand hand in handle.handlers ) {
 					if ( !hand.creature.isPlayer ) {
 						return true;
 					}
@@ -211,6 +141,61 @@ namespace Wully.Helpers {
 			return false;
 		}
 
+		/// <summary>
+		/// Returns true if the player is TK holding the ragdollPart
+		/// </summary>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( RagdollPart ragdollPart ) {
+			if (!ragdollPart) { return false; }
+			
+			foreach ( SpellCaster spellCaster in ragdollPart.ragdoll.tkHandlers ) {
+				if ( spellCaster.ragdollHand.creature.isPlayer ) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// Returns true if the player is TK holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( Item item ) {
+			if ( item != null ) {
+				foreach ( SpellCaster spellCaster in item.tkHandlers ) {
+					if ( spellCaster.ragdollHand.creature.isPlayer ) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+		/// <summary>
+		/// Returns true if the player is TK holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( Handle handle ) {
+			return handle?.telekinesisHandler?.ragdollHand?.creature?.isPlayer == true;
+		}
+		/// <summary>
+		/// Returns true if the player is holding the ragdollPart
+		/// </summary>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
+		public static bool IsPlayerHolding( RagdollPart ragdollPart ) {
+			if ( !ragdollPart ) { return false; }
+
+			foreach ( Handle handle in ragdollPart.handles ) {
+				return IsPlayerHolding(handle);
+			}
+
+			return false;
+		}
 		/// <summary>
 		/// Returns true if the player is holding the item
 		/// </summary>

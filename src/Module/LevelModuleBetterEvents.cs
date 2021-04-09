@@ -149,7 +149,7 @@ namespace Wully.Module {
 		/// <param name="handle"></param>
 		public virtual void MonitorTk( SpellCaster spellCaster, Side side, ref Handle handle ) {
 
-			if ( spellCaster.TryGetTKHandle(out Handle caught) ) {
+			if ( spellCaster.TryGetTkHandle(out Handle caught) ) {
 				log.Debug("Spellcaster hand {0} grabbed a handle {1}", side, caught.name);
 
 				//if the handle is currently set, check its not the same one
@@ -308,21 +308,21 @@ namespace Wully.Module {
 			RagdollPart targetPart = collisionInstance.GetRagdollPartFromTarget();
 			RagdollPart sourcePart = collisionInstance.GetRagdollPartFromSource();
 
-			
-			if ( DidPlayersItemHitCreaturesItem(sourceItem, targetItem) ) {
+			//Player held item hit the creatures held item
+			if(IsOnlyPlayerHolding(sourceItem) && IsOnlyCreatureExceptPlayerHolding(targetItem) ) { 
 				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit a creatures {1}",
 					sourceItem.data.id, targetItem.data.id);
 				BetterEvents.InvokeCreatureParryingPlayer(targetItem.handlers[0].creature,
 					collisionInstance);
 			}
-
-			if (DidCreaturesItemHitPlayersItem(sourceItem, targetItem)) {
+			//Creatures held item hit the players held item
+			if (IsOnlyCreatureExceptPlayerHolding(sourceItem) && IsOnlyPlayerHolding(targetItem)) {
 				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Creatures {0} hit players {1}",
 					sourceItem.data.id, targetItem.data.id);
 			}
 
-
-			if (DidPlayersItemHitCreaturesRagdollPart(sourceItem, targetPart)) {
+			//Players held item hit a creature ragdollpart
+			if ( IsOnlyPlayerHolding(sourceItem) && !IsPlayer(targetPart)) {
 				
 				if (targetPart.ragdoll.creature.isKilled) {
 					log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit a dead creatures {1}",
@@ -333,24 +333,24 @@ namespace Wully.Module {
 						sourceItem.data.id, targetPart.name);
 				}
 			}
-
-			if (DidPlayersItemHitPlayersRagdollPart(sourceItem, targetPart)) {
+			//Players held item hit a player ragdollpart
+			if ( IsOnlyPlayerHolding(sourceItem) && IsPlayer(targetPart) ) {
 				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit players {1}",
 					sourceItem.data.id, targetPart.name);
 			}
-
-			if (DidPlayersItemHitGround(sourceItem, collisionInstance)) {
+			//Players held item hit the ground/world
+			if ( IsOnlyPlayerHolding(sourceItem) && !collisionInstance.targetColliderGroup) {
 				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit ground",
 					sourceItem.data.id);
 			}
-
-			if ( DidPlayersRagdollPartHitGround(sourcePart, collisionInstance) ) {
+			//Players ragdollpart hit the ground/world
+			if ( IsPlayer(sourcePart) && !collisionInstance.targetColliderGroup ) {
 				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Players {0} hit ground",
 					sourceItem.data.id);
 			}
-
-			if ( DidFlyingItemHitPlayersItem(sourceItem, targetItem) ) {
-				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Unheld(flying) item {0} hit players {1}",
+			//An unheld item(flying/dropped/falling) that wasnt held last by player hit the players held item
+			if ( IsNotHeld(sourceItem) && !IsLastHeldByPlayer(sourceItem) && IsOnlyPlayerHolding(targetItem)  ) {
+				log.Debug("PlayerItemFootHand_OnCollisionStartEvent - Unheld item {0} hit players {1}",
 					sourceItem.data.id, targetItem.data.id);
 			}
 
@@ -383,53 +383,37 @@ namespace Wully.Module {
 
 
 		public virtual void Ragdoll_OnSliceEvent( RagdollPart ragdollPart, EventTime eventTime ) {
-			//ragdoll is being sliced. This calls at the end of slicing
+			//use onstart check if creature alive or ded wen starting to know if player is messing with dead bodies
+			if ( eventTime == EventTime.OnEnd ) { return; }
+
+			//ragdoll is being sliced.
 			Ragdoll ragdoll = ragdollPart.ragdoll;
-
+			//Last thing th at hit damaged it - most likely causing the slice
 			CollisionInstance ch = ragdoll.creature.lastDamage;
+			
+			
+			//remove it from the dictionary if we did hit it before
+			if ( ragdollHits.ContainsKey(ragdoll) ) {
+				if ( ragdollHits[ragdoll].Contains(ragdollPart) ) {
 
-			//use onstart check if creature alive or ded wen starting to know if player is fuking with ded bodies
-			if ( eventTime == EventTime.OnStart ) {
-				//remove it from the dictionary if we did hit it before
-				if ( ragdollHits.ContainsKey(ragdoll) ) {
-					if ( ragdollHits[ragdoll].Contains(ragdollPart) ) {
+					log.Debug("Ragdoll_OnSliceEvent - ragdollPart {0} was being tracked and was sliced", ragdollPart.type.ToString());
 
-						BetterEvents.InvokeDismemberEvent(ragdollPart, ragdoll.creature.isKilled, ragdollPart.type);
+					BetterEvents.InvokeDismemberEvent(ragdollPart, ragdoll.creature.isKilled, ragdollPart.type);
 
-						if ( ragdoll.tkHandlers.Contains(spellCasterLeft) || ragdoll.tkHandlers.Contains(spellCasterLeft) ) {
-							//Debug.LogFormat(Time.time + "OnSlice - Player is currently TKing a tracked ragdoll part - " + ragdollPart.type + " - was creature dead: " + ragdoll.creature.isKilled);
-
-						}
-						//last hit was player
-						if ( ch.IsDoneByPlayer() ) {
-							//Debug.LogFormat(Time.time + "OnSlice - Player sliced tracked ragdoll part - " + ragdollPart.type + " - was creature dead: " + ragdoll.creature.isKilled);
-
-						} else {
-							// this happens if the ragdoll was already dead I think, as long as it was tracked though we know we did it 
-							//Debug.LogFormat(Time.time + "OnSlice - Tracked ragdoll part sliced, but player wasnt last to hit - " + ragdollPart.type + " - was creature dead: " + ragdoll.creature.isKilled);
-						}
-
-						//check if it was a decap?
-
-						//remove ragdoll part from list
-						ragdollHits[ragdoll].Remove(ragdollPart);
-						if ( ragdollHits[ragdoll].Count == 0 ) {
-							//unsubscribed
-							ragdoll.OnSliceEvent -= Ragdoll_OnSliceEvent;
-							//remove the ragdol from the dict too
-							ragdollHits.Remove(ragdoll);
-						}
-
+					//remove ragdoll part from list
+					ragdollHits[ragdoll].Remove(ragdollPart);
+					if ( ragdollHits[ragdoll].Count == 0 ) {
+						//unsubscribed
+						ragdoll.OnSliceEvent -= Ragdoll_OnSliceEvent;
+						//remove the ragdol from the dict too
+						ragdollHits.Remove(ragdoll);
 					}
-				} else {
-					//this never seems to be called
-					if ( ch.IsDoneByPlayer() ) {
-						//Debug.LogFormat(Time.time + "OnSlice - Player sliced Untracked ragdoll part - " + ragdollPart.type + " - was creature dead: " + ragdoll.creature.isKilled);
-					} else {
-						//Debug.LogFormat(Time.time + "OnSlice - Untracked ragdoll part was sliced, but player wasnt last to hit - " + ragdollPart.type + " - was creature dead: " + ragdoll.creature.isKilled);
-					}
+
 				}
+			} else {
+				log.Warn("Ragdoll_OnSliceEvent - ragdollPart {0} was not being tracked.. and was sliced", ragdollPart.type.ToString());
 			}
+			
 
 		}
 		public virtual void OnDeflectEvent( Creature source, Item item, Creature target ) {

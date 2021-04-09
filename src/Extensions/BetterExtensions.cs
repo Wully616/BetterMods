@@ -9,6 +9,9 @@ namespace Wully.Extensions {
 	/// </summary>
 	public static class BetterExtensions {
 
+		public static bool IsPlayer(this RagdollPart ragdollPart) {
+			return BetterHelpers.IsPlayer(ragdollPart);
+		}
 		/// <summary>
 		/// Extended toString
 		/// </summary>
@@ -126,13 +129,32 @@ namespace Wully.Extensions {
 		public static bool TryGetItem( this ColliderGroup colliderGroup, out Item item ) {
 			return BetterHelpers.TryGetObjFromColliderGroup(colliderGroup, out item);
 		}
+
+
+		/// <summary>
+		/// Returns true if only the player is holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsOnlyPlayerHolding( this Handle handle ) {
+			return BetterHelpers.IsOnlyPlayerHolding(handle);
+		}
+		/// <summary>
+		/// Returns true if only the player is holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsOnlyPlayerHolding( this Item item ) {
+			return BetterHelpers.IsOnlyPlayerHolding(item);
+		}
+
 		/// <summary>
 		/// Returns true if a creature other than the player is holding the item
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		public static bool IsCreatureExceptPlayerHolding( this Item item ) {
-			return BetterHelpers.IsCreatureExceptPlayerHolding(item);
+		public static bool IsOnlyCreatureExceptPlayerHolding( this Item item ) {
+			return BetterHelpers.IsOnlyCreatureExceptPlayerHolding(item);
 		}
 
 		/// <summary>
@@ -140,10 +162,42 @@ namespace Wully.Extensions {
 		/// </summary>
 		/// <param name="handle"></param>
 		/// <returns></returns>
-		public static bool IsCreatureExceptPlayerHolding( this Handle handle ) {
-			return BetterHelpers.IsCreatureExceptPlayerHolding(handle);
+		public static bool IsOnlyCreatureExceptPlayerHolding( this Handle handle ) {
+			return BetterHelpers.IsOnlyCreatureExceptPlayerHolding(handle);
 		}
 
+		/// <summary>
+		/// Returns true if the player is TK holding the ragdollPart
+		/// </summary>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( this RagdollPart ragdollPart ) {
+			return BetterHelpers.IsPlayerTkHolding(ragdollPart);
+		}
+		/// <summary>
+		/// Returns true if the player is TK holding the item
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( this Item item ) {
+			return BetterHelpers.IsPlayerTkHolding(item);
+		}
+		/// <summary>
+		/// Returns true if the player is TK holding the handle
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		public static bool IsPlayerTkHolding( this Handle handle ) {
+			return BetterHelpers.IsPlayerTkHolding(handle);
+		}
+		/// <summary>
+		/// Returns true if the player is holding the RagdollPart
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsPlayerHolding( this RagdollPart ragdollPart ) {
+			return BetterHelpers.IsPlayerHolding(ragdollPart);
+		}
 		/// <summary>
 		/// Returns true if the player is holding the item
 		/// </summary>
@@ -296,7 +350,7 @@ namespace Wully.Extensions {
 		/// <param name="spellCaster">side specific spellcaster</param>
 		/// <param name="handle">The handle held by the spellcaster with telekinesis</param>
 		/// <returns></returns>
-		public static bool TryGetTKHandle( this SpellCaster spellCaster, out Handle handle ) {
+		public static bool TryGetTkHandle( this SpellCaster spellCaster, out Handle handle ) {
 			return BetterHelpers.TryGetTelekinesisCaughtHandle(spellCaster, out handle);
 		}
 
