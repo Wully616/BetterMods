@@ -1,0 +1,472 @@
+{
+  "homepages": [],
+  "source_base_path": "E:/Unity/BasSDK-U9/BuildStaging/Plugins/!BetterMods",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.html",
+          "hash": "dTQOgi/iAYWbiYSNmMa51g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.html",
+          "hash": "H/zqHBBKrt9wh3/eMpXrzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.html",
+          "hash": "gTxw5gHkkuaOL8Vwe7y2Ww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.CreatureState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.CreatureState.html",
+          "hash": "vNhWr5TBCiVH54wXZ5zzKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.DamageArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.DamageArea.html",
+          "hash": "K8Ol1p3mege+h47Nn5IdWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.html",
+          "hash": "FToVnFYUcOrW0n9hCtEGmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.Direction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.Direction.html",
+          "hash": "6BfTvQPRyXF6fnH7Sl8UFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.html",
+          "hash": "Xo+4cQlT/1700PRAEM4hzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.HitState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.HitState.html",
+          "hash": "u3fP3umoH3zW5th+MVCAiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.ParryEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.ParryEvent.html",
+          "hash": "1n1lf5PaoYWKVTssz5c1mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.html",
+          "hash": "H2jg+o7vDKUVVDWZ6EpUZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.html",
+          "hash": "rhss8mupyH4tWBxk3Eo+OA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.html",
+          "hash": "7z9HiDX+On1tH4jQYfjmtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.html",
+          "hash": "+lGDZ/KJHOEvO4iHe8iLQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.html",
+          "hash": "JeLUaOb1Y/W0B0X0lodXGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.html",
+          "hash": "HGpED5UsjNBisQ8rCtcn3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterItemEvents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterItemEvents.html",
+          "hash": "8zM6ZP0Z3oXGZvTC6T6hcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.html",
+          "hash": "5bt5cgEVq/QUvvWvh7QuiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Extensions.BetterExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Extensions.BetterExtensions.html",
+          "hash": "K4cik4qdQX9iskPcMP3Faw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Extensions.html",
+          "hash": "OIU9xq3xjMJOG+Py4CtqVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Helpers.BetterHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Helpers.BetterHelpers.html",
+          "hash": "GpaeWoTjYrX281E2eTjqSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Helpers.BetterLogger.Loglevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Helpers.BetterLogger.Loglevel.html",
+          "hash": "3PRviJkmnuzkUbdbBxSIvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Helpers.BetterLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Helpers.BetterLogger.html",
+          "hash": "5pHqJm8YWeoyjG3UXTLhYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Helpers.html",
+          "hash": "jgpTaR5oBDdpkf978+n/ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.LevelModuleBetterEvents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.LevelModuleBetterEvents.html",
+          "hash": "uDy5PdIlUBc7iGeCMIC3mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.html",
+          "hash": "u8stGltj1ni/5YgOLE4oNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "lgJHM13PyjNFSjfggBW1Uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "scGMyRRX84oLkDmddybrig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "nfVW5YhqE5Zr9MqZ/3sIFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/loggercommands.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/loggercommands.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logoutput.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logoutput.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "zGVecW5Wf44XmdfOkS1NQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "/U9qahIyasdlsyke/d3FFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 26,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
