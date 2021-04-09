@@ -2,6 +2,6 @@
     "Name": "!BetterMods",
 	"Description": "A modder library to make better mods",
 	"Author": "Wully",
-	"ModVersion": "0.0.2",
-    "GameVersion": "9.0"
+	"ModVersion": "0.0.3",
+    "GameVersion": "9.1"
 }

@@ -35,10 +35,12 @@
     <DocumentationFile>bin\Release\BetterMods.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Events\BetterEvents.cs" />
-    <Compile Include="Events\BetterItemEvents.cs" />
-    <Compile Include="Helpers\BetterHelpers.cs" />
-    <Compile Include="Module\LevelModuleBetterEvents.cs" />
+    <Compile Include="src\Events\BetterEvents.cs" />
+    <Compile Include="src\Events\BetterItemEvents.cs" />
+    <Compile Include="src\Extensions\BetterExtensions.cs" />
+    <Compile Include="src\Helpers\BetterHelpers.cs" />
+    <Compile Include="src\Helpers\BetterLogger.cs" />
+    <Compile Include="src\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,22 +78,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="api\index.md" />
     <None Include="articles\intro.md" />
-    <None Include="articles\toc.md" />
-    <None Include="docfx.json" />
+    <None Include="docs\api\index.md" />
+    <None Include="docs\articles\toc.yml" />
+    <None Include="docs\index.md" />
+    <None Include="docs\toc.yml" />
     <None Include="index.md" />
+    <None Include="JSON\Levels\Level_Master.json" />
+    <None Include="JSON\manifest.json" />
     <None Include="packages.config" />
     <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="docs\images\loggercommands.jpg" />
+    <Content Include="docs\images\logoutput.jpg" />
+    <Content Include="images\loggercommands.jpg" />
+    <Content Include="images\logoutput.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir  $(SolutionDir)\..\..\Catalog\!BetterMods
-del /S /Q $(SolutionDir)\..\..\Catalog\!BetterMods\
-robocopy "$(SolutionDir)\JSON" "$(SolutionDir)\..\..\Catalog\!BetterMods" /E
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.dll"
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.xml"</PostBuildEvent>
+    <PostBuildEvent>mkdir  $(ProjectDir)\..\..\Catalog\!BetterMods
+del /S /Q $(ProjectDir)\..\..\Catalog\!BetterMods\
+robocopy "$(ProjectDir)\JSON" "$(SolutionDir)\..\..\Catalog\!BetterMods" /E
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\..\Catalog\!BetterMods\!BetterMods.dll"
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\..\Catalog\!BetterMods\!BetterMods.xml"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('packages\docfx.console.2.56.7\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -99,5 +110,7 @@ copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.xm
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\docfx.console.2.56.7\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\docfx.console.2.56.7\build\docfx.console.targets'))" />
+    <Error Condition="!Exists('..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets'))" />
   </Target>
+  <Import Project="..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets')" />
 </Project>
