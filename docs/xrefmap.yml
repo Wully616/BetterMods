@@ -1260,25 +1260,6 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.IsBeingChoked
   nameWithType: BetterExtensions.IsBeingChoked
-- uid: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  name: IsCreatureExceptPlayerHolding(Handle)
-  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsCreatureExceptPlayerHolding_ThunderRoad_Handle_
-  commentId: M:Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  fullName: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  nameWithType: BetterExtensions.IsCreatureExceptPlayerHolding(Handle)
-- uid: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  name: IsCreatureExceptPlayerHolding(Item)
-  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsCreatureExceptPlayerHolding_ThunderRoad_Item_
-  commentId: M:Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  fullName: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  nameWithType: BetterExtensions.IsCreatureExceptPlayerHolding(Item)
-- uid: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding*
-  name: IsCreatureExceptPlayerHolding
-  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsCreatureExceptPlayerHolding_
-  commentId: Overload:Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding
-  isSpec: "True"
-  fullName: Wully.Extensions.BetterExtensions.IsCreatureExceptPlayerHolding
-  nameWithType: BetterExtensions.IsCreatureExceptPlayerHolding
 - uid: Wully.Extensions.BetterExtensions.IsGrabbingHandle(ThunderRoad.Creature)
   name: IsGrabbingHandle(Creature)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsGrabbingHandle_ThunderRoad_Creature_
@@ -1311,6 +1292,57 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.IsHandleChoked
   nameWithType: BetterExtensions.IsHandleChoked
+- uid: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  name: IsOnlyCreatureExceptPlayerHolding(Handle)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyCreatureExceptPlayerHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  nameWithType: BetterExtensions.IsOnlyCreatureExceptPlayerHolding(Handle)
+- uid: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  name: IsOnlyCreatureExceptPlayerHolding(Item)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyCreatureExceptPlayerHolding_ThunderRoad_Item_
+  commentId: M:Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  nameWithType: BetterExtensions.IsOnlyCreatureExceptPlayerHolding(Item)
+- uid: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding*
+  name: IsOnlyCreatureExceptPlayerHolding
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyCreatureExceptPlayerHolding_
+  commentId: Overload:Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyCreatureExceptPlayerHolding
+  nameWithType: BetterExtensions.IsOnlyCreatureExceptPlayerHolding
+- uid: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  name: IsOnlyPlayerHolding(Handle)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyPlayerHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  nameWithType: BetterExtensions.IsOnlyPlayerHolding(Handle)
+- uid: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Item)
+  name: IsOnlyPlayerHolding(Item)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyPlayerHolding_ThunderRoad_Item_
+  commentId: M:Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Item)
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding(ThunderRoad.Item)
+  nameWithType: BetterExtensions.IsOnlyPlayerHolding(Item)
+- uid: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding*
+  name: IsOnlyPlayerHolding
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsOnlyPlayerHolding_
+  commentId: Overload:Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.IsOnlyPlayerHolding
+  nameWithType: BetterExtensions.IsOnlyPlayerHolding
+- uid: Wully.Extensions.BetterExtensions.IsPlayer(ThunderRoad.RagdollPart)
+  name: IsPlayer(RagdollPart)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayer_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Extensions.BetterExtensions.IsPlayer(ThunderRoad.RagdollPart)
+  fullName: Wully.Extensions.BetterExtensions.IsPlayer(ThunderRoad.RagdollPart)
+  nameWithType: BetterExtensions.IsPlayer(RagdollPart)
+- uid: Wully.Extensions.BetterExtensions.IsPlayer*
+  name: IsPlayer
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayer_
+  commentId: Overload:Wully.Extensions.BetterExtensions.IsPlayer
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.IsPlayer
+  nameWithType: BetterExtensions.IsPlayer
 - uid: Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.Handle)
   name: IsPlayerHolding(Handle)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerHolding_ThunderRoad_Handle_
@@ -1323,6 +1355,12 @@ references:
   commentId: M:Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.Item)
   fullName: Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.Item)
   nameWithType: BetterExtensions.IsPlayerHolding(Item)
+- uid: Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.RagdollPart)
+  name: IsPlayerHolding(RagdollPart)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerHolding_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.RagdollPart)
+  fullName: Wully.Extensions.BetterExtensions.IsPlayerHolding(ThunderRoad.RagdollPart)
+  nameWithType: BetterExtensions.IsPlayerHolding(RagdollPart)
 - uid: Wully.Extensions.BetterExtensions.IsPlayerHolding*
   name: IsPlayerHolding
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerHolding_
@@ -1330,6 +1368,31 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.IsPlayerHolding
   nameWithType: BetterExtensions.IsPlayerHolding
+- uid: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Handle)
+  name: IsPlayerTkHolding(Handle)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerTkHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Handle)
+  fullName: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Handle)
+  nameWithType: BetterExtensions.IsPlayerTkHolding(Handle)
+- uid: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Item)
+  name: IsPlayerTkHolding(Item)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerTkHolding_ThunderRoad_Item_
+  commentId: M:Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Item)
+  fullName: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.Item)
+  nameWithType: BetterExtensions.IsPlayerTkHolding(Item)
+- uid: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  name: IsPlayerTkHolding(RagdollPart)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerTkHolding_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  fullName: Wully.Extensions.BetterExtensions.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  nameWithType: BetterExtensions.IsPlayerTkHolding(RagdollPart)
+- uid: Wully.Extensions.BetterExtensions.IsPlayerTkHolding*
+  name: IsPlayerTkHolding
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_IsPlayerTkHolding_
+  commentId: Overload:Wully.Extensions.BetterExtensions.IsPlayerTkHolding
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.IsPlayerTkHolding
+  nameWithType: BetterExtensions.IsPlayerTkHolding
 - uid: Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.CollisionInstance)
   name: ToStringExt(CollisionInstance)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_ToStringExt_ThunderRoad_CollisionInstance_
@@ -1523,22 +1586,22 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.TryGetRagdollPartFromTarget
   nameWithType: BetterExtensions.TryGetRagdollPartFromTarget
-- uid: Wully.Extensions.BetterExtensions.TryGetTKHandle(ThunderRoad.SpellCaster,ThunderRoad.Handle@)
-  name: TryGetTKHandle(SpellCaster, out Handle)
-  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_TryGetTKHandle_ThunderRoad_SpellCaster_ThunderRoad_Handle__
-  commentId: M:Wully.Extensions.BetterExtensions.TryGetTKHandle(ThunderRoad.SpellCaster,ThunderRoad.Handle@)
-  name.vb: TryGetTKHandle(SpellCaster, ByRef Handle)
-  fullName: Wully.Extensions.BetterExtensions.TryGetTKHandle(ThunderRoad.SpellCaster, out ThunderRoad.Handle)
-  fullName.vb: Wully.Extensions.BetterExtensions.TryGetTKHandle(ThunderRoad.SpellCaster, ByRef ThunderRoad.Handle)
-  nameWithType: BetterExtensions.TryGetTKHandle(SpellCaster, out Handle)
-  nameWithType.vb: BetterExtensions.TryGetTKHandle(SpellCaster, ByRef Handle)
-- uid: Wully.Extensions.BetterExtensions.TryGetTKHandle*
-  name: TryGetTKHandle
-  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_TryGetTKHandle_
-  commentId: Overload:Wully.Extensions.BetterExtensions.TryGetTKHandle
+- uid: Wully.Extensions.BetterExtensions.TryGetTkHandle(ThunderRoad.SpellCaster,ThunderRoad.Handle@)
+  name: TryGetTkHandle(SpellCaster, out Handle)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_TryGetTkHandle_ThunderRoad_SpellCaster_ThunderRoad_Handle__
+  commentId: M:Wully.Extensions.BetterExtensions.TryGetTkHandle(ThunderRoad.SpellCaster,ThunderRoad.Handle@)
+  name.vb: TryGetTkHandle(SpellCaster, ByRef Handle)
+  fullName: Wully.Extensions.BetterExtensions.TryGetTkHandle(ThunderRoad.SpellCaster, out ThunderRoad.Handle)
+  fullName.vb: Wully.Extensions.BetterExtensions.TryGetTkHandle(ThunderRoad.SpellCaster, ByRef ThunderRoad.Handle)
+  nameWithType: BetterExtensions.TryGetTkHandle(SpellCaster, out Handle)
+  nameWithType.vb: BetterExtensions.TryGetTkHandle(SpellCaster, ByRef Handle)
+- uid: Wully.Extensions.BetterExtensions.TryGetTkHandle*
+  name: TryGetTkHandle
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_TryGetTkHandle_
+  commentId: Overload:Wully.Extensions.BetterExtensions.TryGetTkHandle
   isSpec: "True"
-  fullName: Wully.Extensions.BetterExtensions.TryGetTKHandle
-  nameWithType: BetterExtensions.TryGetTKHandle
+  fullName: Wully.Extensions.BetterExtensions.TryGetTkHandle
+  nameWithType: BetterExtensions.TryGetTkHandle
 - uid: Wully.Extensions.BetterExtensions.WasBeingChoked(ThunderRoad.Creature)
   name: WasBeingChoked(Creature)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_WasBeingChoked_ThunderRoad_Creature_
@@ -1564,97 +1627,6 @@ references:
   commentId: T:Wully.Helpers.BetterHelpers
   fullName: Wully.Helpers.BetterHelpers
   nameWithType: BetterHelpers
-- uid: Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem(ThunderRoad.Item,ThunderRoad.Item)
-  name: DidCreaturesItemHitPlayersItem(Item, Item)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidCreaturesItemHitPlayersItem_ThunderRoad_Item_ThunderRoad_Item_
-  commentId: M:Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem(ThunderRoad.Item,ThunderRoad.Item)
-  fullName: Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem(ThunderRoad.Item, ThunderRoad.Item)
-  nameWithType: BetterHelpers.DidCreaturesItemHitPlayersItem(Item, Item)
-- uid: Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem*
-  name: DidCreaturesItemHitPlayersItem
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidCreaturesItemHitPlayersItem_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidCreaturesItemHitPlayersItem
-  nameWithType: BetterHelpers.DidCreaturesItemHitPlayersItem
-- uid: Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem(ThunderRoad.Item,ThunderRoad.Item)
-  name: DidFlyingItemHitPlayersItem(Item, Item)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidFlyingItemHitPlayersItem_ThunderRoad_Item_ThunderRoad_Item_
-  commentId: M:Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem(ThunderRoad.Item,ThunderRoad.Item)
-  fullName: Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem(ThunderRoad.Item, ThunderRoad.Item)
-  nameWithType: BetterHelpers.DidFlyingItemHitPlayersItem(Item, Item)
-- uid: Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem*
-  name: DidFlyingItemHitPlayersItem
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidFlyingItemHitPlayersItem_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidFlyingItemHitPlayersItem
-  nameWithType: BetterHelpers.DidFlyingItemHitPlayersItem
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem(ThunderRoad.Item,ThunderRoad.Item)
-  name: DidPlayersItemHitCreaturesItem(Item, Item)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitCreaturesItem_ThunderRoad_Item_ThunderRoad_Item_
-  commentId: M:Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem(ThunderRoad.Item,ThunderRoad.Item)
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem(ThunderRoad.Item, ThunderRoad.Item)
-  nameWithType: BetterHelpers.DidPlayersItemHitCreaturesItem(Item, Item)
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem*
-  name: DidPlayersItemHitCreaturesItem
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitCreaturesItem_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesItem
-  nameWithType: BetterHelpers.DidPlayersItemHitCreaturesItem
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart(ThunderRoad.Item,ThunderRoad.RagdollPart)
-  name: DidPlayersItemHitCreaturesRagdollPart(Item, RagdollPart)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitCreaturesRagdollPart_ThunderRoad_Item_ThunderRoad_RagdollPart_
-  commentId: M:Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart(ThunderRoad.Item,ThunderRoad.RagdollPart)
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart(ThunderRoad.Item, ThunderRoad.RagdollPart)
-  nameWithType: BetterHelpers.DidPlayersItemHitCreaturesRagdollPart(Item, RagdollPart)
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart*
-  name: DidPlayersItemHitCreaturesRagdollPart
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitCreaturesRagdollPart_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitCreaturesRagdollPart
-  nameWithType: BetterHelpers.DidPlayersItemHitCreaturesRagdollPart
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitGround(ThunderRoad.Item,ThunderRoad.CollisionInstance)
-  name: DidPlayersItemHitGround(Item, CollisionInstance)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitGround_ThunderRoad_Item_ThunderRoad_CollisionInstance_
-  commentId: M:Wully.Helpers.BetterHelpers.DidPlayersItemHitGround(ThunderRoad.Item,ThunderRoad.CollisionInstance)
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitGround(ThunderRoad.Item, ThunderRoad.CollisionInstance)
-  nameWithType: BetterHelpers.DidPlayersItemHitGround(Item, CollisionInstance)
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitGround*
-  name: DidPlayersItemHitGround
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitGround_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidPlayersItemHitGround
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitGround
-  nameWithType: BetterHelpers.DidPlayersItemHitGround
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart(ThunderRoad.Item,ThunderRoad.RagdollPart)
-  name: DidPlayersItemHitPlayersRagdollPart(Item, RagdollPart)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitPlayersRagdollPart_ThunderRoad_Item_ThunderRoad_RagdollPart_
-  commentId: M:Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart(ThunderRoad.Item,ThunderRoad.RagdollPart)
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart(ThunderRoad.Item, ThunderRoad.RagdollPart)
-  nameWithType: BetterHelpers.DidPlayersItemHitPlayersRagdollPart(Item, RagdollPart)
-- uid: Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart*
-  name: DidPlayersItemHitPlayersRagdollPart
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersItemHitPlayersRagdollPart_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersItemHitPlayersRagdollPart
-  nameWithType: BetterHelpers.DidPlayersItemHitPlayersRagdollPart
-- uid: Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround(ThunderRoad.RagdollPart,ThunderRoad.CollisionInstance)
-  name: DidPlayersRagdollPartHitGround(RagdollPart, CollisionInstance)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersRagdollPartHitGround_ThunderRoad_RagdollPart_ThunderRoad_CollisionInstance_
-  commentId: M:Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround(ThunderRoad.RagdollPart,ThunderRoad.CollisionInstance)
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround(ThunderRoad.RagdollPart, ThunderRoad.CollisionInstance)
-  nameWithType: BetterHelpers.DidPlayersRagdollPartHitGround(RagdollPart, CollisionInstance)
-- uid: Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround*
-  name: DidPlayersRagdollPartHitGround
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DidPlayersRagdollPartHitGround_
-  commentId: Overload:Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.DidPlayersRagdollPartHitGround
-  nameWithType: BetterHelpers.DidPlayersRagdollPartHitGround
 - uid: Wully.Helpers.BetterHelpers.DisarmCreature(ThunderRoad.Creature)
   name: DisarmCreature(Creature)
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_DisarmCreature_ThunderRoad_Creature_
@@ -1770,25 +1742,6 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterHelpers.IsCreatureArmed
   nameWithType: BetterHelpers.IsCreatureArmed
-- uid: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  name: IsCreatureExceptPlayerHolding(Handle)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsCreatureExceptPlayerHolding_ThunderRoad_Handle_
-  commentId: M:Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  fullName: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Handle)
-  nameWithType: BetterHelpers.IsCreatureExceptPlayerHolding(Handle)
-- uid: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  name: IsCreatureExceptPlayerHolding(Item)
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsCreatureExceptPlayerHolding_ThunderRoad_Item_
-  commentId: M:Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  fullName: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding(ThunderRoad.Item)
-  nameWithType: BetterHelpers.IsCreatureExceptPlayerHolding(Item)
-- uid: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding*
-  name: IsCreatureExceptPlayerHolding
-  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsCreatureExceptPlayerHolding_
-  commentId: Overload:Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding
-  isSpec: "True"
-  fullName: Wully.Helpers.BetterHelpers.IsCreatureExceptPlayerHolding
-  nameWithType: BetterHelpers.IsCreatureExceptPlayerHolding
 - uid: Wully.Helpers.BetterHelpers.IsCreatureGrabbingHandle(ThunderRoad.Creature)
   name: IsCreatureGrabbingHandle(Creature)
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsCreatureGrabbingHandle_ThunderRoad_Creature_
@@ -1897,6 +1850,83 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterHelpers.IsHandleChoked
   nameWithType: BetterHelpers.IsHandleChoked
+- uid: Wully.Helpers.BetterHelpers.IsLastHeldByPlayer(ThunderRoad.Item)
+  name: IsLastHeldByPlayer(Item)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsLastHeldByPlayer_ThunderRoad_Item_
+  commentId: M:Wully.Helpers.BetterHelpers.IsLastHeldByPlayer(ThunderRoad.Item)
+  fullName: Wully.Helpers.BetterHelpers.IsLastHeldByPlayer(ThunderRoad.Item)
+  nameWithType: BetterHelpers.IsLastHeldByPlayer(Item)
+- uid: Wully.Helpers.BetterHelpers.IsLastHeldByPlayer*
+  name: IsLastHeldByPlayer
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsLastHeldByPlayer_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsLastHeldByPlayer
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsLastHeldByPlayer
+  nameWithType: BetterHelpers.IsLastHeldByPlayer
+- uid: Wully.Helpers.BetterHelpers.IsNotHeld(ThunderRoad.Item)
+  name: IsNotHeld(Item)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsNotHeld_ThunderRoad_Item_
+  commentId: M:Wully.Helpers.BetterHelpers.IsNotHeld(ThunderRoad.Item)
+  fullName: Wully.Helpers.BetterHelpers.IsNotHeld(ThunderRoad.Item)
+  nameWithType: BetterHelpers.IsNotHeld(Item)
+- uid: Wully.Helpers.BetterHelpers.IsNotHeld*
+  name: IsNotHeld
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsNotHeld_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsNotHeld
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsNotHeld
+  nameWithType: BetterHelpers.IsNotHeld
+- uid: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  name: IsOnlyCreatureExceptPlayerHolding(Handle)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyCreatureExceptPlayerHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Handle)
+  nameWithType: BetterHelpers.IsOnlyCreatureExceptPlayerHolding(Handle)
+- uid: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  name: IsOnlyCreatureExceptPlayerHolding(Item)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyCreatureExceptPlayerHolding_ThunderRoad_Item_
+  commentId: M:Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding(ThunderRoad.Item)
+  nameWithType: BetterHelpers.IsOnlyCreatureExceptPlayerHolding(Item)
+- uid: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding*
+  name: IsOnlyCreatureExceptPlayerHolding
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyCreatureExceptPlayerHolding_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyCreatureExceptPlayerHolding
+  nameWithType: BetterHelpers.IsOnlyCreatureExceptPlayerHolding
+- uid: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  name: IsOnlyPlayerHolding(Handle)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyPlayerHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Handle)
+  nameWithType: BetterHelpers.IsOnlyPlayerHolding(Handle)
+- uid: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Item)
+  name: IsOnlyPlayerHolding(Item)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyPlayerHolding_ThunderRoad_Item_
+  commentId: M:Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Item)
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding(ThunderRoad.Item)
+  nameWithType: BetterHelpers.IsOnlyPlayerHolding(Item)
+- uid: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding*
+  name: IsOnlyPlayerHolding
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsOnlyPlayerHolding_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsOnlyPlayerHolding
+  nameWithType: BetterHelpers.IsOnlyPlayerHolding
+- uid: Wully.Helpers.BetterHelpers.IsPlayer(ThunderRoad.RagdollPart)
+  name: IsPlayer(RagdollPart)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayer_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Helpers.BetterHelpers.IsPlayer(ThunderRoad.RagdollPart)
+  fullName: Wully.Helpers.BetterHelpers.IsPlayer(ThunderRoad.RagdollPart)
+  nameWithType: BetterHelpers.IsPlayer(RagdollPart)
+- uid: Wully.Helpers.BetterHelpers.IsPlayer*
+  name: IsPlayer
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayer_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsPlayer
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsPlayer
+  nameWithType: BetterHelpers.IsPlayer
 - uid: Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.Handle)
   name: IsPlayerHolding(Handle)
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerHolding_ThunderRoad_Handle_
@@ -1909,6 +1939,12 @@ references:
   commentId: M:Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.Item)
   fullName: Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.Item)
   nameWithType: BetterHelpers.IsPlayerHolding(Item)
+- uid: Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.RagdollPart)
+  name: IsPlayerHolding(RagdollPart)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerHolding_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.RagdollPart)
+  fullName: Wully.Helpers.BetterHelpers.IsPlayerHolding(ThunderRoad.RagdollPart)
+  nameWithType: BetterHelpers.IsPlayerHolding(RagdollPart)
 - uid: Wully.Helpers.BetterHelpers.IsPlayerHolding*
   name: IsPlayerHolding
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerHolding_
@@ -1929,6 +1965,31 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterHelpers.IsPlayerPointingAtBook
   nameWithType: BetterHelpers.IsPlayerPointingAtBook
+- uid: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Handle)
+  name: IsPlayerTkHolding(Handle)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerTkHolding_ThunderRoad_Handle_
+  commentId: M:Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Handle)
+  fullName: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Handle)
+  nameWithType: BetterHelpers.IsPlayerTkHolding(Handle)
+- uid: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Item)
+  name: IsPlayerTkHolding(Item)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerTkHolding_ThunderRoad_Item_
+  commentId: M:Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Item)
+  fullName: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.Item)
+  nameWithType: BetterHelpers.IsPlayerTkHolding(Item)
+- uid: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  name: IsPlayerTkHolding(RagdollPart)
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerTkHolding_ThunderRoad_RagdollPart_
+  commentId: M:Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  fullName: Wully.Helpers.BetterHelpers.IsPlayerTkHolding(ThunderRoad.RagdollPart)
+  nameWithType: BetterHelpers.IsPlayerTkHolding(RagdollPart)
+- uid: Wully.Helpers.BetterHelpers.IsPlayerTkHolding*
+  name: IsPlayerTkHolding
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerTkHolding_
+  commentId: Overload:Wully.Helpers.BetterHelpers.IsPlayerTkHolding
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterHelpers.IsPlayerTkHolding
+  nameWithType: BetterHelpers.IsPlayerTkHolding
 - uid: Wully.Helpers.BetterHelpers.IsPlayerUsingTelekinesis
   name: IsPlayerUsingTelekinesis()
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_IsPlayerUsingTelekinesis
