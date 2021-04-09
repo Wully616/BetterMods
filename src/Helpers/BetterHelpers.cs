@@ -234,12 +234,50 @@ namespace Wully.Helpers {
 		/// <param name="handle"></param>
 		/// <returns></returns>
 		public static bool IsPlayerHolding( Handle handle ) {
-			if ( handle != null ) {
-				foreach ( RagdollHand hand in handle?.handlers ) {
-					if ( hand.creature.isPlayer ) {
-						return true;
-					}
+			if (handle == null) { return false;}
+
+			return Player.currentCreature?.handLeft?.grabbedHandle == handle ||
+			       Player.currentCreature?.handRight?.grabbedHandle == handle;
+		}
+
+		/// <summary>
+		/// Tries to return the players hand which is holding a item
+		/// </summary>
+		/// <param name="item">Item being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool TryGetPlayerHandHolding( Item item, out RagdollHand ragdollHand) {
+			ragdollHand = null;
+			if (item == null) { return false;}
+
+			//need to loop so we can check all in handlers
+			foreach ( RagdollHand hand in item.handlers ) {
+				if ( hand.creature.isPlayer ) {
+					ragdollHand = hand;
+					return true;
 				}
+			}
+			
+			return false;
+		}
+
+		/// <summary>
+		/// Tries to return the players hand which is holding the handle
+		/// </summary>
+		/// <param name="handle">handle being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool TryGetPlayerHandHolding( Handle handle, out RagdollHand ragdollHand ) {
+			ragdollHand = null;
+			if ( handle == null ) { return false; }
+
+			if ( Player.currentCreature?.handLeft?.grabbedHandle == handle) {
+				ragdollHand = Player.currentCreature.handLeft;
+				return true;
+			}
+			if ( Player.currentCreature?.handRight?.grabbedHandle == handle ) {
+				ragdollHand = Player.currentCreature.handRight;
+				return true;
 			}
 
 			return false;
@@ -675,6 +713,26 @@ namespace Wully.Helpers {
 			}
 
 			log.Debug("IsPlayerUsingTelekinesis: false");
+			return false;
+		}
+
+		/// <summary>
+		/// Checks to see if the ragdoll is being choked
+		/// </summary>
+		/// <param name="creature"></param>
+		/// <returns></returns>
+		public static bool TryGetChokedHandle( Creature creature, out HandleRagdoll chokedHandleRagdoll ) {
+			chokedHandleRagdoll = null;
+			foreach ( RagdollPart ragdollPart in creature.ragdoll.parts ) {
+				foreach ( HandleRagdoll handleRagdoll in ragdollPart.handles ) {
+					if ( handleRagdoll.handleRagdollData.choke && handleRagdoll.ragdollPart.ragdoll.creature.state != Creature.State.Dead && (handleRagdoll.telekinesisHandler || handleRagdoll.IsHanded()) ) {
+						log.Debug("IsBeingChoked: true");
+						chokedHandleRagdoll = handleRagdoll;
+						return true;
+					}
+				}
+			}
+			log.Debug("IsBeingChoked: false");
 			return false;
 		}
 

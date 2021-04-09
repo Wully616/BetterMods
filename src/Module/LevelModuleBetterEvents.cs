@@ -218,7 +218,7 @@ namespace Wully.Module {
 			creature.footRight.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
 			creature.footLeft.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
 			Player.local.locomotion.OnGroundEvent += Locomotion_OnGroundEvent;
-
+			
 			spellCasterLeft = Player.local?.creature?.mana?.casterLeft;
 			spellCasterRight = Player.local?.creature?.mana?.casterRight;
 				
@@ -433,27 +433,26 @@ namespace Wully.Module {
 
 		}
 		public virtual void OnDeflectEvent( Creature source, Item item, Creature target ) {
-			//UnityEngine.Debug.Log("OnDeflectEvent");
+			
 			BetterEvents.InvokeDeflectEvent(source, item, target);
 			if ( source.player && target ) {
-				//Debug.Log("Player deflected something!");
-
+				log.Debug("OnDeflectEvent - Player deflected creatures {0}", item.data.id);
 			}
 
 			if ( target.player && source ) {
-				//Debug.Log("Creature deflected players attack!");
-
+				log.Debug("OnDeflectEvent - Creature deflected players {0}", item.data.id);
 			}
 
 		}
 
 		public virtual void OnCreatureParry( Creature creature, CollisionInstance collisionInstance ) {
-			//Debug.Log(Time.time + " OnCreatureParry ");
+			
+			if ( !creature ) { return; }
+			if (creature.isPlayer ) { return;}
+			if ( collisionInstance.IsDoneByPlayer() ) { return; }
 
-			if ( creature != null && !creature.isPlayer && !collisionInstance.IsDoneByPlayer() ) {
-				//Debug.Log(Time.time + " OnCreatureParry - Player parried creature attack"); //this one
-				BetterEvents.InvokePlayerParryingCreature(creature, collisionInstance);
-			}
+			log.Debug("OnCreatureParry - Player parried creature attack");
+			BetterEvents.InvokePlayerParryingCreature(creature, collisionInstance);
 
 		}
 
@@ -462,7 +461,7 @@ namespace Wully.Module {
 			//return if the kill was not done by the player, or if the player was the one killed
 			//Event time is the start/end of the kill class on the creature, we want the start event so we know what it was doing
 			//when it died
-			if ( eventTime == EventTime.OnEnd || (bool)(UnityEngine.Object)player || !collisionInstance.IsDoneByPlayer() ) {
+			if ( eventTime == EventTime.OnEnd || player || !collisionInstance.IsDoneByPlayer() ) {
 				return;
 			}
 

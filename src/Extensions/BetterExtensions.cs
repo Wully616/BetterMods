@@ -160,6 +160,46 @@ namespace Wully.Extensions {
 		public static bool IsPlayerHolding( this Handle handle ) {
 			return BetterHelpers.IsPlayerHolding(handle);
 		}
+
+		/// <summary>
+		/// Tries to return the players hand which is holding the item
+		/// </summary>
+		/// <param name="item">item being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool TryGetPlayerHandHolding( this Item item, out RagdollHand ragdollHand ) {
+			return BetterHelpers.TryGetPlayerHandHolding(item, out ragdollHand);
+		}
+		/// <summary>
+		/// Tries to return the players hand which is holding the handle
+		/// </summary>
+		/// <param name="item">item being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool GetPlayerHandHolding( this Item item, out RagdollHand ragdollHand ) {
+			BetterHelpers.TryGetPlayerHandHolding(item, out ragdollHand);
+			return ragdollHand;
+		}
+
+		/// <summary>
+		/// Tries to return the players hand which is holding the handle
+		/// </summary>
+		/// <param name="handle">handle being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool TryGetPlayerHandHolding(this Handle handle, out RagdollHand ragdollHand) {
+			return BetterHelpers.TryGetPlayerHandHolding(handle, out ragdollHand);
+		}
+		/// <summary>
+		/// Tries to return the players hand which is holding the handle
+		/// </summary>
+		/// <param name="handle">handle being held</param>
+		/// <param name="ragdollHand">Players left or right hand</param>
+		/// <returns></returns>
+		public static bool GetPlayerHandHolding( this Handle handle, out RagdollHand ragdollHand ) {
+			BetterHelpers.TryGetPlayerHandHolding(handle, out ragdollHand);
+			return ragdollHand;
+		}
 		/// <summary>
 		/// Disarms creature on both hands
 		/// </summary>
