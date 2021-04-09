@@ -139,7 +139,6 @@ namespace Wully.Events {
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
 		/// <param name="throwing"></param>
-		/// <param name="eventTime"></param>
 		public delegate void PlayerHandUnGrabEvent( Side side, Handle handle, bool throwing );
 
 		/// <summary>
@@ -238,6 +237,7 @@ namespace Wully.Events {
 
 					if ( throwing ) {
 						OnPlayerRightHandThrowRagdollPartHandle?.Invoke(side, handle, throwing);
+						OnPlayerRightHandThrowHandle?.Invoke(side, handle, throwing);
 					}
 				} else {
 					//right hand grabbed item
@@ -245,6 +245,7 @@ namespace Wully.Events {
 
 					if ( throwing ) {
 						OnPlayerRightHandThrowItemHandle?.Invoke(side, handle, throwing);
+						OnPlayerRightHandThrowHandle?.Invoke(side, handle, throwing);
 					}
 				}
 
@@ -256,12 +257,14 @@ namespace Wully.Events {
 					OnPlayerLeftHandUnGrabRagdollPartHandle?.Invoke(side, handle, throwing);
 					if ( throwing ) {
 						OnPlayerLeftHandThrowRagdollPartHandle?.Invoke(side, handle, throwing);
+						OnPlayerLeftHandThrowHandle?.Invoke(side,handle,throwing);
 					}
 				} else {
 					//Left hand grabbed item
 					OnPlayerLeftHandUnGrabItemHandle?.Invoke(side, handle, throwing);
 					if ( throwing ) {
 						OnPlayerLeftHandThrowItemHandle?.Invoke(side, handle, throwing);
+						OnPlayerLeftHandThrowHandle?.Invoke(side, handle, throwing);
 					}
 				}
 			}
@@ -606,6 +609,7 @@ namespace Wully.Events {
 		/// <param name="ragdollPart"></param>
 		/// <param name="creatureIsKilled"></param>
 		/// <param name="ragdollPartType"></param>
+		/// <param name="usingTelekinesis"></param>
 		public delegate void DismemberEvent( RagdollPart ragdollPart, bool creatureIsKilled, RagdollPart.Type ragdollPartType, bool usingTelekinesis );
 		/// <summary>
 		/// Triggers an event for whenever a part of a creature is dismembered
@@ -696,6 +700,7 @@ namespace Wully.Events {
 		/// <param name="attackDirection"></param>
 		/// <param name="creatureStates"></param>
 		/// <param name="hitStates"></param>
+		/// <param name="damageArea"></param>
 		public static void InvokeCreatureHitEvent( Creature creature, CollisionInstance collisionInstance,
 			DamageType damageType, DamageStruct.Penetration penetrationType, Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates, DamageArea damageArea ) {
 			OnCreatureHit?.Invoke(creature, collisionInstance,damageType,penetrationType,attackDirection,creatureStates, hitStates, damageArea);
@@ -760,12 +765,14 @@ namespace Wully.Events {
 		/// Invokes CreatureKillEvent
 		/// </summary>
 		/// <param name="creature"></param>
+		/// <param name="player"></param>
 		/// <param name="collisionInstance"></param>
 		/// <param name="damageType"></param>
 		/// <param name="penetrationType"></param>
 		/// <param name="attackDirection"></param>
 		/// <param name="creatureStates"></param>
 		/// <param name="hitStates"></param>
+		/// <param name="damageArea"></param>
 		public static void InvokeCreatureKillEvent( Creature creature, Player player, CollisionInstance collisionInstance,
 			DamageType damageType, DamageStruct.Penetration penetrationType, Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates , DamageArea damageArea) {
 			OnCreatureKill?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);

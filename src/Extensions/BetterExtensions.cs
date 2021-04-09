@@ -193,7 +193,7 @@ namespace Wully.Extensions {
 		/// <summary>
 		/// Returns true if the player is holding the RagdollPart
 		/// </summary>
-		/// <param name="item"></param>
+		/// <param name="ragdollPart"></param>
 		/// <returns></returns>
 		public static bool IsPlayerHolding( this RagdollPart ragdollPart ) {
 			return BetterHelpers.IsPlayerHolding(ragdollPart);

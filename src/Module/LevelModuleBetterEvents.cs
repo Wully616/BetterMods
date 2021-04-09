@@ -118,7 +118,7 @@ namespace Wully.Module {
 		/// Called every frame
 		/// </summary>
 		/// <param name="level"></param>
-		public virtual void Update( Level level ) {
+		public override void Update( Level level ) {
 			base.Update(level);
 
 			//since TK doesnt have events for grabbing, we need to monitor it and subscribe to the item the player TKs
@@ -362,7 +362,7 @@ namespace Wully.Module {
 			log.Debug("OnCreatureHeal - Creature {0} healed {1} by {2}", healer.name, creature.name, heal);
 		}
 
-		public virtual void OnUnload( Level level ) {
+		public override void OnUnload( Level level ) {
 
 			if ( this.levelModuleWave != null ) {
 				this.levelModuleWave.OnWaveBeginEvent -= this.OnWaveBegin;

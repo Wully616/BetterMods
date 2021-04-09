@@ -705,6 +705,7 @@ namespace Wully.Helpers {
 		/// Checks to see if the ragdoll is being choked
 		/// </summary>
 		/// <param name="creature"></param>
+		/// <param name="chokedHandleRagdoll"></param>
 		/// <returns></returns>
 		public static bool TryGetChokedHandle( Creature creature, out HandleRagdoll chokedHandleRagdoll ) {
 			chokedHandleRagdoll = null;
