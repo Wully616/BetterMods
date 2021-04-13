@@ -79,7 +79,7 @@
   <h6><strong>Assembly</strong>: !BetterMods.dll</h6>
   <h5 id="Wully_Events_BetterEvents_CreatureHitEvent_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate void CreatureHitEvent(Creature creature, CollisionInstance collisionInstance, DamageType damageType, DamageStruct.Penetration penetrationType, BetterEvents.Direction attackDirection, HashSet&lt;BetterEvents.CreatureState&gt; creatureStates, HashSet&lt;BetterEvents.HitState&gt; hitStates, BetterEvents.DamageArea damageArea);</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate void CreatureHitEvent(BetterHit betterHit);</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -92,43 +92,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ThunderRoad.Creature</span></td>
-        <td><span class="parametername">creature</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ThunderRoad.CollisionInstance</span></td>
-        <td><span class="parametername">collisionInstance</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ThunderRoad.DamageType</span></td>
-        <td><span class="parametername">damageType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ThunderRoad.DamageStruct.Penetration</span></td>
-        <td><span class="parametername">penetrationType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Wully.Events.BetterEvents.Direction.html">BetterEvents.Direction</a></td>
-        <td><span class="parametername">attackDirection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="Wully.Events.BetterEvents.CreatureState.html">BetterEvents.CreatureState</a>&gt;</td>
-        <td><span class="parametername">creatureStates</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<a class="xref" href="Wully.Events.BetterEvents.HitState.html">BetterEvents.HitState</a>&gt;</td>
-        <td><span class="parametername">hitStates</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Wully.Events.BetterEvents.DamageArea.html">BetterEvents.DamageArea</a></td>
-        <td><span class="parametername">damageArea</span></td>
+        <td><a class="xref" href="Wully.Events.BetterHit.html">BetterHit</a></td>
+        <td><span class="parametername">betterHit</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -144,7 +109,7 @@
                     <a href="https://github.com/Wully616/BetterMods/new/0.0.3/apiSpec/new?filename=Wully_Events_BetterEvents_CreatureHitEvent.md&amp;value=---%0Auid%3A%20Wully.Events.BetterEvents.CreatureHitEvent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Wully616/BetterMods/blob/0.0.3/src/Events/BetterEvents.cs/#L691" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Wully616/BetterMods/blob/0.0.3/src/Events/BetterEvents.cs/#L696" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

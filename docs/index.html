@@ -122,12 +122,12 @@ public class MyClass : MonoBehaviour {
 
 	void Update() {
 		for ( int i = 0; i &lt; 3; i++ ) {
-			log.Debug(&quot;Update {0} go brrr&quot;, i);
+			log.Debug().Message(&quot;Update {0} go brrr&quot;, i);
 		}
 	}
 
 	void OnEnable() {
-		log.Error(&quot;Something bad happened at : {1} in our object {2}, while at position: {3}&quot;, Time.time, gameObject.name, transform.position);
+		log.Error().Message(&quot;Something bad happened at : {1} in our object {2}, while at position: {3}&quot;, Time.time, gameObject.name, transform.position);
 	}
 }
 </code></pre>
