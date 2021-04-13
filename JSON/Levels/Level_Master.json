@@ -31,7 +31,9 @@
             "iconAddress": "Bas.Icon.world",
             "mapOrder": 0,
             "modules": [{
-                    "$type": "Wully.Module.LevelModuleBetterEvents, !BetterMods"
+                    "$type": "Wully.Module.LevelModuleBetterEvents, !BetterMods",
+                    "enableLogging": true,
+                    "logLevel": "Info"
                 }
             ],
             "ranks": []

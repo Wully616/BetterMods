@@ -403,15 +403,12 @@ references:
   commentId: F:Wully.Events.BetterEvents.HitState.ThrownItem
   fullName: Wully.Events.BetterEvents.HitState.ThrownItem
   nameWithType: BetterEvents.HitState.ThrownItem
-- uid: Wully.Events.BetterEvents.InvokeCreatureHitEvent(ThunderRoad.Creature,ThunderRoad.CollisionInstance,ThunderRoad.DamageType,ThunderRoad.DamageStruct.Penetration,Wully.Events.BetterEvents.Direction,System.Collections.Generic.HashSet{Wully.Events.BetterEvents.CreatureState},System.Collections.Generic.HashSet{Wully.Events.BetterEvents.HitState},Wully.Events.BetterEvents.DamageArea)
-  name: InvokeCreatureHitEvent(Creature, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet<BetterEvents.CreatureState>, HashSet<BetterEvents.HitState>, BetterEvents.DamageArea)
-  href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureHitEvent_ThunderRoad_Creature_ThunderRoad_CollisionInstance_ThunderRoad_DamageType_ThunderRoad_DamageStruct_Penetration_Wully_Events_BetterEvents_Direction_System_Collections_Generic_HashSet_Wully_Events_BetterEvents_CreatureState__System_Collections_Generic_HashSet_Wully_Events_BetterEvents_HitState__Wully_Events_BetterEvents_DamageArea_
-  commentId: M:Wully.Events.BetterEvents.InvokeCreatureHitEvent(ThunderRoad.Creature,ThunderRoad.CollisionInstance,ThunderRoad.DamageType,ThunderRoad.DamageStruct.Penetration,Wully.Events.BetterEvents.Direction,System.Collections.Generic.HashSet{Wully.Events.BetterEvents.CreatureState},System.Collections.Generic.HashSet{Wully.Events.BetterEvents.HitState},Wully.Events.BetterEvents.DamageArea)
-  name.vb: InvokeCreatureHitEvent(Creature, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet(Of BetterEvents.CreatureState), HashSet(Of BetterEvents.HitState), BetterEvents.DamageArea)
-  fullName: Wully.Events.BetterEvents.InvokeCreatureHitEvent(ThunderRoad.Creature, ThunderRoad.CollisionInstance, ThunderRoad.DamageType, ThunderRoad.DamageStruct.Penetration, Wully.Events.BetterEvents.Direction, System.Collections.Generic.HashSet<Wully.Events.BetterEvents.CreatureState>, System.Collections.Generic.HashSet<Wully.Events.BetterEvents.HitState>, Wully.Events.BetterEvents.DamageArea)
-  fullName.vb: Wully.Events.BetterEvents.InvokeCreatureHitEvent(ThunderRoad.Creature, ThunderRoad.CollisionInstance, ThunderRoad.DamageType, ThunderRoad.DamageStruct.Penetration, Wully.Events.BetterEvents.Direction, System.Collections.Generic.HashSet(Of Wully.Events.BetterEvents.CreatureState), System.Collections.Generic.HashSet(Of Wully.Events.BetterEvents.HitState), Wully.Events.BetterEvents.DamageArea)
-  nameWithType: BetterEvents.InvokeCreatureHitEvent(Creature, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet<BetterEvents.CreatureState>, HashSet<BetterEvents.HitState>, BetterEvents.DamageArea)
-  nameWithType.vb: BetterEvents.InvokeCreatureHitEvent(Creature, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet(Of BetterEvents.CreatureState), HashSet(Of BetterEvents.HitState), BetterEvents.DamageArea)
+- uid: Wully.Events.BetterEvents.InvokeCreatureHitEvent(Wully.Events.BetterHit)
+  name: InvokeCreatureHitEvent(BetterHit)
+  href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureHitEvent_Wully_Events_BetterHit_
+  commentId: M:Wully.Events.BetterEvents.InvokeCreatureHitEvent(Wully.Events.BetterHit)
+  fullName: Wully.Events.BetterEvents.InvokeCreatureHitEvent(Wully.Events.BetterHit)
+  nameWithType: BetterEvents.InvokeCreatureHitEvent(BetterHit)
 - uid: Wully.Events.BetterEvents.InvokeCreatureHitEvent*
   name: InvokeCreatureHitEvent
   href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureHitEvent_
@@ -419,15 +416,12 @@ references:
   isSpec: "True"
   fullName: Wully.Events.BetterEvents.InvokeCreatureHitEvent
   nameWithType: BetterEvents.InvokeCreatureHitEvent
-- uid: Wully.Events.BetterEvents.InvokeCreatureKillEvent(ThunderRoad.Creature,ThunderRoad.Player,ThunderRoad.CollisionInstance,ThunderRoad.DamageType,ThunderRoad.DamageStruct.Penetration,Wully.Events.BetterEvents.Direction,System.Collections.Generic.HashSet{Wully.Events.BetterEvents.CreatureState},System.Collections.Generic.HashSet{Wully.Events.BetterEvents.HitState},Wully.Events.BetterEvents.DamageArea)
-  name: InvokeCreatureKillEvent(Creature, Player, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet<BetterEvents.CreatureState>, HashSet<BetterEvents.HitState>, BetterEvents.DamageArea)
-  href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureKillEvent_ThunderRoad_Creature_ThunderRoad_Player_ThunderRoad_CollisionInstance_ThunderRoad_DamageType_ThunderRoad_DamageStruct_Penetration_Wully_Events_BetterEvents_Direction_System_Collections_Generic_HashSet_Wully_Events_BetterEvents_CreatureState__System_Collections_Generic_HashSet_Wully_Events_BetterEvents_HitState__Wully_Events_BetterEvents_DamageArea_
-  commentId: M:Wully.Events.BetterEvents.InvokeCreatureKillEvent(ThunderRoad.Creature,ThunderRoad.Player,ThunderRoad.CollisionInstance,ThunderRoad.DamageType,ThunderRoad.DamageStruct.Penetration,Wully.Events.BetterEvents.Direction,System.Collections.Generic.HashSet{Wully.Events.BetterEvents.CreatureState},System.Collections.Generic.HashSet{Wully.Events.BetterEvents.HitState},Wully.Events.BetterEvents.DamageArea)
-  name.vb: InvokeCreatureKillEvent(Creature, Player, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet(Of BetterEvents.CreatureState), HashSet(Of BetterEvents.HitState), BetterEvents.DamageArea)
-  fullName: Wully.Events.BetterEvents.InvokeCreatureKillEvent(ThunderRoad.Creature, ThunderRoad.Player, ThunderRoad.CollisionInstance, ThunderRoad.DamageType, ThunderRoad.DamageStruct.Penetration, Wully.Events.BetterEvents.Direction, System.Collections.Generic.HashSet<Wully.Events.BetterEvents.CreatureState>, System.Collections.Generic.HashSet<Wully.Events.BetterEvents.HitState>, Wully.Events.BetterEvents.DamageArea)
-  fullName.vb: Wully.Events.BetterEvents.InvokeCreatureKillEvent(ThunderRoad.Creature, ThunderRoad.Player, ThunderRoad.CollisionInstance, ThunderRoad.DamageType, ThunderRoad.DamageStruct.Penetration, Wully.Events.BetterEvents.Direction, System.Collections.Generic.HashSet(Of Wully.Events.BetterEvents.CreatureState), System.Collections.Generic.HashSet(Of Wully.Events.BetterEvents.HitState), Wully.Events.BetterEvents.DamageArea)
-  nameWithType: BetterEvents.InvokeCreatureKillEvent(Creature, Player, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet<BetterEvents.CreatureState>, HashSet<BetterEvents.HitState>, BetterEvents.DamageArea)
-  nameWithType.vb: BetterEvents.InvokeCreatureKillEvent(Creature, Player, CollisionInstance, DamageType, DamageStruct.Penetration, BetterEvents.Direction, HashSet(Of BetterEvents.CreatureState), HashSet(Of BetterEvents.HitState), BetterEvents.DamageArea)
+- uid: Wully.Events.BetterEvents.InvokeCreatureKillEvent(Wully.Events.BetterHit)
+  name: InvokeCreatureKillEvent(BetterHit)
+  href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureKillEvent_Wully_Events_BetterHit_
+  commentId: M:Wully.Events.BetterEvents.InvokeCreatureKillEvent(Wully.Events.BetterHit)
+  fullName: Wully.Events.BetterEvents.InvokeCreatureKillEvent(Wully.Events.BetterHit)
+  nameWithType: BetterEvents.InvokeCreatureKillEvent(BetterHit)
 - uid: Wully.Events.BetterEvents.InvokeCreatureKillEvent*
   name: InvokeCreatureKillEvent
   href: api/Wully.Events.BetterEvents.html#Wully_Events_BetterEvents_InvokeCreatureKillEvent_
@@ -1050,6 +1044,79 @@ references:
   commentId: T:Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent
   fullName: Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent
   nameWithType: BetterEvents.PlayerTelekinesisUnGrabEvent
+- uid: Wully.Events.BetterHit
+  name: BetterHit
+  href: api/Wully.Events.BetterHit.html
+  commentId: T:Wully.Events.BetterHit
+  fullName: Wully.Events.BetterHit
+  nameWithType: BetterHit
+- uid: Wully.Events.BetterHit.attackDirection
+  name: attackDirection
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_attackDirection
+  commentId: F:Wully.Events.BetterHit.attackDirection
+  fullName: Wully.Events.BetterHit.attackDirection
+  nameWithType: BetterHit.attackDirection
+- uid: Wully.Events.BetterHit.collisionInstance
+  name: collisionInstance
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_collisionInstance
+  commentId: F:Wully.Events.BetterHit.collisionInstance
+  fullName: Wully.Events.BetterHit.collisionInstance
+  nameWithType: BetterHit.collisionInstance
+- uid: Wully.Events.BetterHit.creature
+  name: creature
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_creature
+  commentId: F:Wully.Events.BetterHit.creature
+  fullName: Wully.Events.BetterHit.creature
+  nameWithType: BetterHit.creature
+- uid: Wully.Events.BetterHit.creatureStates
+  name: creatureStates
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_creatureStates
+  commentId: F:Wully.Events.BetterHit.creatureStates
+  fullName: Wully.Events.BetterHit.creatureStates
+  nameWithType: BetterHit.creatureStates
+- uid: Wully.Events.BetterHit.damageArea
+  name: damageArea
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_damageArea
+  commentId: F:Wully.Events.BetterHit.damageArea
+  fullName: Wully.Events.BetterHit.damageArea
+  nameWithType: BetterHit.damageArea
+- uid: Wully.Events.BetterHit.damageType
+  name: damageType
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_damageType
+  commentId: F:Wully.Events.BetterHit.damageType
+  fullName: Wully.Events.BetterHit.damageType
+  nameWithType: BetterHit.damageType
+- uid: Wully.Events.BetterHit.hitStates
+  name: hitStates
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_hitStates
+  commentId: F:Wully.Events.BetterHit.hitStates
+  fullName: Wully.Events.BetterHit.hitStates
+  nameWithType: BetterHit.hitStates
+- uid: Wully.Events.BetterHit.penetrationType
+  name: penetrationType
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_penetrationType
+  commentId: F:Wully.Events.BetterHit.penetrationType
+  fullName: Wully.Events.BetterHit.penetrationType
+  nameWithType: BetterHit.penetrationType
+- uid: Wully.Events.BetterHit.player
+  name: player
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_player
+  commentId: F:Wully.Events.BetterHit.player
+  fullName: Wully.Events.BetterHit.player
+  nameWithType: BetterHit.player
+- uid: Wully.Events.BetterHit.ToString
+  name: ToString()
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_ToString
+  commentId: M:Wully.Events.BetterHit.ToString
+  fullName: Wully.Events.BetterHit.ToString()
+  nameWithType: BetterHit.ToString()
+- uid: Wully.Events.BetterHit.ToString*
+  name: ToString
+  href: api/Wully.Events.BetterHit.html#Wully_Events_BetterHit_ToString_
+  commentId: Overload:Wully.Events.BetterHit.ToString
+  isSpec: "True"
+  fullName: Wully.Events.BetterHit.ToString
+  nameWithType: BetterHit.ToString
 - uid: Wully.Events.BetterItemEvents
   name: BetterItemEvents
   href: api/Wully.Events.BetterItemEvents.html
@@ -1087,6 +1154,32 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.AllowCollisionWith
   nameWithType: BetterExtensions.AllowCollisionWith
+- uid: Wully.Extensions.BetterExtensions.Bold(System.String)
+  name: Bold(String)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Bold_System_String_
+  commentId: M:Wully.Extensions.BetterExtensions.Bold(System.String)
+  fullName: Wully.Extensions.BetterExtensions.Bold(System.String)
+  nameWithType: BetterExtensions.Bold(String)
+- uid: Wully.Extensions.BetterExtensions.Bold*
+  name: Bold
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Bold_
+  commentId: Overload:Wully.Extensions.BetterExtensions.Bold
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.Bold
+  nameWithType: BetterExtensions.Bold
+- uid: Wully.Extensions.BetterExtensions.Color(System.String,UnityEngine.Color)
+  name: Color(String, Color)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Color_System_String_UnityEngine_Color_
+  commentId: M:Wully.Extensions.BetterExtensions.Color(System.String,UnityEngine.Color)
+  fullName: Wully.Extensions.BetterExtensions.Color(System.String, UnityEngine.Color)
+  nameWithType: BetterExtensions.Color(String, Color)
+- uid: Wully.Extensions.BetterExtensions.Color*
+  name: Color
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Color_
+  commentId: Overload:Wully.Extensions.BetterExtensions.Color
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.Color
+  nameWithType: BetterExtensions.Color
 - uid: Wully.Extensions.BetterExtensions.Disarm(ThunderRoad.Creature)
   name: Disarm(Creature)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Disarm_ThunderRoad_Creature_
@@ -1393,12 +1486,57 @@ references:
   isSpec: "True"
   fullName: Wully.Extensions.BetterExtensions.IsPlayerTkHolding
   nameWithType: BetterExtensions.IsPlayerTkHolding
+- uid: Wully.Extensions.BetterExtensions.Italics(System.String)
+  name: Italics(String)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Italics_System_String_
+  commentId: M:Wully.Extensions.BetterExtensions.Italics(System.String)
+  fullName: Wully.Extensions.BetterExtensions.Italics(System.String)
+  nameWithType: BetterExtensions.Italics(String)
+- uid: Wully.Extensions.BetterExtensions.Italics*
+  name: Italics
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Italics_
+  commentId: Overload:Wully.Extensions.BetterExtensions.Italics
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.Italics
+  nameWithType: BetterExtensions.Italics
+- uid: Wully.Extensions.BetterExtensions.LineNumber(System.Exception)
+  name: LineNumber(Exception)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_LineNumber_System_Exception_
+  commentId: M:Wully.Extensions.BetterExtensions.LineNumber(System.Exception)
+  fullName: Wully.Extensions.BetterExtensions.LineNumber(System.Exception)
+  nameWithType: BetterExtensions.LineNumber(Exception)
+- uid: Wully.Extensions.BetterExtensions.LineNumber*
+  name: LineNumber
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_LineNumber_
+  commentId: Overload:Wully.Extensions.BetterExtensions.LineNumber
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.LineNumber
+  nameWithType: BetterExtensions.LineNumber
+- uid: Wully.Extensions.BetterExtensions.Size(System.String,System.Int32)
+  name: Size(String, Int32)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Size_System_String_System_Int32_
+  commentId: M:Wully.Extensions.BetterExtensions.Size(System.String,System.Int32)
+  fullName: Wully.Extensions.BetterExtensions.Size(System.String, System.Int32)
+  nameWithType: BetterExtensions.Size(String, Int32)
+- uid: Wully.Extensions.BetterExtensions.Size*
+  name: Size
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_Size_
+  commentId: Overload:Wully.Extensions.BetterExtensions.Size
+  isSpec: "True"
+  fullName: Wully.Extensions.BetterExtensions.Size
+  nameWithType: BetterExtensions.Size
 - uid: Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.CollisionInstance)
   name: ToStringExt(CollisionInstance)
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_ToStringExt_ThunderRoad_CollisionInstance_
   commentId: M:Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.CollisionInstance)
   fullName: Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.CollisionInstance)
   nameWithType: BetterExtensions.ToStringExt(CollisionInstance)
+- uid: Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.DamageStruct)
+  name: ToStringExt(DamageStruct)
+  href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_ToStringExt_ThunderRoad_DamageStruct_
+  commentId: M:Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.DamageStruct)
+  fullName: Wully.Extensions.BetterExtensions.ToStringExt(ThunderRoad.DamageStruct)
+  nameWithType: BetterExtensions.ToStringExt(DamageStruct)
 - uid: Wully.Extensions.BetterExtensions.ToStringExt*
   name: ToStringExt
   href: api/Wully.Extensions.BetterExtensions.html#Wully_Extensions_BetterExtensions_ToStringExt_
@@ -2223,15 +2361,25 @@ references:
   commentId: T:Wully.Helpers.BetterLogger
   fullName: Wully.Helpers.BetterLogger
   nameWithType: BetterLogger
-- uid: Wully.Helpers.BetterLogger.Debug(System.String,System.Object[])
-  name: Debug(String, Object[])
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Debug_System_String_System_Object___
-  commentId: M:Wully.Helpers.BetterLogger.Debug(System.String,System.Object[])
-  name.vb: Debug(String, Object())
-  fullName: Wully.Helpers.BetterLogger.Debug(System.String, System.Object[])
-  fullName.vb: Wully.Helpers.BetterLogger.Debug(System.String, System.Object())
-  nameWithType: BetterLogger.Debug(String, Object[])
-  nameWithType.vb: BetterLogger.Debug(String, Object())
+- uid: Wully.Helpers.BetterLogger.ClassName
+  name: ClassName()
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_ClassName
+  commentId: M:Wully.Helpers.BetterLogger.ClassName
+  fullName: Wully.Helpers.BetterLogger.ClassName()
+  nameWithType: BetterLogger.ClassName()
+- uid: Wully.Helpers.BetterLogger.ClassName*
+  name: ClassName
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_ClassName_
+  commentId: Overload:Wully.Helpers.BetterLogger.ClassName
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.ClassName
+  nameWithType: BetterLogger.ClassName
+- uid: Wully.Helpers.BetterLogger.Debug(System.Int32,System.String,System.String)
+  name: Debug(Int32, String, String)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Debug_System_Int32_System_String_System_String_
+  commentId: M:Wully.Helpers.BetterLogger.Debug(System.Int32,System.String,System.String)
+  fullName: Wully.Helpers.BetterLogger.Debug(System.Int32, System.String, System.String)
+  nameWithType: BetterLogger.Debug(Int32, String, String)
 - uid: Wully.Helpers.BetterLogger.Debug*
   name: Debug
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Debug_
@@ -2265,15 +2413,12 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.EnableLogging
   nameWithType: BetterLogger.EnableLogging
-- uid: Wully.Helpers.BetterLogger.Error(System.String,System.Object[])
-  name: Error(String, Object[])
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Error_System_String_System_Object___
-  commentId: M:Wully.Helpers.BetterLogger.Error(System.String,System.Object[])
-  name.vb: Error(String, Object())
-  fullName: Wully.Helpers.BetterLogger.Error(System.String, System.Object[])
-  fullName.vb: Wully.Helpers.BetterLogger.Error(System.String, System.Object())
-  nameWithType: BetterLogger.Error(String, Object[])
-  nameWithType.vb: BetterLogger.Error(String, Object())
+- uid: Wully.Helpers.BetterLogger.Error(System.Int32,System.String,System.String)
+  name: Error(Int32, String, String)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Error_System_Int32_System_String_System_String_
+  commentId: M:Wully.Helpers.BetterLogger.Error(System.Int32,System.String,System.String)
+  fullName: Wully.Helpers.BetterLogger.Error(System.Int32, System.String, System.String)
+  nameWithType: BetterLogger.Error(Int32, String, String)
 - uid: Wully.Helpers.BetterLogger.Error*
   name: Error
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Error_
@@ -2281,6 +2426,19 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.Error
   nameWithType: BetterLogger.Error
+- uid: Wully.Helpers.BetterLogger.Exception(System.Int32,System.String,System.String)
+  name: Exception(Int32, String, String)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Exception_System_Int32_System_String_System_String_
+  commentId: M:Wully.Helpers.BetterLogger.Exception(System.Int32,System.String,System.String)
+  fullName: Wully.Helpers.BetterLogger.Exception(System.Int32, System.String, System.String)
+  nameWithType: BetterLogger.Exception(Int32, String, String)
+- uid: Wully.Helpers.BetterLogger.Exception*
+  name: Exception
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Exception_
+  commentId: Overload:Wully.Helpers.BetterLogger.Exception
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.Exception
+  nameWithType: BetterLogger.Exception
 - uid: Wully.Helpers.BetterLogger.GetLogger(System.Type)
   name: GetLogger(Type)
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_GetLogger_System_Type_
@@ -2294,15 +2452,25 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.GetLogger
   nameWithType: BetterLogger.GetLogger
-- uid: Wully.Helpers.BetterLogger.Info(System.String,System.Object[])
-  name: Info(String, Object[])
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Info_System_String_System_Object___
-  commentId: M:Wully.Helpers.BetterLogger.Info(System.String,System.Object[])
-  name.vb: Info(String, Object())
-  fullName: Wully.Helpers.BetterLogger.Info(System.String, System.Object[])
-  fullName.vb: Wully.Helpers.BetterLogger.Info(System.String, System.Object())
-  nameWithType: BetterLogger.Info(String, Object[])
-  nameWithType.vb: BetterLogger.Info(String, Object())
+- uid: Wully.Helpers.BetterLogger.GetLogLevel
+  name: GetLogLevel()
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_GetLogLevel
+  commentId: M:Wully.Helpers.BetterLogger.GetLogLevel
+  fullName: Wully.Helpers.BetterLogger.GetLogLevel()
+  nameWithType: BetterLogger.GetLogLevel()
+- uid: Wully.Helpers.BetterLogger.GetLogLevel*
+  name: GetLogLevel
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_GetLogLevel_
+  commentId: Overload:Wully.Helpers.BetterLogger.GetLogLevel
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.GetLogLevel
+  nameWithType: BetterLogger.GetLogLevel
+- uid: Wully.Helpers.BetterLogger.Info(System.Int32,System.String,System.String)
+  name: Info(Int32, String, String)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Info_System_Int32_System_String_System_String_
+  commentId: M:Wully.Helpers.BetterLogger.Info(System.Int32,System.String,System.String)
+  fullName: Wully.Helpers.BetterLogger.Info(System.Int32, System.String, System.String)
+  nameWithType: BetterLogger.Info(Int32, String, String)
 - uid: Wully.Helpers.BetterLogger.Info*
   name: Info
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Info_
@@ -2310,42 +2478,67 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.Info
   nameWithType: BetterLogger.Info
-- uid: Wully.Helpers.BetterLogger.Loglevel
-  name: BetterLogger.Loglevel
-  href: api/Wully.Helpers.BetterLogger.Loglevel.html
-  commentId: T:Wully.Helpers.BetterLogger.Loglevel
-  fullName: Wully.Helpers.BetterLogger.Loglevel
-  nameWithType: BetterLogger.Loglevel
-- uid: Wully.Helpers.BetterLogger.Loglevel.Debug
+- uid: Wully.Helpers.BetterLogger.IsEnabled
+  name: IsEnabled()
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_IsEnabled
+  commentId: M:Wully.Helpers.BetterLogger.IsEnabled
+  fullName: Wully.Helpers.BetterLogger.IsEnabled()
+  nameWithType: BetterLogger.IsEnabled()
+- uid: Wully.Helpers.BetterLogger.IsEnabled*
+  name: IsEnabled
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_IsEnabled_
+  commentId: Overload:Wully.Helpers.BetterLogger.IsEnabled
+  isSpec: "True"
+  fullName: Wully.Helpers.BetterLogger.IsEnabled
+  nameWithType: BetterLogger.IsEnabled
+- uid: Wully.Helpers.BetterLogger.local
+  name: local
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_local
+  commentId: F:Wully.Helpers.BetterLogger.local
+  fullName: Wully.Helpers.BetterLogger.local
+  nameWithType: BetterLogger.local
+- uid: Wully.Helpers.BetterLogger.LogLevel
+  name: BetterLogger.LogLevel
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html
+  commentId: T:Wully.Helpers.BetterLogger.LogLevel
+  fullName: Wully.Helpers.BetterLogger.LogLevel
+  nameWithType: BetterLogger.LogLevel
+- uid: Wully.Helpers.BetterLogger.LogLevel.Debug
   name: Debug
-  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Debug
-  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Debug
-  fullName: Wully.Helpers.BetterLogger.Loglevel.Debug
-  nameWithType: BetterLogger.Loglevel.Debug
-- uid: Wully.Helpers.BetterLogger.Loglevel.Error
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html#Wully_Helpers_BetterLogger_LogLevel_Debug
+  commentId: F:Wully.Helpers.BetterLogger.LogLevel.Debug
+  fullName: Wully.Helpers.BetterLogger.LogLevel.Debug
+  nameWithType: BetterLogger.LogLevel.Debug
+- uid: Wully.Helpers.BetterLogger.LogLevel.Error
   name: Error
-  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Error
-  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Error
-  fullName: Wully.Helpers.BetterLogger.Loglevel.Error
-  nameWithType: BetterLogger.Loglevel.Error
-- uid: Wully.Helpers.BetterLogger.Loglevel.Info
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html#Wully_Helpers_BetterLogger_LogLevel_Error
+  commentId: F:Wully.Helpers.BetterLogger.LogLevel.Error
+  fullName: Wully.Helpers.BetterLogger.LogLevel.Error
+  nameWithType: BetterLogger.LogLevel.Error
+- uid: Wully.Helpers.BetterLogger.LogLevel.Exception
+  name: Exception
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html#Wully_Helpers_BetterLogger_LogLevel_Exception
+  commentId: F:Wully.Helpers.BetterLogger.LogLevel.Exception
+  fullName: Wully.Helpers.BetterLogger.LogLevel.Exception
+  nameWithType: BetterLogger.LogLevel.Exception
+- uid: Wully.Helpers.BetterLogger.LogLevel.Info
   name: Info
-  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Info
-  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Info
-  fullName: Wully.Helpers.BetterLogger.Loglevel.Info
-  nameWithType: BetterLogger.Loglevel.Info
-- uid: Wully.Helpers.BetterLogger.Loglevel.Warn
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html#Wully_Helpers_BetterLogger_LogLevel_Info
+  commentId: F:Wully.Helpers.BetterLogger.LogLevel.Info
+  fullName: Wully.Helpers.BetterLogger.LogLevel.Info
+  nameWithType: BetterLogger.LogLevel.Info
+- uid: Wully.Helpers.BetterLogger.LogLevel.Warn
   name: Warn
-  href: api/Wully.Helpers.BetterLogger.Loglevel.html#Wully_Helpers_BetterLogger_Loglevel_Warn
-  commentId: F:Wully.Helpers.BetterLogger.Loglevel.Warn
-  fullName: Wully.Helpers.BetterLogger.Loglevel.Warn
-  nameWithType: BetterLogger.Loglevel.Warn
-- uid: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
-  name: SetLoggingLevel(BetterLogger.Loglevel)
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_Wully_Helpers_BetterLogger_Loglevel_
-  commentId: M:Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
-  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.Loglevel)
-  nameWithType: BetterLogger.SetLoggingLevel(BetterLogger.Loglevel)
+  href: api/Wully.Helpers.BetterLogger.LogLevel.html#Wully_Helpers_BetterLogger_LogLevel_Warn
+  commentId: F:Wully.Helpers.BetterLogger.LogLevel.Warn
+  fullName: Wully.Helpers.BetterLogger.LogLevel.Warn
+  nameWithType: BetterLogger.LogLevel.Warn
+- uid: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.LogLevel)
+  name: SetLoggingLevel(BetterLogger.LogLevel)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_Wully_Helpers_BetterLogger_LogLevel_
+  commentId: M:Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.LogLevel)
+  fullName: Wully.Helpers.BetterLogger.SetLoggingLevel(Wully.Helpers.BetterLogger.LogLevel)
+  nameWithType: BetterLogger.SetLoggingLevel(BetterLogger.LogLevel)
 - uid: Wully.Helpers.BetterLogger.SetLoggingLevel*
   name: SetLoggingLevel
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_SetLoggingLevel_
@@ -2353,15 +2546,12 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.SetLoggingLevel
   nameWithType: BetterLogger.SetLoggingLevel
-- uid: Wully.Helpers.BetterLogger.Warn(System.String,System.Object[])
-  name: Warn(String, Object[])
-  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Warn_System_String_System_Object___
-  commentId: M:Wully.Helpers.BetterLogger.Warn(System.String,System.Object[])
-  name.vb: Warn(String, Object())
-  fullName: Wully.Helpers.BetterLogger.Warn(System.String, System.Object[])
-  fullName.vb: Wully.Helpers.BetterLogger.Warn(System.String, System.Object())
-  nameWithType: BetterLogger.Warn(String, Object[])
-  nameWithType.vb: BetterLogger.Warn(String, Object())
+- uid: Wully.Helpers.BetterLogger.Warn(System.Int32,System.String,System.String)
+  name: Warn(Int32, String, String)
+  href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Warn_System_Int32_System_String_System_String_
+  commentId: M:Wully.Helpers.BetterLogger.Warn(System.Int32,System.String,System.String)
+  fullName: Wully.Helpers.BetterLogger.Warn(System.Int32, System.String, System.String)
+  nameWithType: BetterLogger.Warn(Int32, String, String)
 - uid: Wully.Helpers.BetterLogger.Warn*
   name: Warn
   href: api/Wully.Helpers.BetterLogger.html#Wully_Helpers_BetterLogger_Warn_
@@ -2369,6 +2559,90 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterLogger.Warn
   nameWithType: BetterLogger.Warn
+- uid: Wully.Helpers.FluentLogger
+  name: FluentLogger
+  href: api/Wully.Helpers.FluentLogger.html
+  commentId: T:Wully.Helpers.FluentLogger
+  fullName: Wully.Helpers.FluentLogger
+  nameWithType: FluentLogger
+- uid: Wully.Helpers.FluentLogger.#ctor(Wully.Helpers.BetterLogger,Wully.Helpers.BetterLogger.LogLevel,System.String,System.String,System.Int32)
+  name: FluentLogger(BetterLogger, BetterLogger.LogLevel, String, String, Int32)
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger__ctor_Wully_Helpers_BetterLogger_Wully_Helpers_BetterLogger_LogLevel_System_String_System_String_System_Int32_
+  commentId: M:Wully.Helpers.FluentLogger.#ctor(Wully.Helpers.BetterLogger,Wully.Helpers.BetterLogger.LogLevel,System.String,System.String,System.Int32)
+  fullName: Wully.Helpers.FluentLogger.FluentLogger(Wully.Helpers.BetterLogger, Wully.Helpers.BetterLogger.LogLevel, System.String, System.String, System.Int32)
+  nameWithType: FluentLogger.FluentLogger(BetterLogger, BetterLogger.LogLevel, String, String, Int32)
+- uid: Wully.Helpers.FluentLogger.#ctor*
+  name: FluentLogger
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger__ctor_
+  commentId: Overload:Wully.Helpers.FluentLogger.#ctor
+  isSpec: "True"
+  fullName: Wully.Helpers.FluentLogger.FluentLogger
+  nameWithType: FluentLogger.FluentLogger
+- uid: Wully.Helpers.FluentLogger.ConvertToHtml(UnityEngine.Color,System.String)
+  name: ConvertToHtml(Color, String)
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger_ConvertToHtml_UnityEngine_Color_System_String_
+  commentId: M:Wully.Helpers.FluentLogger.ConvertToHtml(UnityEngine.Color,System.String)
+  fullName: Wully.Helpers.FluentLogger.ConvertToHtml(UnityEngine.Color, System.String)
+  nameWithType: FluentLogger.ConvertToHtml(Color, String)
+- uid: Wully.Helpers.FluentLogger.ConvertToHtml(Wully.Helpers.FluentLogger.Style,System.Int32,System.String)
+  name: ConvertToHtml(FluentLogger.Style, Int32, String)
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger_ConvertToHtml_Wully_Helpers_FluentLogger_Style_System_Int32_System_String_
+  commentId: M:Wully.Helpers.FluentLogger.ConvertToHtml(Wully.Helpers.FluentLogger.Style,System.Int32,System.String)
+  fullName: Wully.Helpers.FluentLogger.ConvertToHtml(Wully.Helpers.FluentLogger.Style, System.Int32, System.String)
+  nameWithType: FluentLogger.ConvertToHtml(FluentLogger.Style, Int32, String)
+- uid: Wully.Helpers.FluentLogger.ConvertToHtml*
+  name: ConvertToHtml
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger_ConvertToHtml_
+  commentId: Overload:Wully.Helpers.FluentLogger.ConvertToHtml
+  isSpec: "True"
+  fullName: Wully.Helpers.FluentLogger.ConvertToHtml
+  nameWithType: FluentLogger.ConvertToHtml
+- uid: Wully.Helpers.FluentLogger.Message(System.String,System.Object[])
+  name: Message(String, Object[])
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger_Message_System_String_System_Object___
+  commentId: M:Wully.Helpers.FluentLogger.Message(System.String,System.Object[])
+  name.vb: Message(String, Object())
+  fullName: Wully.Helpers.FluentLogger.Message(System.String, System.Object[])
+  fullName.vb: Wully.Helpers.FluentLogger.Message(System.String, System.Object())
+  nameWithType: FluentLogger.Message(String, Object[])
+  nameWithType.vb: FluentLogger.Message(String, Object())
+- uid: Wully.Helpers.FluentLogger.Message*
+  name: Message
+  href: api/Wully.Helpers.FluentLogger.html#Wully_Helpers_FluentLogger_Message_
+  commentId: Overload:Wully.Helpers.FluentLogger.Message
+  isSpec: "True"
+  fullName: Wully.Helpers.FluentLogger.Message
+  nameWithType: FluentLogger.Message
+- uid: Wully.Helpers.FluentLogger.Style
+  name: FluentLogger.Style
+  href: api/Wully.Helpers.FluentLogger.Style.html
+  commentId: T:Wully.Helpers.FluentLogger.Style
+  fullName: Wully.Helpers.FluentLogger.Style
+  nameWithType: FluentLogger.Style
+- uid: Wully.Helpers.FluentLogger.Style.bold
+  name: bold
+  href: api/Wully.Helpers.FluentLogger.Style.html#Wully_Helpers_FluentLogger_Style_bold
+  commentId: F:Wully.Helpers.FluentLogger.Style.bold
+  fullName: Wully.Helpers.FluentLogger.Style.bold
+  nameWithType: FluentLogger.Style.bold
+- uid: Wully.Helpers.FluentLogger.Style.italic
+  name: italic
+  href: api/Wully.Helpers.FluentLogger.Style.html#Wully_Helpers_FluentLogger_Style_italic
+  commentId: F:Wully.Helpers.FluentLogger.Style.italic
+  fullName: Wully.Helpers.FluentLogger.Style.italic
+  nameWithType: FluentLogger.Style.italic
+- uid: Wully.Helpers.FluentLogger.Style.normal
+  name: normal
+  href: api/Wully.Helpers.FluentLogger.Style.html#Wully_Helpers_FluentLogger_Style_normal
+  commentId: F:Wully.Helpers.FluentLogger.Style.normal
+  fullName: Wully.Helpers.FluentLogger.Style.normal
+  nameWithType: FluentLogger.Style.normal
+- uid: Wully.Helpers.FluentLogger.Style.size
+  name: size
+  href: api/Wully.Helpers.FluentLogger.Style.html#Wully_Helpers_FluentLogger_Style_size
+  commentId: F:Wully.Helpers.FluentLogger.Style.size
+  fullName: Wully.Helpers.FluentLogger.Style.size
+  nameWithType: FluentLogger.Style.size
 - uid: Wully.Module
   name: Wully.Module
   href: api/Wully.Module.html
@@ -2522,12 +2796,12 @@ references:
   isSpec: "True"
   fullName: Wully.Module.LevelModuleBetterEvents.Locomotion_OnGroundEvent
   nameWithType: LevelModuleBetterEvents.Locomotion_OnGroundEvent
-- uid: Wully.Module.LevelModuleBetterEvents.loglevel
-  name: loglevel
-  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_loglevel
-  commentId: F:Wully.Module.LevelModuleBetterEvents.loglevel
-  fullName: Wully.Module.LevelModuleBetterEvents.loglevel
-  nameWithType: LevelModuleBetterEvents.loglevel
+- uid: Wully.Module.LevelModuleBetterEvents.logLevel
+  name: logLevel
+  href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_logLevel
+  commentId: F:Wully.Module.LevelModuleBetterEvents.logLevel
+  fullName: Wully.Module.LevelModuleBetterEvents.logLevel
+  nameWithType: LevelModuleBetterEvents.logLevel
 - uid: Wully.Module.LevelModuleBetterEvents.MonitorTk(ThunderRoad.SpellCaster,ThunderRoad.Side,ThunderRoad.Handle@)
   name: MonitorTk(SpellCaster, Side, ref Handle)
   href: api/Wully.Module.LevelModuleBetterEvents.html#Wully_Module_LevelModuleBetterEvents_MonitorTk_ThunderRoad_SpellCaster_ThunderRoad_Side_ThunderRoad_Handle__

@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Wully.Helpers {
@@ -14,28 +16,31 @@ namespace Wully.Helpers {
     /// </summary>
 	public class BetterLogger {
 
+	    public static BetterLogger local;
+
         private bool enabled = true;
-        private Loglevel logLevel = Loglevel.Warn;
+        private LogLevel loggingLevel = LogLevel.Info;
         private string className;
         private Type classType;
 
-        /// <summary>
-        /// Log Levels
-        /// </summary>
-        public enum Loglevel {
-            Error = 0,
-            Warn = 1,
-            Info = 2,
-            Debug = 3
-		}
+        
+        public string ClassName() {
+	        return className;
+        }
+        public bool IsEnabled() {
+	        return enabled;
+        }
 
+        public LogLevel GetLogLevel() {
+	        return loggingLevel;
+        }
         /// <summary>
-        /// Sets the logging loglevel for this logger instance
+        /// Sets the logging loggingLevel for this logger instance
         /// </summary>
-        /// <param name="loglevel"></param>
-        public void SetLoggingLevel(Loglevel loglevel ) {
-            logLevel = loglevel;
-		}
+        /// <param name="logLevel"></param>
+        public void SetLoggingLevel(LogLevel logLevel ) {
+            this.loggingLevel = logLevel;
+        }
         /// <summary>
         /// Toggles Logging on or off
         /// </summary>
@@ -58,11 +63,28 @@ namespace Wully.Helpers {
         BetterLogger( Type classType ) {
             this.classType = classType;
             className = classType.Name;
-            DebugLogConsole.AddCommand("BetterLogger_" + className + "_EnableLogging", "Enable Logging for: "+className, EnableLogging);
-            DebugLogConsole.AddCommand("BetterLogger_" + className + "_DisableLogging", "Disable Logging for: " + className, DisableLogging);
-            DebugLogConsole.AddCommand("BetterLogger_" + className + "_ToggleLogging", "Toggle Logging for: " + className, ToggleLogging);
-            DebugLogConsole.AddCommand<Loglevel>("BetterLogger_" + className + "_LogLevel", "Set log level for: " + className, SetLoggingLevel);
+            AddCommands(className);
+
+            if ( BetterLogger.local == null ) {
+	            InitGlobal();
+            }
         }
+
+        BetterLogger(string name) {
+	        AddCommands(name);
+        }
+        private void InitGlobal() {
+	        BetterLogger.local = new BetterLogger("Global");
+	        BetterLogger.local.DisableLogging();
+        }
+
+        private void AddCommands(string name) {
+	        DebugLogConsole.AddCommand("Log_" + name + "_EnableLogging", "Enable Logging for: " + name, EnableLogging);
+	        DebugLogConsole.AddCommand("Log_" + name + "_DisableLogging", "Disable Logging for: " + name, DisableLogging);
+	        DebugLogConsole.AddCommand("Log_" + name + "_ToggleLogging", "Toggle Logging for: " + name, ToggleLogging);
+	        DebugLogConsole.AddCommand<LogLevel>("Log_" + name + "_LogLevel", "Set log level for: " + name, SetLoggingLevel);
+        }
+   
 
         /// <summary>
         /// Gets a new instance of BetterLogger
@@ -74,56 +96,42 @@ namespace Wully.Helpers {
             return logger;
 		}
 
-        private string Log( Loglevel loglevel, string format, params object[] args ) {
-            string message = string.Format("{0}{1}{2}{3}{4}",
-                "[" + Time.time + "]",
-                "[" + loglevel.ToString() + "]",
-                "[" + Thread.CurrentThread.ManagedThreadId.ToString() + "]",
-                "[" + className + "] : ",
-                string.Format(format, args));
 
-            return message;
+        [Pure]
+        public FluentLogger Exception ([CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null,
+	        [CallerFilePath] string path = null) {
+            return new FluentLogger(this, LogLevel.Exception,caller,path,lineNumber);
+        }
+        [Pure]
+        public FluentLogger Error( [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null,
+	        [CallerFilePath] string path = null ) {
+	        return new FluentLogger(this, LogLevel.Error, caller, path, lineNumber);
+        }
+        [Pure]
+        public FluentLogger Warn( [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null,
+	        [CallerFilePath] string path = null ) {
+	        return new FluentLogger(this, LogLevel.Warn, caller, path, lineNumber);
+        }
+        [Pure]
+        public FluentLogger Info( [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null,
+	        [CallerFilePath] string path = null ) {
+	        return new FluentLogger(this, LogLevel.Info, caller, path, lineNumber);
+        }
+        [Pure]
+        public FluentLogger Debug( [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null,
+	        [CallerFilePath] string path = null ) {
+	        return new FluentLogger(this, LogLevel.Debug, caller, path, lineNumber);
         }
         /// <summary>
-        /// Logs Errors
+        /// Log Levels
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="args"></param>
-        public void Error( string format, params object[] args ) {
-            if ( enabled && logLevel >= Loglevel.Error ) {
-                UnityEngine.Debug.LogError(Log(Loglevel.Error, format, args));
-            }
+        public enum LogLevel {
+	        Exception = 0,
+	        Error = 1,
+	        Warn = 2,
+	        Info = 3,
+	        Debug = 4
         }
-        /// <summary>
-        /// Logs Warnings
-        /// </summary>
-        /// <param name="format"></param>
-        /// <param name="args"></param>
-        public void Warn( string format, params object[] args ) {
-            if ( enabled && logLevel >= Loglevel.Warn ) {
-                UnityEngine.Debug.LogWarning(Log(Loglevel.Warn, format, args));
-            }
-        }
-        /// <summary>
-        /// Logs Information messages
-        /// </summary>
-        /// <param name="format"></param>
-        /// <param name="args"></param>
-        public void Info( string format, params object[] args ) {
-            if ( enabled && logLevel >= Loglevel.Info ) {
-                UnityEngine.Debug.Log(Log(Loglevel.Info, format, args));
-            }
-        }
-        /// <summary>
-        /// Logs Debug Messages
-        /// </summary>
-        /// <param name="format"></param>
-        /// <param name="args"></param>
-        public void Debug( string format, params object[] args ) {
-            if( enabled && logLevel >= Loglevel.Debug ) {
-                UnityEngine.Debug.Log(Log(Loglevel.Debug, format, args));
-            }
-		}
-       
     }
+   
 }

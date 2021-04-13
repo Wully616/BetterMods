@@ -72,12 +72,12 @@ public class MyClass : MonoBehaviour {
 
 	void Update() {
 		for ( int i = 0; i < 3; i++ ) {
-			log.Debug("Update {0} go brrr", i);
+			log.Debug().Message("Update {0} go brrr", i);
 		}
 	}
 
 	void OnEnable() {
-		log.Error("Something bad happened at : {1} in our object {2}, while at position: {3}", Time.time, gameObject.name, transform.position);
+		log.Error().Message("Something bad happened at : {1} in our object {2}, while at position: {3}", Time.time, gameObject.name, transform.position);
 	}
 }
 ```

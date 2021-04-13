@@ -1,5 +1,7 @@
-﻿using ThunderRoad;
+﻿using System;
+using ThunderRoad;
 using UnityEngine;
+using Wully.Events;
 using Wully.Helpers;
 using static Wully.Helpers.BetterHelpers;
 
@@ -8,9 +10,53 @@ namespace Wully.Extensions {
 	/// Class extensions for BAS
 	/// </summary>
 	public static class BetterExtensions {
+		/// <summary>
+		/// Returns string in html with size
+		/// </summary>
+		/// <param name="text"></param>
+		/// <param name="size"></param>
+		/// <returns></returns>
+		public static string Size( this string text, int size ) {
+			return FluentLogger.ConvertToHtml(FluentLogger.Style.size, 0, text);
+		}
+		/// <summary>
+		/// Returns string in html italics
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string Italics( this string text ) {
+			return FluentLogger.ConvertToHtml(FluentLogger.Style.italic, 0, text);
+		}
+		/// <summary>
+		/// Returns string in html bold
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string Bold( this string text) {
+			return FluentLogger.ConvertToHtml(FluentLogger.Style.bold,0, text);
+		}
+		/// <summary>
+		/// Returns string in html color
+		/// </summary>
+		/// <param name="text"></param>
+		/// <param name="color"></param>
+		/// <returns></returns>
+		public static string Color(this string text, Color color) {
+			return FluentLogger.ConvertToHtml(color,text);
+		}
 
+		/// <summary>
+		/// Returns true if the ragdoll part belongs to the player
+		/// </summary>
+		/// <param name="ragdollPart"></param>
+		/// <returns></returns>
 		public static bool IsPlayer(this RagdollPart ragdollPart) {
 			return BetterHelpers.IsPlayer(ragdollPart);
+		}
+
+		public static string ToStringExt(this DamageStruct ds) {
+			Color field = UnityEngine.Color.cyan;
+			return $"{nameof(ds.active).Bold().Color(field)}: {ds.active},\n {nameof(ds.time).Bold().Color(field)}: {ds.time},\n {nameof(ds.damageType).Bold().Color(field)}: {ds.damageType},\n {nameof(ds.materialModifier).Bold().Color(field)}: {ds.materialModifier},\n {nameof(ds.baseDamage).Bold().Color(field)}: {ds.baseDamage},\n {nameof(ds.damage).Bold().Color(field)}: {ds.damage},\n {nameof(ds.recoil).Bold().Color(field)}: {ds.recoil},\n {nameof(ds.badAngle).Bold().Color(field)}: {ds.badAngle},\n {nameof(ds.knockOut).Bold().Color(field)}: {ds.knockOut},\n {nameof(ds.knockOutDuration).Bold().Color(field)}: {ds.knockOutDuration},\n {nameof(ds.knockOutLevel).Bold().Color(field)}: {ds.knockOutLevel},\n {nameof(ds.hitRagdollPart).Bold().Color(field)}: {ds.hitRagdollPart},\n {nameof(ds.hitItem).Bold().Color(field)}: {ds.hitItem},\n {nameof(ds.damager).Bold().Color(field)}: {ds.damager},\n {nameof(ds.penetration).Bold().Color(field)}: {ds.penetration},\n {nameof(ds.penetrationJoint).Bold().Color(field)}: {ds.penetrationJoint},\n {nameof(ds.penetrationRb).Bold().Color(field)}: {ds.penetrationRb},\n {nameof(ds.penetrationTempRb).Bold().Color(field)}: {ds.penetrationTempRb},\n {nameof(ds.penetrationDepth).Bold().Color(field)}: {ds.penetrationDepth},\n {nameof(ds.penetrationDepthReached).Bold().Color(field)}: {ds.penetrationDepthReached},\n {nameof(ds.penetrationDeepReached).Bold().Color(field)}: {ds.penetrationDeepReached},\n {nameof(ds.penetrationDeepEffectInstance).Bold().Color(field)}: {ds.penetrationDeepEffectInstance},\n {nameof(ds.penetrationCutAxisPos).Bold().Color(field)}: {ds.penetrationCutAxisPos},\n {nameof(ds.lastRumbleDepth).Bold().Color(field)}: {ds.lastRumbleDepth},\n {nameof(ds.lastDepth).Bold().Color(field)}: {ds.lastDepth},\n {nameof(ds.penetrationPoint).Bold().Color(field)}: {ds.penetrationPoint},\n {nameof(ds.penetrationEffectInstance).Bold().Color(field)}: {ds.penetrationEffectInstance},\n {nameof(ds.penetrationEffectLastDistance).Bold().Color(field)}: {ds.penetrationEffectLastDistance},\n {nameof(ds.hasPenetrationEffect).Bold().Color(field)}: {ds.hasPenetrationEffect},\n {nameof(ds.stickMassModified).Bold().Color(field)}: {ds.stickMassModified}";
 		}
 		/// <summary>
 		/// Extended toString
@@ -18,7 +64,8 @@ namespace Wully.Extensions {
 		/// <param name="ci">CollisionInstance</param>
 		/// <returns></returns>
 		public static string ToStringExt( this CollisionInstance ci ) {
-			return $"{nameof(ci.active)}: {ci.active}, {nameof(ci.sourceCollider)}: {ci.sourceCollider}, {nameof(ci.targetCollider)}: {ci.targetCollider}, {nameof(ci.impactVelocity)}: {ci.impactVelocity}, {nameof(ci.contactPoint)}: {ci.contactPoint}, {nameof(ci.contactNormal)}: {ci.contactNormal}, {nameof(ci.sourceMaterial)}: {ci.sourceMaterial}, {nameof(ci.targetMaterial)}: {ci.targetMaterial}, {nameof(ci.casterHand)}: {ci.casterHand}, {nameof(ci.damageStruct)}: {ci.damageStruct}, {nameof(ci.sourceColliderGroup)}: {ci.sourceColliderGroup}, {nameof(ci.targetColliderGroup)}: {ci.targetColliderGroup}, {nameof(ci.intensity)}: {ci.intensity}, {nameof(ci.lastRumbleSourcePoint)}: {ci.lastRumbleSourcePoint}, {nameof(ci.lastRumbleTargetPoint)}: {ci.lastRumbleTargetPoint}, {nameof(ci.pressureRelativeVelocity)}: {ci.pressureRelativeVelocity}, {nameof(ci.pressureForce)}: {ci.pressureForce}, {nameof(ci.ignoreDamage)}: {ci.ignoreDamage}, {nameof(ci.lastCheckFrame)}: {ci.lastCheckFrame}, {nameof(ci.lastCheckFrameCount)}: {ci.lastCheckFrameCount}, {nameof(ci.lastStayFrame)}: {ci.lastStayFrame}, {nameof(ci.effectInstance)}: {ci.effectInstance}, {nameof(ci.hasEffect)}: {ci.hasEffect}";
+			Color field = UnityEngine.Color.cyan;
+			return $"{nameof(ci.active).Bold().Color(field)}: {ci.active},\n {nameof(ci.sourceCollider).Bold().Color(field)}: {ci.sourceCollider},\n {nameof(ci.targetCollider).Bold().Color(field)}: {ci.targetCollider},\n {nameof(ci.impactVelocity).Bold().Color(field)}: {ci.impactVelocity},\n {nameof(ci.contactPoint).Bold().Color(field)}: {ci.contactPoint},\n {nameof(ci.contactNormal).Bold().Color(field)}: {ci.contactNormal},\n {nameof(ci.sourceMaterial).Bold().Color(field)}: {ci.sourceMaterial},\n {nameof(ci.targetMaterial).Bold().Color(field)}: {ci.targetMaterial},\n {nameof(ci.casterHand).Bold().Color(field)}: {ci.casterHand},\n {nameof(ci.damageStruct).Bold().Color(field)}: {ci.damageStruct.ToStringExt()},\n {nameof(ci.sourceColliderGroup).Bold().Color(field)}: {ci.sourceColliderGroup},\n {nameof(ci.targetColliderGroup).Bold().Color(field)}: {ci.targetColliderGroup},\n {nameof(ci.intensity).Bold().Color(field)}: {ci.intensity},\n {nameof(ci.lastRumbleSourcePoint).Bold().Color(field)}: {ci.lastRumbleSourcePoint},\n {nameof(ci.lastRumbleTargetPoint).Bold().Color(field)}: {ci.lastRumbleTargetPoint},\n {nameof(ci.pressureRelativeVelocity).Bold().Color(field)}: {ci.pressureRelativeVelocity},\n {nameof(ci.pressureForce).Bold().Color(field)}: {ci.pressureForce},\n {nameof(ci.ignoreDamage).Bold().Color(field)}: {ci.ignoreDamage},\n {nameof(ci.lastCheckFrame).Bold().Color(field)}: {ci.lastCheckFrame},\n {nameof(ci.lastCheckFrameCount).Bold().Color(field)}: {ci.lastCheckFrameCount},\n {nameof(ci.lastStayFrame).Bold().Color(field)}: {ci.lastStayFrame},\n {nameof(ci.effectInstance).Bold().Color(field)}: {ci.effectInstance},\n {nameof(ci.hasEffect).Bold().Color(field)}: {ci.hasEffect}";
 		}
 		/// <summary>
 		/// Tries to return the ragdoll part if there is one on the sourceColliderGroup
@@ -432,6 +479,21 @@ namespace Wully.Extensions {
 		/// <returns></returns>
 		public static bool IsHandleChoked( this Handle handle ) {
 			return BetterHelpers.IsHandleChoked(handle);
+		}
+		/// <summary>
+		/// Tries to get the line number of an exception. May impact performance
+		/// </summary>
+		/// <param name="ex"></param>
+		/// <returns></returns>
+		public static int LineNumber( this Exception ex ) {
+			int n;
+			int i = ex.StackTrace.LastIndexOf(" ");
+			if ( i > -1 ) {
+				string s = ex.StackTrace.Substring(i + 1);
+				if ( int.TryParse(s, out n) )
+					return n;
+			}
+			return -1;
 		}
 	}
 }

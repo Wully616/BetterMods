@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ThunderRoad;
 using UnityEngine;
+using Wully.Extensions;
 using Wully.Helpers;
 using Wully.Module;
 using static Wully.Helpers.BetterHelpers;
@@ -90,7 +92,8 @@ namespace Wully.Events {
 		public static event PlayerHandGrabEvent OnPlayerRightHandGrabRagdollPartHandle;
 
 		public static void InvokePlayerHandGrabEvent( Side side, Handle handle, float axisPosition, HandleOrientation orientation, EventTime eventTime ) {
-			Debug.Log("InvokePlayerHandGrabEvent");
+			log.Debug().Message($"side: {side}, handle: {handle.name}, axisPosition: {axisPosition},isChokeable: {IsHandleChokeable(handle)},  eventTime: {eventTime} ");
+
 			OnPlayerHandGrabHandle?.Invoke(side, handle, axisPosition, orientation);
 
 			if ( side == Side.Right ) {
@@ -120,7 +123,6 @@ namespace Wully.Events {
 			if ( handle is HandleRagdoll handleRagdoll) {
 				OnPlayerHandGrabRagdollPartHandle?.Invoke(side, handle, axisPosition, orientation);
 				if ( IsHandleChoked(handle) ) {
-					Debug.Log("InvokePlayerHandGrabEvent is choked");
 					OnPlayerHandChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
 					OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
 				}
@@ -223,7 +225,7 @@ namespace Wully.Events {
 		/// <param name="throwing"></param>
 		/// <param name="eventTime"></param>
 		public static void InvokePlayerHandUnGrabEvent( Side side, Handle handle, bool throwing, EventTime eventTime ) {
-			Debug.Log("InvokePlayerHandUnGrabEvent");
+			log.Debug().Message($"side: {side}, handle: {handle.name}, throwing: {throwing}, isChokeable: {IsHandleChokeable(handle)},  eventTime: {eventTime} ");
 
 			OnPlayerHandUnGrabHandle?.Invoke(side, handle, throwing);
 
@@ -275,7 +277,6 @@ namespace Wully.Events {
 				OnPlayerHandUnGrabRagdollPartHandle?.Invoke(side, handle, throwing);
 				
 				if ( IsHandleChokeable(handleRagdoll) ) {
-					//Debug.Log("InvokePlayerHandUnGrabEvent is choked");
 					//the handle is chokable and has just been ungrabbed so invoke choke event with end time
 					OnPlayerHandChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
 					OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
@@ -346,44 +347,49 @@ namespace Wully.Events {
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
 		public static void InvokePlayerTelekinesisGrabEvent( Side side, Handle handle ) {
-			//Debug.Log("InvokePlayerTelekinesisGrabEvent");
-			OnPlayerTelekinesisGrabHandle?.Invoke(side, handle);
+			try {
+				log.Debug().Message($"side: {side}, handle: {handle.name}, isChokeable: {IsHandleChokeable(handle)}");
+				OnPlayerTelekinesisGrabHandle?.Invoke(side, handle);
 
-			if ( side == Side.Right ) {
-				//right Telekinesis grabbed something
-				OnPlayerRightTelekinesisGrabHandle?.Invoke(side, handle);
+				if (side == Side.Right) {
+					//right Telekinesis grabbed something
+					OnPlayerRightTelekinesisGrabHandle?.Invoke(side, handle);
 
-				if ( handle is HandleRagdoll ) {
-					//right Telekinesis grabbed ragdoll part
-					OnPlayerRightTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
+					if (handle is HandleRagdoll) {
+						//right Telekinesis grabbed ragdoll part
+						OnPlayerRightTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
+					} else {
+						//right Telekinesis grabbed item
+						OnPlayerRightTelekinesisGrabItemHandle?.Invoke(side, handle);
+					}
+
 				} else {
-					//right Telekinesis grabbed item
-					OnPlayerRightTelekinesisGrabItemHandle?.Invoke(side, handle);
+					OnPlayerLeftTelekinesisGrabHandle?.Invoke(side, handle);
+
+					if (handle is HandleRagdoll) {
+						//Left Telekinesis grabbed ragdoll part
+						OnPlayerLeftTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
+					} else {
+						//Left Telekinesis grabbed item
+						OnPlayerLeftTelekinesisGrabItemHandle?.Invoke(side, handle);
+					}
 				}
 
-			} else {
-				OnPlayerLeftTelekinesisGrabHandle?.Invoke(side, handle);
-
-				if ( handle is HandleRagdoll ) {
-					//Left Telekinesis grabbed ragdoll part
-					OnPlayerLeftTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
+				if (handle is HandleRagdoll handleRagdoll) {
+					OnPlayerTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
+					if (IsHandleChoked(handle)) {
+						OnPlayerTelekinesisChokeCreature?.Invoke(side, handle,
+							handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
+						OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature,
+							EventTime.OnStart);
+					}
 				} else {
-					//Left Telekinesis grabbed item
-					OnPlayerLeftTelekinesisGrabItemHandle?.Invoke(side, handle);
+					OnPlayerTelekinesisGrabItemHandle?.Invoke(side, handle);
 				}
 			}
-
-			if ( handle is HandleRagdoll handleRagdoll) {
-				OnPlayerTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
-				if( IsHandleChoked(handle) ) {
-					//Debug.Log("InvokePlayerTelekinesisGrabEvent is choked");
-					OnPlayerTelekinesisChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
-					OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
-				}
-			} else {
-				OnPlayerTelekinesisGrabItemHandle?.Invoke(side, handle);
+			catch (Exception e) {
+				log.Exception().Message(e.StackTrace);
 			}
-
 		}
 		#endregion
 
@@ -441,7 +447,7 @@ namespace Wully.Events {
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
 		public static void InvokePlayerTelekinesisUnGrabEvent( Side side, Handle handle ) {
-			//Debug.Log("InvokePlayerTelekinesisUnGrabEvent");
+			log.Debug().Message($"side: {side}, handle: {handle.name}, isChokeable: {IsHandleChokeable(handle)}");
 
 			OnPlayerTelekinesisUnGrabHandle?.Invoke(side, handle);
 
@@ -472,7 +478,6 @@ namespace Wully.Events {
 			if ( handle is HandleRagdoll handleRagdoll) {
 				OnPlayerTelekinesisUnGrabRagdollPartHandle?.Invoke(side, handle);				
 				if ( IsHandleChokeable(handleRagdoll) ) {
-					//Debug.Log("InvokePlayerTelekinesisUnGrabEvent is choked");
 					//the handle is chokable and has just been ungrabbed so invoke choke event with end time
 					OnPlayerTelekinesisChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
 					OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
@@ -508,8 +513,8 @@ namespace Wully.Events {
 		/// <param name="creature">The creature the player parried</param>
 		/// <param name="collisionInstance"></param>
 		public static void InvokePlayerParryingCreature( Creature creature, CollisionInstance collisionInstance ) {
-			OnPlayerParryingCreature?.Invoke(creature, collisionInstance);
-			//Debug.Log("player parried creature");
+			log.Debug().Message($"creature: {creature.name}, collisionInstance: {collisionInstance.ToStringExt()}");
+			OnPlayerParryingCreature?.Invoke(creature, collisionInstance); 
 		}
 
 		/// <summary>
@@ -518,9 +523,9 @@ namespace Wully.Events {
 		/// <param name="creature">The creature that parried the player</param>
 		/// <param name="collisionInstance"></param>
 		public static void InvokeCreatureParryingPlayer( Creature creature, CollisionInstance collisionInstance ) {
-			log.Debug("InvokeCreatureParryingPlayer");
+			log.Debug().Message($"creature: {creature.name}, collisionInstance: {collisionInstance.ToStringExt()}");
 			OnCreatureParryingPlayer?.Invoke(creature, collisionInstance);
-			//Debug.Log("creature parried player");
+
 			//TODO this is only for items, check for fists too
 		}
 		#endregion
@@ -576,14 +581,12 @@ namespace Wully.Events {
 		/// <param name="item"></param>
 		/// <param name="target"></param>
 		public static void InvokeDeflectEvent( Creature source, Item item, Creature target ) {
-
+			log.Debug().Message($"sourceCreature: {source.name}, item: {item.name}, targetCreature: {target.name}");
 			if ( source.player && target ) {
-				//Debug.Log("Player deflected something!");
 				OnPlayerDeflectedCreature?.Invoke(source,item,target);
 			}
 
 			if ( target.player && source ) {
-				//Debug.Log("Creature deflected players attack!");
 				OnCreatureDeflectPlayer?.Invoke(source, item, target);
 			}
 		}
@@ -618,6 +621,8 @@ namespace Wully.Events {
 		/// <param name="creatureIsKilled"></param>
 		/// <param name="ragdollPartType"></param>
 		public static void InvokeDismemberEvent( RagdollPart ragdollPart, bool creatureIsKilled, RagdollPart.Type ragdollPartType) {
+			log.Debug().Message($"ragdollPart: {ragdollPart.name}, creatureIsKilled: {creatureIsKilled}, ragdollPartType: {ragdollPartType}");
+			
 			Ragdoll ragdoll = ragdollPart.ragdoll;
 			bool tkUsed = IsPlayerTkHolding(ragdollPart);
 			//player was holding with TK when dismembered
@@ -688,45 +693,35 @@ namespace Wully.Events {
 		/// </summary>
 		public static event CreatureHitEvent OnCreatureHitByCreature;
 
-		public delegate void CreatureHitEvent( Creature creature, CollisionInstance collisionInstance, DamageType damageType, DamageStruct.Penetration penetrationType, 
-			Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates, DamageArea damageArea );
+		public delegate void CreatureHitEvent( BetterHit betterHit );
 		/// <summary>
 		/// Invokes CreatureHitEvent
 		/// </summary>
-		/// <param name="creature"></param>
-		/// <param name="collisionInstance"></param>
-		/// <param name="damageType"></param>
-		/// <param name="penetrationType"></param>
-		/// <param name="attackDirection"></param>
-		/// <param name="creatureStates"></param>
-		/// <param name="hitStates"></param>
-		/// <param name="damageArea"></param>
-		public static void InvokeCreatureHitEvent( Creature creature, CollisionInstance collisionInstance,
-			DamageType damageType, DamageStruct.Penetration penetrationType, Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates, DamageArea damageArea ) {
-			OnCreatureHit?.Invoke(creature, collisionInstance,damageType,penetrationType,attackDirection,creatureStates, hitStates, damageArea);
-
-			if ( creature.player && !collisionInstance.IsDoneByPlayer() ) {
+		/// <param name="betterHit"></param>
+		public static void InvokeCreatureHitEvent( BetterHit betterHit ) { 
+			log.Debug().Message($"betterHit: {betterHit}");
+			if ( betterHit.creature?.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 
 				//player was hit by creature
-				OnPlayerHit?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				OnPlayerHitByCreature?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				//Debug.LogFormat(Time.time + " OnCreatureHit - player was hit by creature");
+				OnPlayerHit?.Invoke(betterHit);
+				OnPlayerHitByCreature?.Invoke(betterHit);
+				log.Debug().Message("Player was hit by creature");
 			} 
-			if ( !creature.player && collisionInstance.IsDoneByPlayer() ) {
+			if ( !betterHit.creature?.player && betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//player hit a creature
-				OnCreatureHitByPlayer?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				//Debug.LogFormat(Time.time + " OnCreatureHit - player hit a creature");
+				OnCreatureHitByPlayer?.Invoke(betterHit);
+				log.Debug().Message("Player hit a creature");
 
 			}
-			if ( !creature.player && !collisionInstance.IsDoneByPlayer() ) {
+			if ( !betterHit.creature?.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//creature hit a creature
-				//Debug.LogFormat(Time.time + " OnCreatureHit - creature hit a creature");
-				OnCreatureHitByCreature?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
+				log.Debug().Message("Creature hit a creature");
+				OnCreatureHitByCreature?.Invoke(betterHit);
 			}
-			if ( creature.player && collisionInstance.IsDoneByPlayer() ) {
+			if ( betterHit.creature?.player && betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//player hit themself
-				//Debug.LogFormat(Time.time + " OnCreatureHit - player hit themself");
-				OnPlayerHitSelf?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
+				log.Debug().Message("Player hit themself");
+				OnPlayerHitSelf?.Invoke(betterHit);
 			}
 		}
 
@@ -759,8 +754,7 @@ namespace Wully.Events {
 		/// </summary>
 		public static event CreatureKillEvent OnCreatureKillByCreature;
 
-		public delegate void CreatureKillEvent( Creature creature, CollisionInstance collisionInstance, DamageType damageType, DamageStruct.Penetration penetrationType,
-			Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates, DamageArea damageArea );
+		public delegate void CreatureKillEvent( BetterHit betterHit );
 		/// <summary>
 		/// Invokes CreatureKillEvent
 		/// </summary>
@@ -773,32 +767,31 @@ namespace Wully.Events {
 		/// <param name="creatureStates"></param>
 		/// <param name="hitStates"></param>
 		/// <param name="damageArea"></param>
-		public static void InvokeCreatureKillEvent( Creature creature, Player player, CollisionInstance collisionInstance,
-			DamageType damageType, DamageStruct.Penetration penetrationType, Direction attackDirection, HashSet<CreatureState> creatureStates, HashSet<HitState> hitStates , DamageArea damageArea) {
-			OnCreatureKill?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-
-			if ( player && !collisionInstance.IsDoneByPlayer() ) {
+		public static void InvokeCreatureKillEvent( BetterHit betterHit) {
+		
+			log.Debug().Message($"betterHit: {betterHit}");
+			if ( betterHit.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 
 				//player was killed by creature
-				OnPlayerKill?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				OnPlayerKillByCreature?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				//Debug.LogFormat(Time.time + " OnCreatureKill - player was killed by creature");
+				OnPlayerKill?.Invoke(betterHit);
+				OnPlayerKillByCreature?.Invoke(betterHit);
+				log.Debug().Message("Player was killed by creature");
 			}
-			if ( !player && collisionInstance.IsDoneByPlayer() ) {
+			if ( !betterHit.player && betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//player killed a creature
-				OnCreatureKillByPlayer?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
-				//Debug.LogFormat(Time.time + " OnCreatureKill - player killed a creature");
+				OnCreatureKillByPlayer?.Invoke(betterHit);
+				log.Debug().Message("Player killed a creature");
 
 			}
-			if ( !player && !collisionInstance.IsDoneByPlayer() ) {
+			if ( !betterHit.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//creature killed a creature
-				//Debug.LogFormat(Time.time + " OnCreatureKill - creature killed a creature");
-				OnCreatureKillByCreature?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
+				log.Debug().Message("Creature killed a creature");
+				OnCreatureKillByCreature?.Invoke(betterHit);
 			}
-			if ( creature.player && collisionInstance.IsDoneByPlayer() ) {
+			if ( betterHit.creature.player && betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//player killed themself
-				//Debug.LogFormat(Time.time + " OnCreatureKill - player killed themself");
-				OnPlayerKillSelf?.Invoke(creature, collisionInstance, damageType, penetrationType, attackDirection, creatureStates, hitStates, damageArea);
+				log.Debug().Message("Player killed themself");
+				OnPlayerKillSelf?.Invoke(betterHit);
 			}
 		}
 
