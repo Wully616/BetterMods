@@ -303,10 +303,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="creature"></param>
 		public static void DisarmCreature( Creature creature ) {
-			if ( creature == null ) {
-				log.Debug("DisarmCreature: creature is null");
-				return;
-			}
+			if ( creature == null ) { return; }
 			DisarmCreature(creature, Side.Left);
 			DisarmCreature(creature, Side.Right);
 		}
@@ -317,18 +314,13 @@ namespace Wully.Helpers {
 		/// <param name="creature"></param>
 		/// <param name="side"></param>
 		public static void DisarmCreature( Creature creature, Side side ) {
-			if ( creature == null ) {
-				log.Debug("DisarmCreature: creature is null");
-				return;
-			}
+			if ( creature == null ) { return; }
 			if ( side == Side.Left ) {
 				if ( IsCreatureGrabbingHandle(creature, side) ) {
-					log.Debug("DisarmCreature: Disarming creature left");
 					creature.handLeft.UnGrab(false);
 				}
 			} else {
 				if ( IsCreatureGrabbingHandle(creature, side) ) {
-					log.Debug("DisarmCreature: Disarming creature right");
 					creature.handRight.UnGrab(false);
 				}
 			}
@@ -379,14 +371,7 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
 		public static void MakeItemCollideWith( Item item, Item otherItem ) {
-			if ( item == null ) {
-				log.Debug("MakeItemCollideWithOtherItem: item is null");
-				return;
-			}
-			if ( otherItem == null ) {
-				log.Debug("MakeItemCollideWithOtherItem: otherItem is null");
-				return;
-			}
+			if (item == null || otherItem == null) { return; }
 
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
@@ -402,14 +387,8 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
 		public static void MakeItemCollideWith( Item item, Collider otherCollider ) {
-			if ( item == null ) {
-				log.Debug("MakeItemCollideWithCollider: item is null");
-				return;
-			}
-			if ( otherCollider == null ) {
-				log.Debug("MakeItemCollideWithCollider: otherCollider is null");
-				return;
-			}
+			if ( item == null || otherCollider == null ) {return; }
+
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
 					Physics.IgnoreCollision(collider, otherCollider, false);
@@ -423,14 +402,8 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
 		public static void MakeItemNotCollideWith( Item item, Item otherItem ) {
-			if ( item == null ) {
-				log.Debug("MakeItemNotCollideWithOtherItem: item is null");
-				return;
-			}
-			if ( otherItem == null ) {
-				log.Debug("MakeItemNotCollideWithOtherItem: otherItem is null");
-				return;
-			}
+			if ( item == null || otherItem == null ) { return; }
+
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
 					MakeItemNotCollideWith(otherItem, collider);
@@ -444,14 +417,8 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
 		public static void MakeItemNotCollideWith( Item item, Collider otherCollider ) {
-			if ( item == null ) {
-				log.Debug("MakeItemNotCollideWithCollider: item is null");
-				return;
-			}
-			if ( otherCollider == null ) {
-				log.Debug("MakeItemNotCollideWithCollider: otherCollider is null");
-				return;
-			}
+			if ( item == null || otherCollider == null ) { return; }
+
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
 					Physics.IgnoreCollision(collider, otherCollider, true);
@@ -545,10 +512,8 @@ namespace Wully.Helpers {
 		public static bool TryGetTelekinesisCaughtHandle( SpellCaster spellCaster, out Handle handle ) {
 			handle = spellCaster?.telekinesis?.catchedHandle;
 			if ( handle ) {
-				log.Debug("TryGetTelekinesisCaughtHandle: spellcaster is holding a handle with telekinesis");
 				return true;
 			}
-			log.Debug("TryGetTelekinesisCaughtHandle: spellcaster not holding handle with telekinesis");
 			return false;
 		}
 
@@ -567,7 +532,6 @@ namespace Wully.Helpers {
 				ragdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 			}
 			if ( ragdollHand ) { return true; }
-			log.Debug("TryGetRagdollHand: Could not get ragdollHand");
 			return false;
 		}
 
@@ -584,7 +548,6 @@ namespace Wully.Helpers {
 			rightRagdollHand = (RagdollHand)(creature?.ragdoll?.GetPart(RagdollPart.Type.LeftHand));
 
 			if ( leftRagdollHand && rightRagdollHand ) { return true; }
-			log.Debug("TryGetRagdollHand: Could not get both ragdollHands");
 			return false;
 		}
 		/// <summary>
@@ -606,7 +569,6 @@ namespace Wully.Helpers {
 				}
 			}
 			if ( item ) { return true; }
-			log.Debug("TryGetHeldItem: Could not get heldItem");
 			return false;
 		}
 		/// <summary>
@@ -617,11 +579,7 @@ namespace Wully.Helpers {
 		/// <returns></returns>
 		public static bool TryGetHeldItem( RagdollHand ragdollHand, out Item item ) {
 			item = ragdollHand?.grabbedHandle?.item;
-			if ( item ) {
-				return true;
-			}
-			log.Debug("TryGetHeldItem: Could not get heldItem");
-			return false;
+			return item != null;
 		}
 
 		/// <summary>
@@ -632,11 +590,7 @@ namespace Wully.Helpers {
 		/// <returns></returns>
 		public static bool TryGetHeldItem( SpellCaster spellCaster, out Item item ) {
 			item = spellCaster?.ragdollHand?.grabbedHandle?.item;
-			if ( item ) {
-				return true;
-			}
-			log.Debug("TryGetHeldItem: Could not get heldItem");
-			return false;
+			return item != null;
 		}
 		/// <summary>
 		/// Helper method to Try and get the current instance of the BetterEvents levelmodule
@@ -644,13 +598,8 @@ namespace Wully.Helpers {
 		/// <param name="levelModuleBetterEvents"></param>
 		/// <returns></returns>
 		public static bool TryGetLevelModuleBetterEvents( out LevelModuleBetterEvents levelModuleBetterEvents ) {
-			levelModuleBetterEvents = null;
-			if ( LevelModuleBetterEvents.local != null ) {
-				levelModuleBetterEvents = LevelModuleBetterEvents.local;
-				return true;
-			}
-			log.Debug("TryGetLevelModuleBetterEvents: Could not get LevelModuleBetterEvents");
-			return false;
+			levelModuleBetterEvents = LevelModuleBetterEvents.local;
+			return levelModuleBetterEvents != null;
 		}
 
 		/// <summary>
@@ -672,33 +621,19 @@ namespace Wully.Helpers {
 			if ( TryGetLevelModuleBetterEvents(out LevelModuleBetterEvents module) ) {
 
 				if ( side == Side.Left ) {
-					if ( module.SpellCasterLeftGrabbedHandle != null ) {
-						log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
-						return true;
-					}
+					return module.SpellCasterLeftGrabbedHandle != null;
 				} else {
-					if ( module.SpellCasterRightGrabbedHandle != null ) {
-						log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
-						return true;
-					}
+					return module.SpellCasterRightGrabbedHandle != null;
 				}
 			}
 
 			// if betterevents module is disabled or unavailable, check directly
 			if ( side == Side.Left ) {
-				if ( TryGetTelekinesisCaughtHandle(Player.local?.creature?.mana?.casterLeft, out Handle handle) ) {
-					log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
-					return true;
-				}
+				return TryGetTelekinesisCaughtHandle(Player.local?.creature?.mana?.casterLeft, out Handle handle);
 			} else {
-				if ( TryGetTelekinesisCaughtHandle(Player.local?.creature?.mana?.casterRight, out Handle handle) ) {
-					log.Debug("IsPlayerUsingTelekinesis: true for side: {0}", side.ToString());
-					return true;
-				}
+				return TryGetTelekinesisCaughtHandle(Player.local?.creature?.mana?.casterRight, out Handle handle);
 			}
 
-			log.Debug("IsPlayerUsingTelekinesis: false");
-			return false;
 		}
 
 		/// <summary>
@@ -712,13 +647,11 @@ namespace Wully.Helpers {
 			foreach ( RagdollPart ragdollPart in creature.ragdoll.parts ) {
 				foreach ( HandleRagdoll handleRagdoll in ragdollPart.handles ) {
 					if ( handleRagdoll.handleRagdollData.choke && handleRagdoll.ragdollPart.ragdoll.creature.state != Creature.State.Dead && (handleRagdoll.telekinesisHandler || handleRagdoll.IsHanded()) ) {
-						log.Debug("IsBeingChoked: true");
 						chokedHandleRagdoll = handleRagdoll;
 						return true;
 					}
 				}
 			}
-			log.Debug("IsBeingChoked: false");
 			return false;
 		}
 
@@ -731,12 +664,10 @@ namespace Wully.Helpers {
 			foreach ( RagdollPart ragdollPart in creature.ragdoll.parts ) {
 				foreach ( HandleRagdoll handleRagdoll in ragdollPart.handles ) {
 					if ( handleRagdoll.handleRagdollData.choke && handleRagdoll.ragdollPart.ragdoll.creature.state != Creature.State.Dead && (handleRagdoll.telekinesisHandler || handleRagdoll.IsHanded()) ) {
-						log.Debug("IsBeingChoked: true");
 						return true;
 					}
 				}
 			}
-			log.Debug("IsBeingChoked: false");
 			return false;
 		}
 		/// <summary>
@@ -748,12 +679,10 @@ namespace Wully.Helpers {
 			foreach ( RagdollPart ragdollPart in creature.ragdoll.parts ) {
 				foreach ( HandleRagdoll handleRagdoll in ragdollPart.handles ) {
 					if ( handleRagdoll.handleRagdollData.choke && (handleRagdoll.telekinesisHandler || handleRagdoll.IsHanded()) ) {
-						log.Debug("WasBeingChoked: true");
 						return true;
 					}
 				}
 			}
-			log.Debug("WasBeingChoked: false");
 			return false;
 		}
 
@@ -766,11 +695,9 @@ namespace Wully.Helpers {
 		public static bool IsHandleChoked( Handle handle ) {
 			if ( handle is HandleRagdoll handleRagdoll ) {
 				if ( IsHandleChokeable(handleRagdoll) && handleRagdoll.ragdollPart.ragdoll.creature.state != Creature.State.Dead && (handleRagdoll.telekinesisHandler || handleRagdoll.IsHanded()) ) {
-					log.Debug("IsHandleChoked: true");
 					return true;
 				}
 			}
-			log.Debug("IsHandleChoked: false");
 			return false;
 		}
 		/// <summary>
@@ -782,7 +709,6 @@ namespace Wully.Helpers {
 			if ( handle is HandleRagdoll handleRagdoll ) {
 				return IsHandleChokeable(handleRagdoll);
 			}
-			log.Debug("IsHandleChokeable: false");
 			return false;
 		}
 		/// <summary>
@@ -791,12 +717,7 @@ namespace Wully.Helpers {
 		/// <param name="handle"></param>
 		/// <returns></returns>
 		public static bool IsHandleChokeable( HandleRagdoll handle ) {
-			if ( handle.handleRagdollData.choke ) {
-				log.Debug("IsHandleChokeable: true");
-				return true;
-			}
-			log.Debug("IsHandleChokeable: false");
-			return false;
+			return handle.handleRagdollData.choke;
 		}
 	}
 }
