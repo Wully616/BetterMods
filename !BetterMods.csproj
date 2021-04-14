@@ -50,6 +50,7 @@
     <Compile Include="src\Helpers\FluentLogger.cs" />
     <Compile Include="src\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Examples\PlayerKillWithItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">

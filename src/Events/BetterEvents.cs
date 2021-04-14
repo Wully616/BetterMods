@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using ThunderRoad;
 using UnityEngine;
 using Wully.Extensions;
 using Wully.Helpers;
-using Wully.Module;
 using static Wully.Helpers.BetterHelpers;
 
 namespace Wully.Events {
@@ -53,7 +51,7 @@ namespace Wully.Events {
 		/// <param name="axisPosition"></param>
 		/// <param name="orientation"></param>
 		public delegate void PlayerHandGrabEvent( Side side, Handle handle, float axisPosition, HandleOrientation orientation );
-		
+
 		/// <summary>
 		/// One of the players hands grabs a handle
 		/// </summary>
@@ -120,7 +118,7 @@ namespace Wully.Events {
 				}
 			}
 
-			if ( handle is HandleRagdoll handleRagdoll) {
+			if ( handle is HandleRagdoll handleRagdoll ) {
 				OnPlayerHandGrabRagdollPartHandle?.Invoke(side, handle, axisPosition, orientation);
 				if ( IsHandleChoked(handle) ) {
 					OnPlayerHandChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
@@ -259,7 +257,7 @@ namespace Wully.Events {
 					OnPlayerLeftHandUnGrabRagdollPartHandle?.Invoke(side, handle, throwing);
 					if ( throwing ) {
 						OnPlayerLeftHandThrowRagdollPartHandle?.Invoke(side, handle, throwing);
-						OnPlayerLeftHandThrowHandle?.Invoke(side,handle,throwing);
+						OnPlayerLeftHandThrowHandle?.Invoke(side, handle, throwing);
 					}
 				} else {
 					//Left hand grabbed item
@@ -275,7 +273,7 @@ namespace Wully.Events {
 			}
 			if ( handle is HandleRagdoll handleRagdoll ) {
 				OnPlayerHandUnGrabRagdollPartHandle?.Invoke(side, handle, throwing);
-				
+
 				if ( IsHandleChokeable(handleRagdoll) ) {
 					//the handle is chokable and has just been ungrabbed so invoke choke event with end time
 					OnPlayerHandChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
@@ -302,7 +300,7 @@ namespace Wully.Events {
 		/// </summary>
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
-		public delegate void PlayerTelekinesisGrabEvent( Side side, Handle handle );		
+		public delegate void PlayerTelekinesisGrabEvent( Side side, Handle handle );
 		/// <summary>
 		/// One of the players Telekinesiss grabs a Handle
 		/// </summary>
@@ -351,11 +349,11 @@ namespace Wully.Events {
 				log.Debug().Message($"side: {side}, handle: {handle.name}, isChokeable: {IsHandleChokeable(handle)}");
 				OnPlayerTelekinesisGrabHandle?.Invoke(side, handle);
 
-				if (side == Side.Right) {
+				if ( side == Side.Right ) {
 					//right Telekinesis grabbed something
 					OnPlayerRightTelekinesisGrabHandle?.Invoke(side, handle);
 
-					if (handle is HandleRagdoll) {
+					if ( handle is HandleRagdoll ) {
 						//right Telekinesis grabbed ragdoll part
 						OnPlayerRightTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
 					} else {
@@ -366,7 +364,7 @@ namespace Wully.Events {
 				} else {
 					OnPlayerLeftTelekinesisGrabHandle?.Invoke(side, handle);
 
-					if (handle is HandleRagdoll) {
+					if ( handle is HandleRagdoll ) {
 						//Left Telekinesis grabbed ragdoll part
 						OnPlayerLeftTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
 					} else {
@@ -375,9 +373,9 @@ namespace Wully.Events {
 					}
 				}
 
-				if (handle is HandleRagdoll handleRagdoll) {
+				if ( handle is HandleRagdoll handleRagdoll ) {
 					OnPlayerTelekinesisGrabRagdollPartHandle?.Invoke(side, handle);
-					if (IsHandleChoked(handle)) {
+					if ( IsHandleChoked(handle) ) {
 						OnPlayerTelekinesisChokeCreature?.Invoke(side, handle,
 							handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnStart);
 						OnPlayerChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature,
@@ -386,8 +384,7 @@ namespace Wully.Events {
 				} else {
 					OnPlayerTelekinesisGrabItemHandle?.Invoke(side, handle);
 				}
-			}
-			catch (Exception e) {
+			} catch ( Exception e ) {
 				log.Exception().Message(e.StackTrace);
 			}
 		}
@@ -475,8 +472,8 @@ namespace Wully.Events {
 				}
 			}
 
-			if ( handle is HandleRagdoll handleRagdoll) {
-				OnPlayerTelekinesisUnGrabRagdollPartHandle?.Invoke(side, handle);				
+			if ( handle is HandleRagdoll handleRagdoll ) {
+				OnPlayerTelekinesisUnGrabRagdollPartHandle?.Invoke(side, handle);
 				if ( IsHandleChokeable(handleRagdoll) ) {
 					//the handle is chokable and has just been ungrabbed so invoke choke event with end time
 					OnPlayerTelekinesisChokeCreature?.Invoke(side, handle, handleRagdoll.ragdollPart.ragdoll.creature, EventTime.OnEnd);
@@ -514,7 +511,7 @@ namespace Wully.Events {
 		/// <param name="collisionInstance"></param>
 		public static void InvokePlayerParryingCreature( Creature creature, CollisionInstance collisionInstance ) {
 			log.Debug().Message($"creature: {creature.name}, collisionInstance: {collisionInstance.ToStringExt()}");
-			OnPlayerParryingCreature?.Invoke(creature, collisionInstance); 
+			OnPlayerParryingCreature?.Invoke(creature, collisionInstance);
 		}
 
 		/// <summary>
@@ -583,7 +580,7 @@ namespace Wully.Events {
 		public static void InvokeDeflectEvent( Creature source, Item item, Creature target ) {
 			log.Debug().Message($"sourceCreature: {source.name}, item: {item.name}, targetCreature: {target.name}");
 			if ( source.player && target ) {
-				OnPlayerDeflectedCreature?.Invoke(source,item,target);
+				OnPlayerDeflectedCreature?.Invoke(source, item, target);
 			}
 
 			if ( target.player && source ) {
@@ -594,7 +591,7 @@ namespace Wully.Events {
 		#endregion
 
 		#region dismembers
-		
+
 		public static event DismemberEvent OnPlayerDismemberCreatureHead;
 		public static event DismemberEvent OnPlayerDismemberCreatureTorso;
 		public static event DismemberEvent OnPlayerDismemberCreatureLeftArm;
@@ -620,13 +617,13 @@ namespace Wully.Events {
 		/// <param name="ragdollPart"></param>
 		/// <param name="creatureIsKilled"></param>
 		/// <param name="ragdollPartType"></param>
-		public static void InvokeDismemberEvent( RagdollPart ragdollPart, bool creatureIsKilled, RagdollPart.Type ragdollPartType) {
+		public static void InvokeDismemberEvent( RagdollPart ragdollPart, bool creatureIsKilled, RagdollPart.Type ragdollPartType ) {
 			log.Debug().Message($"ragdollPart: {ragdollPart.name}, creatureIsKilled: {creatureIsKilled}, ragdollPartType: {ragdollPartType}");
-			
+
 			Ragdoll ragdoll = ragdollPart.ragdoll;
 			bool tkUsed = IsPlayerTkHolding(ragdollPart);
 			//player was holding with TK when dismembered
-			
+
 			CollisionInstance ch = ragdoll.creature.lastDamage;
 			if ( ch.IsDoneByPlayer() ) {
 				OnPlayerDismemberCreature?.Invoke(ragdollPart, creatureIsKilled, ragdollPartType, tkUsed);
@@ -698,7 +695,7 @@ namespace Wully.Events {
 		/// Invokes CreatureHitEvent
 		/// </summary>
 		/// <param name="betterHit"></param>
-		public static void InvokeCreatureHitEvent( BetterHit betterHit ) { 
+		public static void InvokeCreatureHitEvent( BetterHit betterHit ) {
 			log.Debug().Message($"betterHit: {betterHit}");
 			if ( betterHit.creature?.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 
@@ -706,7 +703,7 @@ namespace Wully.Events {
 				OnPlayerHit?.Invoke(betterHit);
 				OnPlayerHitByCreature?.Invoke(betterHit);
 				log.Debug().Message("Player was hit by creature");
-			} 
+			}
 			if ( !betterHit.creature?.player && betterHit.collisionInstance.IsDoneByPlayer() ) {
 				//player hit a creature
 				OnCreatureHitByPlayer?.Invoke(betterHit);
@@ -767,8 +764,8 @@ namespace Wully.Events {
 		/// <param name="creatureStates"></param>
 		/// <param name="hitStates"></param>
 		/// <param name="damageArea"></param>
-		public static void InvokeCreatureKillEvent( BetterHit betterHit) {
-		
+		public static void InvokeCreatureKillEvent( BetterHit betterHit ) {
+
 			log.Debug().Message($"betterHit: {betterHit}");
 			if ( betterHit.player && !betterHit.collisionInstance.IsDoneByPlayer() ) {
 
@@ -799,7 +796,7 @@ namespace Wully.Events {
 
 
 
-	
+
 		/// <summary>
 		/// The area where a collision hit
 		/// </summary>
@@ -848,13 +845,13 @@ namespace Wully.Events {
 		/// <summary>
 		/// The multiple states a creature could be in
 		/// </summary>
-		public enum CreatureState {	
+		public enum CreatureState {
 			Dismembered,
 			Injured,
 			Fullhealth,
 			Dead,
 			Alive,
-			Falling,			
+			Falling,
 			LayingOnGround,
 			Stabilized,
 			Destabilized,

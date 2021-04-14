@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.html",
-          "hash": "fXVx53RWnI65bOcx/O/5WA=="
+          "hash": "dTQOgi/iAYWbiYSNmMa51g=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.html",
-          "hash": "yiujJBAjhlrRFJLUuikvOA=="
+          "hash": "32RVeKnqSdhEXjUw9fVX+w=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.html",
-          "hash": "PC7sfQjtcdeBLIqIuSwxvg=="
+          "hash": "4kRpf63QzKrIEDwUCQmy7w=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureState.html",
-          "hash": "vNhWr5TBCiVH54wXZ5zzKg=="
+          "hash": "tEB2q27PzbJ8zVVi/X02Kw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DamageArea.html",
-          "hash": "K8Ol1p3mege+h47Nn5IdWA=="
+          "hash": "S290/Rt0k/HLYXA49H4tOg=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.html",
-          "hash": "dP0INmKHFjjlGRp2q5NDuA=="
+          "hash": "U/5vha2uURc6jglV1SvftQ=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.Direction.html",
-          "hash": "6BfTvQPRyXF6fnH7Sl8UFg=="
+          "hash": "REU2qfWAuqz5dapHDsQf0Q=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.html",
-          "hash": "be3fLQi2T3/q8a4E21N/XQ=="
+          "hash": "JAepIayQutiqW0vy6eU6ww=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.HitState.html",
-          "hash": "u3fP3umoH3zW5th+MVCAiA=="
+          "hash": "8V2ImIli1EtyzooM4TwIhQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ParryEvent.html",
-          "hash": "ic+bieOglAIO9ZYx54Bx3Q=="
+          "hash": "Hbq5GB021aYGTYNW2oS+OQ=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.html",
-          "hash": "aJ0USCJME1bHXpvQgp4lkw=="
+          "hash": "Jnbjhz2bhi+ZQRH0iY547g=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.html",
-          "hash": "hfg2/kV8IL55pqO8o2RFVA=="
+          "hash": "rhss8mupyH4tWBxk3Eo+OA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.html",
-          "hash": "BJ4xtwg/2GoDCZRwtkCcVA=="
+          "hash": "2jICr4sNwndYbdxb553hsA=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.html",
-          "hash": "NaZ4WkOkutW0v5mccwZPzA=="
+          "hash": "WC5Ovw5tPcmVQ+sr+zZfug=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.html",
-          "hash": "cxBc5hWTeDjIGNH5hSKPow=="
+          "hash": "pp+ekMhSZ/eJJjRWmBktWQ=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.html",
-          "hash": "2bEMutGDGY42KjLtrYDVVg=="
+          "hash": "VjOI545DfBfUfB5mH5N+bA=="
         }
       },
       "is_incremental": false,
@@ -233,11 +233,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Examples.PlayerKillWithItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Examples.PlayerKillWithItem.html",
+          "hash": "BMUwEiPlzQhNUnxhQpJ53w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Examples.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Examples.html",
+          "hash": "Nd1yRrlBpfgjerayEWsT9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Wully.Extensions.BetterExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/Wully.Extensions.BetterExtensions.html",
-          "hash": "/R9t52mitYsXbXqoDrqs6g=="
+          "hash": "p4JFfr7Gb3nolbTyp/VwMA=="
         }
       },
       "is_incremental": false,
@@ -273,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterLogger.LogLevel.html",
-          "hash": "0RlMNy0phLOA4iQOCSMfGA=="
+          "hash": "f34dEeVtqrBN88pJEtSroQ=="
         }
       },
       "is_incremental": false,
@@ -285,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterLogger.html",
-          "hash": "yhIq9GVNjuuRFacIsoYbCw=="
+          "hash": "X/2B/1HCrQvu7EHiBk/b8A=="
         }
       },
       "is_incremental": false,
@@ -297,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.FluentLogger.Style.html",
-          "hash": "gZI/Mozam8kuIyxznEbeoA=="
+          "hash": "yDeVImva89Z9AOde8P/wzQ=="
         }
       },
       "is_incremental": false,
@@ -309,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.FluentLogger.html",
-          "hash": "oC8NCW9GHS1LUvNBBaIM1w=="
+          "hash": "8YeetPfsyF1nJi2IT5ZLZA=="
         }
       },
       "is_incremental": false,
@@ -333,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Module.LevelModuleBetterEvents.html",
-          "hash": "TURayd3+upBDgwPfYGPE+A=="
+          "hash": "DRRpgM94gyAipx2lHGkFww=="
         }
       },
       "is_incremental": false,
@@ -369,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8TZNL8WygKscTjfLmGLQiQ=="
+          "hash": "goHOK6YPqDUZhCEN/N3Uaw=="
         }
       },
       "is_incremental": false,
@@ -469,7 +493,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 29,
+          "total_file_count": 31,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

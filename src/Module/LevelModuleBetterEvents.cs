@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using ThunderRoad;
 using UnityEngine;
 using Wully.Events;
@@ -11,7 +9,6 @@ using Wully.Helpers;
 using static Wully.Extensions.BetterExtensions;
 using static Wully.Helpers.BetterHelpers;
 using static Wully.Helpers.BetterLogger;
-using System.Runtime.CompilerServices;
 
 namespace Wully.Module {
 	/// <summary>
@@ -92,7 +89,7 @@ namespace Wully.Module {
 			InitVars();
 			//master scene is always loaded and this module gets loaded with it
 			if ( level.data.id.ToLower() == "master" ) {
-				
+
 
 				log.Info().Message("Initialized Wully's BetterMods - BetterEvents Module".Italics());
 
@@ -128,7 +125,7 @@ namespace Wully.Module {
 
 			//since TK doesnt have events for grabbing, we need to monitor it and subscribe to the item the player TKs
 			if ( spellCasterLeft ) {
-			MonitorTk(spellCasterLeft, Side.Left, ref tkLeftHandle);
+				MonitorTk(spellCasterLeft, Side.Left, ref tkLeftHandle);
 			}
 			//left hand check
 			if ( spellCasterRight ) {
@@ -159,7 +156,7 @@ namespace Wully.Module {
 		public virtual void MonitorTk( SpellCaster spellCaster, Side side, ref Handle handle ) {
 
 			if ( spellCaster.TryGetTkHandle(out Handle caught) ) {
-				
+
 				//if the handle is currently set, check its not the same one
 				if ( caught == handle ) { return; }
 				log.Debug().Message("Spellcaster hand {0} grabbed a handle {1}", side, caught.name);
@@ -170,7 +167,7 @@ namespace Wully.Module {
 					BetterEvents.InvokePlayerTelekinesisUnGrabEvent(side, handle);
 					UnsubscribeToHandleColliders(handle);
 				}
-				
+
 				handle = caught;
 				TkCaughtHandle(handle, side);
 
@@ -190,8 +187,8 @@ namespace Wully.Module {
 
 		public virtual void OnUnPossessEvent( Creature creature, EventTime eventTime ) {
 			//do it for onstart
-			if(eventTime == EventTime.OnEnd ) { return;}
-			if (Player.local?.creature == null) { return; }
+			if ( eventTime == EventTime.OnEnd ) { return; }
+			if ( Player.local?.creature == null ) { return; }
 
 			log.Debug().Message("UnSubscribed to player hand/foot events");
 			//Subscribe to what the player picks up so we can track other things
@@ -212,7 +209,7 @@ namespace Wully.Module {
 			//do it for on end
 			if ( eventTime == EventTime.OnStart ) { return; }
 			if ( Player.local?.creature == null ) { return; }
-			
+
 			log.Debug().Message("Subscribed to player hand/foot events");
 			//Subscribe to what the player picks up so we can track other things
 			creature.handLeft.OnGrabEvent += Hand_OnGrabEvent;
@@ -225,11 +222,11 @@ namespace Wully.Module {
 			creature.footRight.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
 			creature.footLeft.colliderGroup.collisionHandler.OnCollisionStartEvent += PlayerItemFootHand_OnCollisionStartEvent;
 			Player.local.locomotion.OnGroundEvent += Locomotion_OnGroundEvent;
-			
+
 			spellCasterLeft = Player.local?.creature?.mana?.casterLeft;
 			spellCasterRight = Player.local?.creature?.mana?.casterRight;
-				
-			
+
+
 		}
 
 
@@ -279,12 +276,12 @@ namespace Wully.Module {
 
 		public virtual void SubscribeToHandleColliders( Handle handle ) {
 			//when the player grabs something, we want to subscribe to that items collision handlers	
-			if (!handle) { return; }
+			if ( !handle ) { return; }
 
-			if (handle is HandleRagdoll handleRagdoll) {
+			if ( handle is HandleRagdoll handleRagdoll ) {
 				CollisionHandler ch = handleRagdoll?.ragdollPart?.collisionHandler;
-				if (ch) {
-					if (grabbedCollisionHandlers.Contains(ch)) {
+				if ( ch ) {
+					if ( grabbedCollisionHandlers.Contains(ch) ) {
 						ch.OnCollisionStartEvent += this.PlayerItemFootHand_OnCollisionStartEvent;
 						grabbedCollisionHandlers.Add(ch);
 					}
@@ -292,9 +289,9 @@ namespace Wully.Module {
 				return;
 			} else {
 
-				if (handle.item) {
-					foreach (CollisionHandler collisionHandler in handle.item.collisionHandlers) {
-						if (!grabbedCollisionHandlers.Contains(collisionHandler)) {
+				if ( handle.item ) {
+					foreach ( CollisionHandler collisionHandler in handle.item.collisionHandlers ) {
+						if ( !grabbedCollisionHandlers.Contains(collisionHandler) ) {
 							collisionHandler.OnCollisionStartEvent += this.PlayerItemFootHand_OnCollisionStartEvent;
 							grabbedCollisionHandlers.Add(collisionHandler);
 						}
@@ -311,24 +308,24 @@ namespace Wully.Module {
 			if ( handle is HandleRagdoll handleRagdoll ) {
 				CollisionHandler ch = handleRagdoll?.ragdollPart?.collisionHandler;
 				if ( ch ) {
-					
+
 					ch.OnCollisionStartEvent -= this.PlayerItemFootHand_OnCollisionStartEvent;
 					grabbedCollisionHandlers.Remove(ch);
-					
+
 				}
 				return;
 			} else {
 
 				if ( handle.item ) {
 					foreach ( CollisionHandler collisionHandler in handle.item.collisionHandlers ) {
-						
+
 						collisionHandler.OnCollisionStartEvent -= this.PlayerItemFootHand_OnCollisionStartEvent;
 						grabbedCollisionHandlers.Remove(collisionHandler);
-						
+
 					}
 				}
 			}
-			
+
 		}
 
 		/// <summary>
@@ -347,7 +344,7 @@ namespace Wully.Module {
 				RagdollPart sourcePart = collisionInstance.GetRagdollPartFromSource();
 
 				//Player held item hit the creatures held item
-				if (sourceItem && targetItem && IsOnlyPlayerHolding(sourceItem) && IsOnlyCreatureExceptPlayerHolding(targetItem)) {
+				if ( sourceItem && targetItem && IsOnlyPlayerHolding(sourceItem) && IsOnlyCreatureExceptPlayerHolding(targetItem) ) {
 					log.Debug().Message("Players {0} hit a creatures {1}",
 						sourceItem.data.id, targetItem.data.id);
 					BetterEvents.InvokeCreatureParryingPlayer(targetItem.handlers[0].creature,
@@ -355,15 +352,15 @@ namespace Wully.Module {
 				}
 
 				//Creatures held item hit the players held item
-				if ( sourceItem && targetItem && IsOnlyCreatureExceptPlayerHolding(sourceItem) && IsOnlyPlayerHolding(targetItem)) {
+				if ( sourceItem && targetItem && IsOnlyCreatureExceptPlayerHolding(sourceItem) && IsOnlyPlayerHolding(targetItem) ) {
 					log.Debug().Message("Creatures {0} hit players {1}",
 						sourceItem.data.id, targetItem.data.id);
 				}
 
 				//Players held item hit a creature ragdollpart
-				if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && !IsPlayer(targetPart)) {
+				if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && !IsPlayer(targetPart) ) {
 
-					if (targetPart.ragdoll.creature.isKilled) { //Looks like this caused a null error hmm
+					if ( targetPart.ragdoll.creature.isKilled ) { //Looks like this caused a null error hmm
 						log.Debug().Message(
 							"Players {0} hit a dead creatures {1}",
 							sourceItem.data.id, targetPart.name);
@@ -376,30 +373,29 @@ namespace Wully.Module {
 				}
 
 				//Players held item hit a player ragdollpart
-				if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && IsPlayer(targetPart)) {
+				if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && IsPlayer(targetPart) ) {
 					log.Debug().Message("Players {0} hit players {1}",
 						sourceItem.data.id, targetPart.name);
 				}
 
 				//Players held item hit the ground/world
-				if ( sourceItem && IsOnlyPlayerHolding(sourceItem) && !collisionInstance.targetColliderGroup) {
+				if ( sourceItem && IsOnlyPlayerHolding(sourceItem) && !collisionInstance.targetColliderGroup ) {
 					log.Debug().Message("Players {0} hit ground",
 						sourceItem.data.id);
 				}
 
 				//Players ragdollpart hit the ground/world
-				if ( sourcePart && IsPlayer(sourcePart) && !collisionInstance.targetColliderGroup) {
+				if ( sourcePart && IsPlayer(sourcePart) && !collisionInstance.targetColliderGroup ) {
 					log.Debug().Message("Players {0} hit ground",
-						sourceItem.data.id);
+						sourcePart.name);
 				}
 
 				//An unheld item(flying/dropped/falling) that wasnt held last by player hit the players held item
-				if ( sourceItem && targetItem && IsNotHeld(sourceItem) && !IsLastHeldByPlayer(sourceItem) && IsOnlyPlayerHolding(targetItem)) {
+				if ( sourceItem && targetItem && IsNotHeld(sourceItem) && !IsLastHeldByPlayer(sourceItem) && IsOnlyPlayerHolding(targetItem) ) {
 					log.Debug().Message("Unheld item {0} hit players {1}",
 						sourceItem.data.id, targetItem.data.id);
 				}
-			}
-			catch (NullReferenceException e) {
+			} catch ( NullReferenceException e ) {
 				log.Exception().Message($"Something bad happened here: {e.StackTrace}");
 			}
 
@@ -439,8 +435,8 @@ namespace Wully.Module {
 			Ragdoll ragdoll = ragdollPart.ragdoll;
 			//Last thing th at hit damaged it - most likely causing the slice
 			CollisionInstance ch = ragdoll.creature.lastDamage;
-			
-			
+
+
 			//remove it from the dictionary if we did hit it before
 			if ( ragdollHits.ContainsKey(ragdoll) ) {
 				if ( ragdollHits[ragdoll].Contains(ragdollPart) ) {
@@ -462,11 +458,11 @@ namespace Wully.Module {
 			} else {
 				log.Warn().Message("ragdollPart {0} was not being tracked.. and was sliced", ragdollPart.type.ToString());
 			}
-			
+
 
 		}
 		public virtual void OnDeflectEvent( Creature source, Item item, Creature target ) {
-			
+
 			BetterEvents.InvokeDeflectEvent(source, item, target);
 			if ( source.player && target ) {
 				log.Debug().Message("Player deflected creatures {0}", item.data.id);
@@ -479,9 +475,9 @@ namespace Wully.Module {
 		}
 
 		public virtual void OnCreatureParry( Creature creature, CollisionInstance collisionInstance ) {
-			
+
 			if ( !creature ) { return; }
-			if (creature.isPlayer ) { return;}
+			if ( creature.isPlayer ) { return; }
 			if ( collisionInstance.IsDoneByPlayer() ) { return; }
 
 			log.Debug().Message("Player parried creature attack");
@@ -514,7 +510,7 @@ namespace Wully.Module {
 		}
 
 		public virtual void OnCreatureHit( Creature creature, CollisionInstance collisionInstance ) {
-			if (creature == null) {
+			if ( creature == null ) {
 				log.Debug().Message("Creature was null");
 				return;
 			}
@@ -530,7 +526,7 @@ namespace Wully.Module {
 				penetrationType = GetPenetrationType(collisionInstance)
 			};
 			BetterEvents.InvokeCreatureHitEvent(betterHit);
-			
+
 		}
 
 
@@ -642,7 +638,7 @@ namespace Wully.Module {
 						states.Add(BetterEvents.HitState.TelekinesisGrabbedItem);
 					}
 
-					if (collisionInstance?.sourceColliderGroup?.imbue?.spellCastBase != null) {
+					if ( collisionInstance?.sourceColliderGroup?.imbue?.spellCastBase != null ) {
 						states.Add(BetterEvents.HitState.ImbuedItem);
 					}
 					foreach ( Imbue imbue in collisionInstance.sourceColliderGroup.collisionHandler.item.imbues ) {
@@ -650,7 +646,7 @@ namespace Wully.Module {
 							states.Add(BetterEvents.HitState.ImbuedItem);
 							break;
 						}
-						
+
 					}
 				}
 			}

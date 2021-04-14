@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using Wully.Extensions;
 using static Wully.Helpers.BetterLogger;
@@ -22,7 +17,7 @@ namespace Wully.Helpers {
 		private BetterLogger log;
 		private string className;
 
-		public FluentLogger(BetterLogger betterLogger, LogLevel level, string callerMemberName, string callerFilePath, int callerLineNumber) {
+		public FluentLogger( BetterLogger betterLogger, LogLevel level, string callerMemberName, string callerFilePath, int callerLineNumber ) {
 			log = betterLogger;
 			className = log.ClassName();
 			logLevel = level;
@@ -38,40 +33,40 @@ namespace Wully.Helpers {
 		/// <param name="messageArgs"></param>
 		public void Message( string message, params object[] messageArgs ) {
 			//If the global instance is available and enabled, use its log level  for ALL loggers.
-			if (BetterLogger.local == null || !BetterLogger.local.IsEnabled()) {
+			if ( BetterLogger.local == null || !BetterLogger.local.IsEnabled() ) {
 				// dont print if logging disabled
-				if ( !log.IsEnabled()) { return; }
+				if ( !log.IsEnabled() ) { return; }
 				// dont print if current log level is below this messages log level
-				if ( log.GetLogLevel() < logLevel) { return; }
+				if ( log.GetLogLevel() < logLevel ) { return; }
 			}
 
-			switch (logLevel) {
-                case LogLevel.Exception:
-	                UnityEngine.Debug.LogError(Format(message,messageArgs));
-                    break;
-                case LogLevel.Error:
-	                UnityEngine.Debug.LogError(Format(message, messageArgs));
-                    break;
-                case LogLevel.Warn:
-	                UnityEngine.Debug.LogWarning(Format(message,messageArgs));
-                    break;
-                default: //Info/Debug/Default all use Log()
-	                UnityEngine.Debug.Log(Format(message, messageArgs)); 
-                    break;
+			switch ( logLevel ) {
+				case LogLevel.Exception:
+					UnityEngine.Debug.LogError(Format(message, messageArgs));
+					break;
+				case LogLevel.Error:
+					UnityEngine.Debug.LogError(Format(message, messageArgs));
+					break;
+				case LogLevel.Warn:
+					UnityEngine.Debug.LogWarning(Format(message, messageArgs));
+					break;
+				default: //Info/Debug/Default all use Log()
+					UnityEngine.Debug.Log(Format(message, messageArgs));
+					break;
 			}
 		}
 
-		private string Format(string format, params object[] args ) {
-            DateTime dateTime = DateTime.Now;
-            string dt = String.Format("{0:u}", dateTime);
-            string callingMethod = String.Join(".",className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
-            int thread = Thread.CurrentThread.ManagedThreadId;
+		private string Format( string format, params object[] args ) {
+			DateTime dateTime = DateTime.Now;
+			string dt = String.Format("{0:u}", dateTime);
+			string callingMethod = String.Join(".", className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
+			int thread = Thread.CurrentThread.ManagedThreadId;
 
-            return $"{dt}\t{Time.time}\t{LogLevelColor(logLevel).Bold()}\t{thread}\t{callingMethod}\t: {string.Format(format, args)}";
+			return $"{dt}\t{Time.time}\t{LogLevelColor(logLevel).Bold()}\t{thread}\t{callingMethod}\t: {string.Format(format, args)}";
 		}
 
-		private string LogLevelColor(LogLevel level) {
-			switch (level) {
+		private string LogLevelColor( LogLevel level ) {
+			switch ( level ) {
 				case LogLevel.Error:
 					return logLevel.ToString().Color(Color.red).Bold();
 				case LogLevel.Exception:
@@ -92,7 +87,7 @@ namespace Wully.Helpers {
 		}
 
 		public static string ConvertToHtml( Style style, int value, string text ) {
-			switch (style) {
+			switch ( style ) {
 				case Style.bold:
 					return $"<b>{text}</b>";
 				case Style.italic:

@@ -1,7 +1,6 @@
 ﻿using System;
 using ThunderRoad;
 using UnityEngine;
-using Wully.Events;
 using Wully.Helpers;
 using static Wully.Helpers.BetterHelpers;
 
@@ -32,8 +31,8 @@ namespace Wully.Extensions {
 		/// </summary>
 		/// <param name="text"></param>
 		/// <returns></returns>
-		public static string Bold( this string text) {
-			return FluentLogger.ConvertToHtml(FluentLogger.Style.bold,0, text);
+		public static string Bold( this string text ) {
+			return FluentLogger.ConvertToHtml(FluentLogger.Style.bold, 0, text);
 		}
 		/// <summary>
 		/// Returns string in html color
@@ -41,8 +40,8 @@ namespace Wully.Extensions {
 		/// <param name="text"></param>
 		/// <param name="color"></param>
 		/// <returns></returns>
-		public static string Color(this string text, Color color) {
-			return FluentLogger.ConvertToHtml(color,text);
+		public static string Color( this string text, Color color ) {
+			return FluentLogger.ConvertToHtml(color, text);
 		}
 
 		/// <summary>
@@ -50,11 +49,11 @@ namespace Wully.Extensions {
 		/// </summary>
 		/// <param name="ragdollPart"></param>
 		/// <returns></returns>
-		public static bool IsPlayer(this RagdollPart ragdollPart) {
+		public static bool IsPlayer( this RagdollPart ragdollPart ) {
 			return BetterHelpers.IsPlayer(ragdollPart);
 		}
 
-		public static string ToStringExt(this DamageStruct ds) {
+		public static string ToStringExt( this DamageStruct ds ) {
 			Color field = UnityEngine.Color.cyan;
 			return $"{nameof(ds.active).Bold().Color(field)}: {ds.active},\n {nameof(ds.time).Bold().Color(field)}: {ds.time},\n {nameof(ds.damageType).Bold().Color(field)}: {ds.damageType},\n {nameof(ds.materialModifier).Bold().Color(field)}: {ds.materialModifier},\n {nameof(ds.baseDamage).Bold().Color(field)}: {ds.baseDamage},\n {nameof(ds.damage).Bold().Color(field)}: {ds.damage},\n {nameof(ds.recoil).Bold().Color(field)}: {ds.recoil},\n {nameof(ds.badAngle).Bold().Color(field)}: {ds.badAngle},\n {nameof(ds.knockOut).Bold().Color(field)}: {ds.knockOut},\n {nameof(ds.knockOutDuration).Bold().Color(field)}: {ds.knockOutDuration},\n {nameof(ds.knockOutLevel).Bold().Color(field)}: {ds.knockOutLevel},\n {nameof(ds.hitRagdollPart).Bold().Color(field)}: {ds.hitRagdollPart},\n {nameof(ds.hitItem).Bold().Color(field)}: {ds.hitItem},\n {nameof(ds.damager).Bold().Color(field)}: {ds.damager},\n {nameof(ds.penetration).Bold().Color(field)}: {ds.penetration},\n {nameof(ds.penetrationJoint).Bold().Color(field)}: {ds.penetrationJoint},\n {nameof(ds.penetrationRb).Bold().Color(field)}: {ds.penetrationRb},\n {nameof(ds.penetrationTempRb).Bold().Color(field)}: {ds.penetrationTempRb},\n {nameof(ds.penetrationDepth).Bold().Color(field)}: {ds.penetrationDepth},\n {nameof(ds.penetrationDepthReached).Bold().Color(field)}: {ds.penetrationDepthReached},\n {nameof(ds.penetrationDeepReached).Bold().Color(field)}: {ds.penetrationDeepReached},\n {nameof(ds.penetrationDeepEffectInstance).Bold().Color(field)}: {ds.penetrationDeepEffectInstance},\n {nameof(ds.penetrationCutAxisPos).Bold().Color(field)}: {ds.penetrationCutAxisPos},\n {nameof(ds.lastRumbleDepth).Bold().Color(field)}: {ds.lastRumbleDepth},\n {nameof(ds.lastDepth).Bold().Color(field)}: {ds.lastDepth},\n {nameof(ds.penetrationPoint).Bold().Color(field)}: {ds.penetrationPoint},\n {nameof(ds.penetrationEffectInstance).Bold().Color(field)}: {ds.penetrationEffectInstance},\n {nameof(ds.penetrationEffectLastDistance).Bold().Color(field)}: {ds.penetrationEffectLastDistance},\n {nameof(ds.hasPenetrationEffect).Bold().Color(field)}: {ds.hasPenetrationEffect},\n {nameof(ds.stickMassModified).Bold().Color(field)}: {ds.stickMassModified}";
 		}
@@ -76,7 +75,7 @@ namespace Wully.Extensions {
 			BetterHelpers.TryGetObjFromColliderGroup(collisionInstance?.sourceColliderGroup, out RagdollPart ragdollPart);
 			return ragdollPart;
 		}
-		
+
 		/// <summary>
 		/// Tries to return the ragdoll part if there is one on the sourceColliderGroup
 		/// </summary>
@@ -127,7 +126,7 @@ namespace Wully.Extensions {
 		/// </summary>
 		/// <param name="collisionInstance"></param>
 		/// <returns>Nullable item from sourceColliderGroup</returns>
-		public static Item GetItemFromSource( this CollisionInstance collisionInstance) {
+		public static Item GetItemFromSource( this CollisionInstance collisionInstance ) {
 			BetterHelpers.TryGetObjFromColliderGroup(collisionInstance.sourceColliderGroup, out Item item);
 			return item;
 		}
@@ -145,9 +144,9 @@ namespace Wully.Extensions {
 		/// </summary>
 		/// <param name="collisionInstance"></param>
 		/// <returns>Nullable item from targetColliderGroup</returns>
-		public static Item GetItemFromTarget( this CollisionInstance collisionInstance) {
-			 BetterHelpers.TryGetObjFromColliderGroup(collisionInstance.targetColliderGroup, out Item item);
-			 return item;
+		public static Item GetItemFromTarget( this CollisionInstance collisionInstance ) {
+			BetterHelpers.TryGetObjFromColliderGroup(collisionInstance.targetColliderGroup, out Item item);
+			return item;
 		}
 		/// <summary>
 		/// Tries to return the item if there is one on the targetColliderGroup
@@ -288,7 +287,7 @@ namespace Wully.Extensions {
 		/// <param name="handle">handle being held</param>
 		/// <param name="ragdollHand">Players left or right hand</param>
 		/// <returns></returns>
-		public static bool TryGetPlayerHandHolding(this Handle handle, out RagdollHand ragdollHand) {
+		public static bool TryGetPlayerHandHolding( this Handle handle, out RagdollHand ragdollHand ) {
 			return BetterHelpers.TryGetPlayerHandHolding(handle, out ragdollHand);
 		}
 		/// <summary>
