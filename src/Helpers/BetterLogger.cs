@@ -17,7 +17,7 @@ namespace Wully.Helpers {
 		private string className;
 		private Type classType;
 
-
+		
 		public string ClassName() {
 			return className;
 		}
@@ -56,7 +56,7 @@ namespace Wully.Helpers {
 
 		BetterLogger( Type classType ) {
 			this.classType = classType;
-			className = classType.Name;
+			className = classType.ToString();
 			AddCommands(className);
 
 			if ( BetterLogger.local == null ) {

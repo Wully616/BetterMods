@@ -1123,6 +1123,24 @@ references:
   commentId: T:Wully.Events.BetterItemEvents
   fullName: Wully.Events.BetterItemEvents
   nameWithType: BetterItemEvents
+- uid: Wully.Examples
+  name: Wully.Examples
+  href: api/Wully.Examples.html
+  commentId: N:Wully.Examples
+  fullName: Wully.Examples
+  nameWithType: Wully.Examples
+- uid: Wully.Examples.PlayerKillWithItem
+  name: PlayerKillWithItem
+  href: api/Wully.Examples.PlayerKillWithItem.html
+  commentId: T:Wully.Examples.PlayerKillWithItem
+  fullName: Wully.Examples.PlayerKillWithItem
+  nameWithType: PlayerKillWithItem
+- uid: Wully.Examples.PlayerKillWithItem.item
+  name: item
+  href: api/Wully.Examples.PlayerKillWithItem.html#Wully_Examples_PlayerKillWithItem_item
+  commentId: F:Wully.Examples.PlayerKillWithItem.item
+  fullName: Wully.Examples.PlayerKillWithItem.item
+  nameWithType: PlayerKillWithItem.item
 - uid: Wully.Extensions
   name: Wully.Extensions
   href: api/Wully.Extensions.html

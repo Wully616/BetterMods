@@ -387,7 +387,7 @@ namespace Wully.Module {
 				//Players ragdollpart hit the ground/world
 				if ( sourcePart && IsPlayer(sourcePart) && !collisionInstance.targetColliderGroup ) {
 					log.Debug().Message("Players {0} hit ground",
-						sourceItem.data.id);
+						sourcePart.name);
 				}
 
 				//An unheld item(flying/dropped/falling) that wasnt held last by player hit the players held item
