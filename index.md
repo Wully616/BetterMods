@@ -83,7 +83,7 @@ public class MyClass : MonoBehaviour {
 ```
 
 ### Example commands generated for a class
-![alt text](images/loggercommands.jpg "log commands")
+![alt text](images/loggercommands-0.0.3.jpg "log commands")
 
 ### Example log output
-![alt text](images/logoutput.jpg "log output")
+![alt text](images/logoutput-0.0.3.jpg "log output")

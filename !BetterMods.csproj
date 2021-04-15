@@ -110,8 +110,8 @@
   <ItemGroup>
     <Content Include="docs\images\loggercommands.jpg" />
     <Content Include="docs\images\logoutput.jpg" />
-    <Content Include="images\loggercommands.jpg" />
-    <Content Include="images\logoutput.jpg" />
+    <Content Include="images\loggercommands-0.0.3.jpg" />
+    <Content Include="images\logoutput-0.0.3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
