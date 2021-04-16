@@ -32,37 +32,53 @@ namespace Wully.Helpers {
 		/// <param name="message"></param>
 		/// <param name="messageArgs"></param>
 		public void Message( string message, params object[] messageArgs ) {
-			//If the global instance is available and enabled, use its log level  for ALL loggers.
-			if ( BetterLogger.local == null || !BetterLogger.local.IsEnabled() ) {
-				// dont print if logging disabled
-				if ( !log.IsEnabled() ) { return; }
-				// dont print if current log level is below this messages log level
-				if ( log.GetLogLevel() < logLevel ) { return; }
-			}
+			try {
+				//If the global instance is available and enabled, use its log level  for ALL loggers.
+				if (BetterLogger.local == null || !BetterLogger.local.IsEnabled()) {
+					// dont print if logging disabled
+					if (!log.IsEnabled()) {
+						return;
+					}
 
-			switch ( logLevel ) {
-				case LogLevel.Exception:
-					UnityEngine.Debug.LogError(Format(message, messageArgs));
-					break;
-				case LogLevel.Error:
-					UnityEngine.Debug.LogError(Format(message, messageArgs));
-					break;
-				case LogLevel.Warn:
-					UnityEngine.Debug.LogWarning(Format(message, messageArgs));
-					break;
-				default: //Info/Debug/Default all use Log()
-					UnityEngine.Debug.Log(Format(message, messageArgs));
-					break;
+					// dont print if current log level is below this messages log level
+					if (log.GetLogLevel() < logLevel) {
+						return;
+					}
+				}
+
+				switch (logLevel) {
+					case LogLevel.Exception:
+						UnityEngine.Debug.LogError(Format(message, messageArgs));
+						break;
+					case LogLevel.Error:
+						UnityEngine.Debug.LogError(Format(message, messageArgs));
+						break;
+					case LogLevel.Warn:
+						UnityEngine.Debug.LogWarning(Format(message, messageArgs));
+						break;
+					default: //Info/Debug/Default all use Log()
+						UnityEngine.Debug.Log(Format(message, messageArgs));
+						break;
+				}
+			} catch ( Exception e ) {
+				log.Exception().Message($"Exception Caught: {e.StackTrace}");
 			}
 		}
 
 		private string Format( string format, params object[] args ) {
-			DateTime dateTime = DateTime.Now;
-			string dt = String.Format("{0:u}", dateTime);
-			string callingMethod = String.Join(".", className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
-			int thread = Thread.CurrentThread.ManagedThreadId;
+			try {
+				DateTime dateTime = DateTime.Now;
+				string dt = String.Format("{0:u}", dateTime);
+				string callingMethod =
+					String.Join(".", className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
+				int thread = Thread.CurrentThread.ManagedThreadId;
 
-			return $"{dt}\t{Time.time}\t{LogLevelColor(logLevel).Bold()}\t{thread}\t{callingMethod}\t: {string.Format(format, args)}";
+				return
+					$"{dt}\t{Time.time}\t{LogLevelColor(logLevel).Bold()}\t{thread}\t{callingMethod}\t: {string.Format(format, args)}";
+			} catch ( Exception e ) {
+				log.Exception().Message($"Exception Caught: {e.StackTrace}");
+				return "Error, could not log";
+			}
 		}
 
 		private string LogLevelColor( LogLevel level ) {
