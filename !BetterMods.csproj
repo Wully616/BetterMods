@@ -17,7 +17,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -26,22 +26,36 @@
     <DocumentationFile>bin\Debug\!BetterMods.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\BetterMods.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Events\BetterEvents.cs" />
-    <Compile Include="Events\BetterItemEvents.cs" />
-    <Compile Include="Helpers\BetterHelpers.cs" />
-    <Compile Include="Module\LevelModuleBetterEvents.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="src\Events\BetterEvents.cs" />
+    <Compile Include="src\Events\BetterHit.cs" />
+    <Compile Include="src\Events\BetterItemEvents.cs" />
+    <Compile Include="src\Extensions\BetterExtensions.cs" />
+    <Compile Include="src\Helpers\BetterHelpers.cs" />
+    <Compile Include="src\Helpers\BetterLogger.cs" />
+    <Compile Include="src\Helpers\FluentLogger.cs" />
+    <Compile Include="src\Module\LevelModuleBetterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Examples\PlayerKillWithItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Mods\packages\Lib.Harmony.2.0.4\lib\net472\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>E:\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -49,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\IngameDebugConsole.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="Unity.Addressables, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.Addressables.dll</HintPath>
@@ -76,22 +91,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="api\index.md" />
     <None Include="articles\intro.md" />
-    <None Include="articles\toc.md" />
-    <None Include="docfx.json" />
+    <None Include="docs\api\index.md" />
+    <None Include="docs\articles\toc.yml" />
+    <None Include="docs\index.md" />
+    <None Include="docs\toc.yml" />
     <None Include="index.md" />
+    <None Include="JSON\Levels\Level_Master.json" />
+    <None Include="JSON\manifest.json" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="docs\images\loggercommands.jpg" />
+    <Content Include="docs\images\logoutput.jpg" />
+    <Content Include="images\loggercommands-0.0.3.jpg" />
+    <Content Include="images\logoutput-0.0.3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir  $(SolutionDir)\..\..\Catalog\!BetterMods
-del /S /Q $(SolutionDir)\..\..\Catalog\!BetterMods\
-robocopy "$(SolutionDir)\JSON" "$(SolutionDir)\..\..\Catalog\!BetterMods" /E
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.dll"
-copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.xml"</PostBuildEvent>
+    <PostBuildEvent>mkdir  $(ProjectDir)\..\..\Catalog\$(ProjectName)
+del /S /Q $(ProjectDir)\..\..\Catalog\$(ProjectName)\
+robocopy "$(ProjectDir)\JSON" "$(SolutionDir)\..\..\Catalog\$(ProjectName)" /E
+copy /Y "$(TargetPath)" "$(ProjectDir)\..\..\Catalog\$(ProjectName)\$(ProjectName).dll"
+copy /Y "$(TargetDir)\$(ProjectName).xml" "$(ProjectDir)\..\..\Catalog\$(ProjectName)\$(ProjectName).xml"
+copy /Y "$(TargetDir)\$(ProjectName).pdb" "$(ProjectDir)\..\..\Catalog\$(ProjectName)\$(ProjectName).pdb"
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('packages\docfx.console.2.56.7\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -99,5 +129,7 @@ copy /Y "$(TargetPath)" "$(SolutionDir)\..\..\Catalog\!BetterMods\!BetterMods.xm
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\docfx.console.2.56.7\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\docfx.console.2.56.7\build\docfx.console.targets'))" />
+    <Error Condition="!Exists('..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets'))" />
   </Target>
+  <Import Project="..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('..\Mods\packages\docfx.console.2.56.7\build\docfx.console.targets')" />
 </Project>
