@@ -17,7 +17,7 @@ namespace Wully.Helpers {
 		private string className;
 		private Type classType;
 
-		
+
 		public string ClassName() {
 			return className;
 		}

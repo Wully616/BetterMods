@@ -34,19 +34,19 @@ namespace Wully.Helpers {
 		public void Message( string message, params object[] messageArgs ) {
 			try {
 				//If the global instance is available and enabled, use its log level  for ALL loggers.
-				if (BetterLogger.local == null || !BetterLogger.local.IsEnabled()) {
+				if ( BetterLogger.local == null || !BetterLogger.local.IsEnabled() ) {
 					// dont print if logging disabled
-					if (!log.IsEnabled()) {
+					if ( !log.IsEnabled() ) {
 						return;
 					}
 
 					// dont print if current log level is below this messages log level
-					if (log.GetLogLevel() < logLevel) {
+					if ( log.GetLogLevel() < logLevel ) {
 						return;
 					}
 				}
 
-				switch (logLevel) {
+				switch ( logLevel ) {
 					case LogLevel.Exception:
 						UnityEngine.Debug.LogError(Format(message, messageArgs));
 						break;
