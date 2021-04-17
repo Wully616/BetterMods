@@ -895,6 +895,35 @@ namespace Wully.Events {
 		#endregion
 
 
+		#region Player casting
+		/// <summary>
+		/// Called when player starts and stops casting a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerCast;
+		/// <summary>
+		///  Called when player starts and stops spraying a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerSpray;
+		/// <summary>
+		/// Called when player starts and stops merging a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerMerge;
+		public delegate void SpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime );
+
+		public static void InvokeOnPlayerCastSpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime) {
+			OnPlayerCast?.Invoke(spellCaster,side,eventTime);
+		}
+		public static void InvokeOnPlayerSpraySpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime ) {
+			OnPlayerSpray?.Invoke(spellCaster, side, eventTime);
+		}
+		public static void InvokeOnPlayerMergeSpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime ) {
+			OnPlayerMerge?.Invoke(spellCaster, side, eventTime);
+		}
+		#endregion
+
 		/// <summary>
 		/// The area where a collision hit
 		/// </summary>

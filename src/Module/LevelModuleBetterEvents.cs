@@ -50,6 +50,9 @@ namespace Wully.Module {
 		/// </summary>
 		public SpellCaster spellCasterLeft;
 		private Handle tkLeftHandle;
+		private bool spellCasterLeftIsCasting = false;
+		private bool spellCasterLeftIsSpraying = false;
+		private bool spellCasterLeftIsMerging = false;
 		/// <summary>
 		/// Returns the players left telekinesis grabbed handle
 		/// </summary>
@@ -59,6 +62,9 @@ namespace Wully.Module {
 		/// </summary>
 		public SpellCaster spellCasterRight;
 		private Handle tkRightHandle;
+		private bool spellCasterRightIsCasting = false;
+		private bool spellCasterRightIsSpraying = false;
+		private bool spellCasterRightIsMerging = false;
 		/// <summary>
 		/// Returns the players right telekinesis grabbed handle
 		/// </summary>
@@ -131,10 +137,12 @@ namespace Wully.Module {
 
 				//since TK doesnt have events for grabbing, we need to monitor it and subscribe to the item the player TKs
 				if ( spellCasterLeft ) {
+					MonitorCast(spellCasterLeft, Side.Left);
 					MonitorTk(spellCasterLeft, Side.Left, ref tkLeftHandle);
 				}
 				//left hand check
 				if ( spellCasterRight ) {
+					MonitorCast(spellCasterRight, Side.Left);
 					MonitorTk(spellCasterRight, Side.Right, ref tkRightHandle);
 				}
 
@@ -159,12 +167,80 @@ namespace Wully.Module {
 		}
 
 		/// <summary>
+		/// This function monitors when the player casts spells and fires one off events when the player starts/stops casting
+		/// </summary>
+		/// <param name="spellCaster"></param>
+		/// <param name="side"></param>
+		public virtual void MonitorCast(SpellCaster spellCaster, Side side) {
+			if ( !spellCaster ) { return; }
+
+			// Store the bools for the side we're checking. Means we dont need loads of if statements for left/right
+			bool isCasting = spellCasterLeftIsCasting;
+			bool isSpraying = spellCasterLeftIsSpraying;
+			bool isMerging = spellCasterLeftIsSpraying;
+
+			if (side == Side.Right) {
+				isCasting = spellCasterRightIsCasting;
+				isSpraying = spellCasterRightIsSpraying;
+				isMerging = spellCasterRightIsSpraying;
+			}
+			
+			// Starts casting
+			if (spellCaster.isFiring && !isCasting ) {
+				log.Debug().Message($"Player started casting {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerCastSpellEvent(spellCaster, side, EventTime.OnStart);
+			}
+
+			// Stops casting - let go of trigger
+			if ( !spellCaster.isFiring && isCasting ) {
+				log.Debug().Message($"Player stopped casting {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerCastSpellEvent(spellCaster, side, EventTime.OnEnd);
+			}
+
+			// Starts spraying 
+			if ( spellCaster.isSpraying && !isSpraying ) {
+				log.Debug().Message($"Player started spraying {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerSpraySpellEvent(spellCaster, side, EventTime.OnStart);
+			}
+			// Stops spraying 
+			if ( !spellCaster.isSpraying && isSpraying ) {
+				log.Debug().Message($"Player stopped spraying {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerSpraySpellEvent(spellCaster, side, EventTime.OnEnd);
+			}
+
+			// Starts merge 
+			if ( spellCaster.isMerging && !isMerging ) {
+				log.Debug().Message($"Player started merging {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerSpraySpellEvent(spellCaster, side, EventTime.OnStart);
+			}
+
+			// Stops merge 
+			if ( !spellCaster.isMerging && isMerging ) {
+				log.Debug().Message($"Player stopped merging {spellCaster.spellInstance.id} with {side} hand");
+				BetterEvents.InvokeOnPlayerMergeSpellEvent(spellCaster, side, EventTime.OnEnd);
+			}
+
+			if ( side == Side.Left ) {
+				spellCasterLeftIsCasting = isCasting;
+				spellCasterLeftIsSpraying = isSpraying;
+				spellCasterLeftIsSpraying = isMerging;
+			}
+			if ( side == Side.Right ) {
+				spellCasterRightIsCasting = isCasting;
+				spellCasterRightIsSpraying = isSpraying;
+				spellCasterRightIsSpraying = isMerging;
+			}
+			
+
+		}
+		/// <summary>
 		/// Continually checks if the player has grabbed something with Telekinesis and updates a handle reference
 		/// </summary>
 		/// <param name="spellCaster"></param>
 		/// <param name="side"></param>
 		/// <param name="handle"></param>
 		public virtual void MonitorTk( SpellCaster spellCaster, Side side, ref Handle handle ) {
+			if ( !spellCaster ) { return; }
 
 			if ( spellCaster.TryGetTkHandle(out Handle caught) ) {
 
