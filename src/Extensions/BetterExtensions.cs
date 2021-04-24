@@ -9,6 +9,13 @@ namespace Wully.Extensions {
 	/// Class extensions for BAS
 	/// </summary>
 	public static class BetterExtensions {
+
+		public static string EscapeJsonBraces(this string text) {
+			text = text.Replace("{", "{{");
+			text = text.Replace("}", "}}");
+			return text;
+		}
+
 		/// <summary>
 		/// Returns string in html with size
 		/// </summary>

@@ -69,14 +69,19 @@ namespace Wully.Helpers {
 			try {
 				DateTime dateTime = DateTime.Now;
 				string dt = String.Format("{0:u}", dateTime);
-				string callingMethod =
-					String.Join(".", className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
+				string callingMethod;
+				if (log.ShouldLogFullNamespace()) {
+					callingMethod = String.Join(".", className, _callerMemberName, _callerLineNumber).Color(Color.cyan);
+				} else {
+					callingMethod = String.Join(".",  _callerMemberName, _callerLineNumber).Color(Color.cyan);
+				}
+					
 				int thread = Thread.CurrentThread.ManagedThreadId;
 
 				return
 					$"{dt}\t{Time.time}\t{LogLevelColor(logLevel).Bold()}\t{thread}\t{callingMethod}\t: {string.Format(format, args)}";
 			} catch ( Exception e ) {
-				log.Exception().Message($"Exception Caught: {e.StackTrace}");
+				log.Exception().Message($"Exception Caught: {e.GetType()} {e.StackTrace}");
 				return "Error, could not log";
 			}
 		}

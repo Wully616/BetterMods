@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using ThunderRoad;
 using UnityEngine;
 using Wully.Events;
 using Wully.Helpers;
+using Wully.Performance;
 using static Wully.Extensions.BetterExtensions;
 using static Wully.Helpers.BetterHelpers;
 using static Wully.Helpers.BetterLogger;
@@ -298,6 +300,7 @@ namespace Wully.Module {
 
 		public virtual void OnPossessEvent( Creature creature, EventTime eventTime ) {
 			try {
+
 				//do it for on end
 				if ( eventTime == EventTime.OnStart ) { return; }
 				if ( Player.local?.creature == null ) { return; }
