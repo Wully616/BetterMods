@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome to the documentation for BetterMods. </title>
+    <title>Welcome to the documentation for BetterMods Version 0.0.4. </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Welcome to the documentation for BetterMods. ">
+    <meta name="title" content="Welcome to the documentation for BetterMods Version 0.0.4. ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -62,7 +62,7 @@
             <article class="content wrap" id="_content" data-uid="">
 
 <p><img src="https://staticdelivery.nexusmods.com/mods/2673/images/headers/3668_1617314074.jpg" alt="alt text" title="BetterMods"></p>
-<h1 id="welcome-to-the-documentation-for-bettermods">Welcome to the documentation for <strong>BetterMods</strong>.</h1>
+<h1 id="welcome-to-the-documentation-for-bettermods-version-004">Welcome to the documentation for <strong>BetterMods</strong> Version 0.0.4.</h1>
 <p>Refer to <a href="api/index.html">the documentation here</a> for BetterMods.</p>
 <h2 id="quick-start-notes">Quick Start Notes:</h2>
 <ol>
@@ -135,6 +135,51 @@ public class MyClass : MonoBehaviour {
 <p><img src="images/loggercommands-0.0.3.jpg" alt="alt text" title="log commands"></p>
 <h3 id="example-log-output">Example log output</h3>
 <p><img src="images/logoutput-0.0.3.jpg" alt="alt text" title="log output"></p>
+<h1 id="using-betterdependencies">Using BetterDependencies</h1>
+<p>BetterDependencies does a couple of things to check if users mods and dependencies are in good condition.
+This can help modders fix issues with their mods faster and inform users if they have a missing download.</p>
+<h4 id="manifest-validation">Manifest Validation</h4>
+<ol>
+<li>Checks if a duplicate manifest is found - ie two manifest.json's with the same mod name in them - even in different folders
+<img src="images/manidupe.PNG" alt="alt text" title="manifest duplicate"></li>
+<li>Checks if a mod folder's name does not match the mod name in the manifest.json - highlighting it will probably not work with vortex installs
+<img src="images/manivortex.PNG" alt="alt text" title="manifest vortex fail"></li>
+<li>Checks if the manifest.json game version does not match the current game version. I know U9 mods work with U9.2 and such, but its a helpful indicator
+<img src="images/maniversion.PNG" alt="alt text" title="manifest version fail"></li>
+</ol>
+<h4 id="json-configured-dependency-checking">JSON Configured Dependency Checking</h4>
+<p>Add a dependencies.json file to your mod folder - beside the manifest.json
+Inside it, you list different mods which your mod requires. The mods name should match the manifest.json name for that mod, same with the version</p>
+<pre><code>[
+    {
+        &quot;name&quot;: &quot;!BetterMods&quot;,
+        &quot;version&quot;: &quot;0.0.4&quot;
+    },
+    {
+        &quot;name&quot;: &quot;AnotherMod&quot;,
+        &quot;version&quot;: &quot;1.0.0&quot;
+    },
+    {
+        &quot;name&quot;: &quot;YouReallyNeedThisMod&quot;,
+        &quot;version&quot;: &quot;1.0.0&quot;
+    }
+]
+</code></pre>
+<p>BetterDependencies will:</p>
+<ol>
+<li>Check the manifests of the installed mods vs what is requested in dependencies.json</li>
+<li>Check if the mod is installed and the correct version.
+<img src="images/jsondependencyfound.jpg" alt="alt text" title="json dep found"></li>
+<li>Warns if there is a version mismatch.
+<img src="images/jsondepold.png" alt="alt text" title="json dep old"></li>
+<li>Logs an Error if the mod does not appear at all in the mod folder.
+<img src="images/jsondepmissing.png" alt="alt text" title="json dep missing"></li>
+</ol>
+<h4 id="dll-dependency-checking">Dll Dependency Checking</h4>
+<p>For mods which contain a DLL, it will check if any referenced dlls are also loaded
+It will warn if it could not find a required referenced dll - this can produce some false positives as it only checks for dlls in B&amp;S, not system ones.
+This can help to diagnose if a user is missing a required mod, without needing to define a dependencies.json file.	
+<img src="images/dlldep.PNG" alt="alt text" title="dll dep missing"></p>
 </article>
           </div>
           
