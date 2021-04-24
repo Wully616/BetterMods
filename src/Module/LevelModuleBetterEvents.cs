@@ -7,7 +7,6 @@ using ThunderRoad;
 using UnityEngine;
 using Wully.Events;
 using Wully.Helpers;
-using Wully.Performance;
 using static Wully.Extensions.BetterExtensions;
 using static Wully.Helpers.BetterHelpers;
 using static Wully.Helpers.BetterLogger;
