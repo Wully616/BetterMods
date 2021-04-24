@@ -1,7 +1,7 @@
 
 ![alt text](https://staticdelivery.nexusmods.com/mods/2673/images/headers/3668_1617314074.jpg "BetterMods")
 
-# Welcome to the documentation for **BetterMods**.
+# Welcome to the documentation for **BetterMods** Version 0.0.4.
 Refer to [the documentation here](api/index.html) for BetterMods.
 ## Quick Start Notes:
 1. Download BetterMods from Nexus [here](https://www.nexusmods.com/bladeandsorcery/mods/3668)
