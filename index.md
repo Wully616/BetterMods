@@ -1,7 +1,7 @@
 
 ![alt text](https://staticdelivery.nexusmods.com/mods/2673/images/headers/3668_1617314074.jpg "BetterMods")
 
-# Welcome to the documentation for **BetterMods**.
+# Welcome to the documentation for **BetterMods** Version 0.0.4.
 Refer to [the documentation here](api/index.html) for BetterMods.
 ## Quick Start Notes:
 1. Download BetterMods from Nexus [here](https://www.nexusmods.com/bladeandsorcery/mods/3668)
@@ -87,3 +87,53 @@ public class MyClass : MonoBehaviour {
 
 ### Example log output
 ![alt text](images/logoutput-0.0.3.jpg "log output")
+
+
+# Using BetterDependencies
+BetterDependencies does a couple of things to check if users mods and dependencies are in good condition.
+This can help modders fix issues with their mods faster and inform users if they have a missing download.
+
+#### Manifest Validation
+1. Checks if a duplicate manifest is found - ie two manifest.json's with the same mod name in them - even in different folders
+![alt text](images/manidupe.png "manifest duplicate")
+2. Checks if a mod folder's name does not match the mod name in the manifest.json - highlighting it will probably not work with vortex installs
+![alt text](images/manivortex.png "manifest vortex fail")
+3. Checks if the manifest.json game version does not match the current game version. I know U9 mods work with U9.2 and such, but its a helpful indicator
+![alt text](images/maniversion.png "manifest version fail")
+
+#### JSON Configured Dependency Checking
+
+Add a dependencies.json file to your mod folder - beside the manifest.json
+Inside it, you list different mods which your mod requires. The mods name should match the manifest.json name for that mod, same with the version
+
+```
+[
+    {
+        "name": "!BetterMods",
+        "version": "0.0.4"
+    },
+    {
+        "name": "AnotherMod",
+        "version": "1.0.0"
+    },
+    {
+        "name": "YouReallyNeedThisMod",
+        "version": "1.0.0"
+    }
+]
+```
+
+BetterDependencies will:
+1. Check the manifests of the installed mods vs what is requested in dependencies.json
+2. Check if the mod is installed and the correct version.
+	![alt text](images/jsondependencyfound.jpg "json dep found")
+3. Warns if there is a version mismatch.
+	![alt text](images/jsondepold.png "json dep old")
+4. Logs an Error if the mod does not appear at all in the mod folder.
+	![alt text](images/jsondepmissing.png "json dep missing")
+
+#### Dll Dependency Checking
+For mods which contain a DLL, it will check if any referenced dlls are also loaded 
+It will warn if it could not find a required referenced dll - this can produce some false positives as it only checks for dlls in B&S, not system ones.
+This can help to diagnose if a user is missing a required mod, without needing to define a dependencies.json file.	
+	![alt text](images/dlldep.png "dll dep missing")

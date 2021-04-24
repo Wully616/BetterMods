@@ -3,6 +3,7 @@ using ThunderRoad;
 using UnityEngine;
 using Wully.Extensions;
 using Wully.Helpers;
+using Wully.Module;
 using static Wully.Helpers.BetterHelpers;
 
 namespace Wully.Events {
@@ -794,8 +795,134 @@ namespace Wully.Events {
 
 		#endregion
 
+		#region Collision events
+
+		public static event CollisionEvent OnPlayerHeldItemCollideItem;
+		public static event CollisionEvent OnPlayerHeldItemCollideHeldItem;
+		public static event CollisionEvent OnPlayerHeldItemCollideUnheldItem;
+		public static event CollisionEvent OnCreatureHeldItemCollideItem;
+		public static event CollisionEvent OnCreatureHeldItemCollideHeldItem;
+		public static event CollisionEvent OnCreatureHeldItemCollideUnheldItem;
+		public static event CollisionEvent OnPlayerHeldItemCollideCreatureHeldItem;
+		public static event CollisionEvent OnCreatureHeldItemCollidePlayerHeldItem;
+		public static event CollisionEvent OnPlayerHeldItemCollideRagdollPart;
+		public static event CollisionEvent OnPlayerHeldItemCollideCreatureRagdollPart;
+		public static event CollisionEvent OnPlayerHeldItemCollidePlayerRagdollPart;
+		public static event CollisionEvent OnPlayerHeldItemCollideDeadCreatureRagdollPart;
+		public static event CollisionEvent OnPlayerHeldItemCollideAliveCreatureRagdollPart;
+		public static event CollisionEvent OnPlayerHeldItemCollideWorld;
+		public static event CollisionEvent OnPlayerRagdollPartCollideWorld;
+
+		public delegate void CollisionEvent( CollisionInstance collisionInstance );
+
+		public static void InvokeCollisionEvent( LevelModuleBetterEvents levelModule, CollisionInstance collisionInstance ) {
+			Item targetItem = collisionInstance.GetItemFromTarget();
+			Item sourceItem = collisionInstance.GetItemFromSource();
+			RagdollPart targetPart = collisionInstance.GetRagdollPartFromTarget();
+			RagdollPart sourcePart = collisionInstance.GetRagdollPartFromSource();
+
+			//Player held item hit the creatures held item
+			if ( sourceItem && targetItem && IsOnlyPlayerHolding(sourceItem) && IsOnlyCreatureExceptPlayerHolding(targetItem) ) {
+				log.Debug().Message("Players {0} hit a creatures {1}", sourceItem.data.id, targetItem.data.id);
+				InvokeCreatureParryingPlayer(targetItem.handlers[0].creature, collisionInstance);
+
+				OnPlayerHeldItemCollideCreatureHeldItem?.Invoke(collisionInstance);
+				OnPlayerHeldItemCollideItem?.Invoke(collisionInstance);
+				OnPlayerHeldItemCollideHeldItem?.Invoke(collisionInstance);
+
+			}
+
+			//Creatures held item hit the players held item
+			if ( sourceItem && targetItem && IsOnlyCreatureExceptPlayerHolding(sourceItem) && IsOnlyPlayerHolding(targetItem) ) {
+				log.Debug().Message("Creatures {0} hit players {1}", sourceItem.data.id, targetItem.data.id);
+				OnCreatureHeldItemCollidePlayerHeldItem?.Invoke(collisionInstance);
+				OnCreatureHeldItemCollideItem?.Invoke(collisionInstance);
+				OnCreatureHeldItemCollideHeldItem?.Invoke(collisionInstance);
+			}
+
+			//Players held item hit a creature ragdollpart
+			if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && !IsPlayer(targetPart) ) {
+
+				OnPlayerHeldItemCollideRagdollPart?.Invoke(collisionInstance);
+				OnPlayerHeldItemCollideCreatureRagdollPart?.Invoke(collisionInstance);
+				if ( targetPart.ragdoll.creature.isKilled ) {
+					log.Debug().Message("Players {0} hit a dead creatures {1}", sourceItem.data.id, targetPart.name);
+					levelModule.SubscribeToRagdollSlice(targetPart);
+					OnPlayerHeldItemCollideDeadCreatureRagdollPart?.Invoke(collisionInstance);
+				} else {
+					log.Debug().Message("Players {0} hit a creatures {1}", sourceItem.data.id, targetPart.name);
+					OnPlayerHeldItemCollideAliveCreatureRagdollPart?.Invoke(collisionInstance);
+				}
+			}
+
+			//Players held item hit a player ragdollpart
+			if ( sourceItem && targetPart && IsOnlyPlayerHolding(sourceItem) && IsPlayer(targetPart) ) {
+				OnPlayerHeldItemCollideRagdollPart?.Invoke(collisionInstance);
+				OnPlayerHeldItemCollidePlayerRagdollPart?.Invoke(collisionInstance);
+				log.Debug().Message("Players {0} hit players {1}",
+					sourceItem.data.id, targetPart.name);
+			}
+
+			//Players held item hit the ground/world
+			if ( sourceItem && IsOnlyPlayerHolding(sourceItem) && !collisionInstance.targetColliderGroup ) {
+				OnPlayerHeldItemCollideWorld?.Invoke(collisionInstance);
+				log.Debug().Message("Players {0} hit ground",
+					sourceItem.data.id);
+			}
+
+			//Players ragdollpart hit the ground/world
+			if ( sourcePart && IsPlayer(sourcePart) && !collisionInstance.targetColliderGroup ) {
+				OnPlayerRagdollPartCollideWorld?.Invoke(collisionInstance);
+				log.Debug().Message("Players {0} hit ground",
+					sourcePart.name);
+			}
+
+			//An unheld item(flying/dropped/falling) that wasnt held last by player hit the players held item
+			if ( sourceItem && targetItem && IsNotHeld(sourceItem) && !IsLastHeldByPlayer(sourceItem) && IsOnlyPlayerHolding(targetItem) ) {
+				OnPlayerHeldItemCollideUnheldItem?.Invoke(collisionInstance);
+				log.Debug().Message("Unheld item {0} hit players {1}",
+					sourceItem.data.id, targetItem.data.id);
+			}
+			//An unheld item(flying/dropped/falling) that wasnt held last by creature hit the creature held item
+			if ( sourceItem && targetItem && IsNotHeld(sourceItem) && !IsLastHeldByCreatureExceptPlayer(sourceItem) && IsOnlyCreatureExceptPlayerHolding(targetItem) ) {
+				OnCreatureHeldItemCollideUnheldItem?.Invoke(collisionInstance);
+				log.Debug().Message("Unheld item {0} hit creatures {1}",
+					sourceItem.data.id, targetItem.data.id);
+			}
+		}
 
 
+		#endregion
+
+
+		#region Player casting
+		/// <summary>
+		/// Called when player starts and stops casting a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerCast;
+		/// <summary>
+		///  Called when player starts and stops spraying a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerSpray;
+		/// <summary>
+		/// Called when player starts and stops merging a spell. eventType onStart/onStop is for casting start/stop
+		/// </summary>
+		/// <remarks>Use spellcaster.spellInstance.id to find out what spell it is</remarks>
+		public static event SpellEvent OnPlayerMerge;
+		public delegate void SpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime );
+
+		public static void InvokeOnPlayerCastSpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime) {
+			OnPlayerCast?.Invoke(spellCaster,side,eventTime);
+		}
+		public static void InvokeOnPlayerSpraySpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime ) {
+			OnPlayerSpray?.Invoke(spellCaster, side, eventTime);
+		}
+		public static void InvokeOnPlayerMergeSpellEvent( SpellCaster spellCaster, Side side, EventTime eventTime ) {
+			OnPlayerMerge?.Invoke(spellCaster, side, eventTime);
+		}
+		#endregion
 
 		/// <summary>
 		/// The area where a collision hit
