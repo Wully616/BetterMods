@@ -14,10 +14,11 @@ namespace Wully.Helpers {
 
 		private bool enabled = true;
 		private LogLevel loggingLevel = LogLevel.Info;
+		private bool logFullNamespace = false;
 		private string className;
 		private Type classType;
 
-		
+
 		public string ClassName() {
 			return className;
 		}
@@ -28,6 +29,18 @@ namespace Wully.Helpers {
 		public LogLevel GetLogLevel() {
 			return loggingLevel;
 		}
+
+		public bool ShouldLogFullNamespace() {
+			return logFullNamespace;
+		}
+		/// <summary>
+		/// Enables or disables including the full class name in the log file
+		/// </summary>
+		/// <param name="enable"></param>
+		public void SetLogFullNameSpace(bool enable) {
+			logFullNamespace = enable;
+		}
+
 		/// <summary>
 		/// Sets the logging loggingLevel for this logger instance
 		/// </summary>
@@ -76,6 +89,7 @@ namespace Wully.Helpers {
 			DebugLogConsole.AddCommand("Log_" + name + "_EnableLogging", "Enable Logging for: " + name, EnableLogging);
 			DebugLogConsole.AddCommand("Log_" + name + "_DisableLogging", "Disable Logging for: " + name, DisableLogging);
 			DebugLogConsole.AddCommand("Log_" + name + "_ToggleLogging", "Toggle Logging for: " + name, ToggleLogging);
+			DebugLogConsole.AddCommand<bool>("Log_" + name + "_SetLogFullNameSpace", "Enable/Disable logging the full namespace for: " + name, SetLogFullNameSpace);
 			DebugLogConsole.AddCommand<LogLevel>("Log_" + name + "_LogLevel", "Set log level for: " + name, SetLoggingLevel);
 		}
 

@@ -31,19 +31,35 @@ namespace Wully.Helpers {
 		}
 
 		/// <summary>
+		/// Returns true if the items last holder was a creature but not the player
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public static bool IsLastHeldByCreatureExceptPlayer( Item item ) {
+			//items not null
+			if ( !item ) { return false; }
+			// wasnt touched by anyone
+			if ( !item.lastHandler ) { return false; }
+			//source item was last touched by the creature
+			return item.lastHandler?.creature?.isPlayer == false;
+
+		}
+		/// <summary>
 		/// Returns true if the items last holder was the player
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		public static bool IsLastHeldByPlayer(Item item) {
+		public static bool IsLastHeldByPlayer( Item item ) {
 			//items not null
 			if ( !item ) { return false; }
+			// wasnt touched by anyone
+			if ( !item.lastHandler ) { return false; }
 			//source item was last touched by the player
 			return item.lastHandler?.creature?.isPlayer == true;
-			
-		} 
 
-		
+		}
+
+
 		/// <summary>
 		/// Returns true if only the player is holding the handle
 		/// </summary>
@@ -64,7 +80,7 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		public static bool IsOnlyPlayerHolding(Item item) {
+		public static bool IsOnlyPlayerHolding( Item item ) {
 			//items not null
 			if ( !item ) { return false; }
 			// player is holding item
@@ -80,8 +96,8 @@ namespace Wully.Helpers {
 		/// </summary>
 		/// <param name="ragdollPart"></param>
 		/// <returns></returns>
-		public static bool IsPlayer(RagdollPart ragdollPart) {
-			if (!ragdollPart) { return false;}
+		public static bool IsPlayer( RagdollPart ragdollPart ) {
+			if ( !ragdollPart ) { return false; }
 			return ragdollPart.ragdoll?.creature?.isPlayer == true;
 		}
 
@@ -147,8 +163,8 @@ namespace Wully.Helpers {
 		/// <param name="ragdollPart"></param>
 		/// <returns></returns>
 		public static bool IsPlayerTkHolding( RagdollPart ragdollPart ) {
-			if (!ragdollPart) { return false; }
-			
+			if ( !ragdollPart ) { return false; }
+
 			foreach ( SpellCaster spellCaster in ragdollPart.ragdoll.tkHandlers ) {
 				if ( spellCaster.ragdollHand.creature.isPlayer ) {
 					return true;
@@ -219,10 +235,10 @@ namespace Wully.Helpers {
 		/// <param name="handle"></param>
 		/// <returns></returns>
 		public static bool IsPlayerHolding( Handle handle ) {
-			if (handle == null) { return false;}
+			if ( handle == null ) { return false; }
 
 			return Player.currentCreature?.handLeft?.grabbedHandle == handle ||
-			       Player.currentCreature?.handRight?.grabbedHandle == handle;
+				   Player.currentCreature?.handRight?.grabbedHandle == handle;
 		}
 
 		/// <summary>
@@ -231,9 +247,9 @@ namespace Wully.Helpers {
 		/// <param name="item">Item being held</param>
 		/// <param name="ragdollHand">Players left or right hand</param>
 		/// <returns></returns>
-		public static bool TryGetPlayerHandHolding( Item item, out RagdollHand ragdollHand) {
+		public static bool TryGetPlayerHandHolding( Item item, out RagdollHand ragdollHand ) {
 			ragdollHand = null;
-			if (item == null) { return false;}
+			if ( item == null ) { return false; }
 
 			//need to loop so we can check all in handlers
 			foreach ( RagdollHand hand in item.handlers ) {
@@ -242,7 +258,7 @@ namespace Wully.Helpers {
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
 
@@ -256,7 +272,7 @@ namespace Wully.Helpers {
 			ragdollHand = null;
 			if ( handle == null ) { return false; }
 
-			if ( Player.currentCreature?.handLeft?.grabbedHandle == handle) {
+			if ( Player.currentCreature?.handLeft?.grabbedHandle == handle ) {
 				ragdollHand = Player.currentCreature.handLeft;
 				return true;
 			}
@@ -371,7 +387,7 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherItem"></param>
 		public static void MakeItemCollideWith( Item item, Item otherItem ) {
-			if (item == null || otherItem == null) { return; }
+			if ( item == null || otherItem == null ) { return; }
 
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
@@ -387,7 +403,7 @@ namespace Wully.Helpers {
 		/// <param name="item"></param>
 		/// <param name="otherCollider"></param>
 		public static void MakeItemCollideWith( Item item, Collider otherCollider ) {
-			if ( item == null || otherCollider == null ) {return; }
+			if ( item == null || otherCollider == null ) { return; }
 
 			foreach ( ColliderGroup colliderGroup in item.colliderGroups ) {
 				foreach ( Collider collider in colliderGroup.colliders ) {
