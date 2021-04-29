@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "pie7x4c7MQD3QQiUEj5epw=="
+          "hash": "jokU1vi+Q63cMtNOVXuExA=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ChokeEvent.html",
-          "hash": "0MZ0Es6wSDs3HMzAiIH1qw=="
+          "hash": "w8kXpHk2ua5010enhcYwIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.CollisionEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.CollisionEvent.html",
+          "hash": "zFjbR/b32ZtcyaXtOKGDgA=="
         }
       },
       "is_incremental": false,
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureHitEvent.html",
-          "hash": "+Nl1F90zPaFd8OgYOAdZvQ=="
+          "hash": "owJfCTNeYueblP6kbqJsqw=="
         }
       },
       "is_incremental": false,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureKillEvent.html",
-          "hash": "HSlvkWg0uoICf7tSbyZexw=="
+          "hash": "+WEM65YmnfoFyJ7HCQjGww=="
         }
       },
       "is_incremental": false,
@@ -57,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.CreatureState.html",
-          "hash": "nlz136wq+8UfQwLxkWvRlw=="
+          "hash": "vvkDE6RdUM3UAexyIhL5CQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DamageArea.html",
-          "hash": "EBJTBTdIFem7ilIdM1aF7A=="
+          "hash": "tDyYxBA+MF/S9qJi/m0JwQ=="
         }
       },
       "is_incremental": false,
@@ -81,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DeflectEvent.html",
-          "hash": "ezsqCxZ+Ng1TLtUSOPk4yQ=="
+          "hash": "w8yOJjU1oVYfw6Buhc0gzQ=="
         }
       },
       "is_incremental": false,
@@ -93,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.Direction.html",
-          "hash": "Ni4N81hsZ7dQqtlgblBIjw=="
+          "hash": "YTSsxhjaQIVZglwbin4hBQ=="
         }
       },
       "is_incremental": false,
@@ -105,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.DismemberEvent.html",
-          "hash": "X6DO9Ap/IGRiZtWu27li4Q=="
+          "hash": "LQUsoEIGAFcxUxkwz+zPSQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.HitState.html",
-          "hash": "G4oKW9tYrsLksTz9LltM+g=="
+          "hash": "QrClHLFye5bRvf9yAUoHfA=="
         }
       },
       "is_incremental": false,
@@ -129,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.ParryEvent.html",
-          "hash": "L5sQDHws7FJEgnjiFF/+rA=="
+          "hash": "0/84KNWxQcjM/P0MAFU6fA=="
         }
       },
       "is_incremental": false,
@@ -141,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerGroundEvent.html",
-          "hash": "VFsuRkoLFCpqCxNKUB1sxg=="
+          "hash": "osog/8C68EvGJITYw58z2w=="
         }
       },
       "is_incremental": false,
@@ -153,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandGrabEvent.html",
-          "hash": "KSWk1uZcEn06O7YKOiHOTA=="
+          "hash": "Br25hWBRWWD3VXIHFJxcSg=="
         }
       },
       "is_incremental": false,
@@ -165,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerHandUnGrabEvent.html",
-          "hash": "PITCu2/T7FgCHi05Uada8g=="
+          "hash": "pZSkDjnro/G4DLbUKsbmbQ=="
         }
       },
       "is_incremental": false,
@@ -177,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisGrabEvent.html",
-          "hash": "eqx3pVhhxgDY0xfjvSb7UA=="
+          "hash": "q2M/Ct+v3UKlWUDM7BfGJQ=="
         }
       },
       "is_incremental": false,
@@ -189,7 +201,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.PlayerTelekinesisUnGrabEvent.html",
-          "hash": "G9hBiGdAhgcMLwloNIVjKw=="
+          "hash": "IQUYvW3+DI4zyPAvmBVayA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Events.BetterEvents.SpellEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Events.BetterEvents.SpellEvent.html",
+          "hash": "beP+kOOza+3NTuGzSNvCCw=="
         }
       },
       "is_incremental": false,
@@ -201,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterEvents.html",
-          "hash": "ChaTcSuP1GH/gkQx8oMw1w=="
+          "hash": "iwkTHfWLnQB35KeoxA/ouA=="
         }
       },
       "is_incremental": false,
@@ -213,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterHit.html",
-          "hash": "R0Q/LhML/B/zu5BG2D8Xug=="
+          "hash": "3WJkm4tVykRE/nUpH+NXEg=="
         }
       },
       "is_incremental": false,
@@ -225,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.BetterItemEvents.html",
-          "hash": "R/J1CODz/aUhHe0IX/Y93w=="
+          "hash": "pa21o5PWSynv9sF1QVwXzA=="
         }
       },
       "is_incremental": false,
@@ -237,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Events.html",
-          "hash": "ZVDdtY+j1WEO0pymQaq/cA=="
+          "hash": "OZqAKM1KXYELdejraErz+w=="
         }
       },
       "is_incremental": false,
@@ -249,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Examples.PlayerKillWithItem.html",
-          "hash": "WnAZJHuktpSZhJXT0u+7ag=="
+          "hash": "imwt4iNaOC4+WUWD9qdzxg=="
         }
       },
       "is_incremental": false,
@@ -273,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Extensions.BetterExtensions.html",
-          "hash": "UI5vXNe1tlqslfG/7UqhPg=="
+          "hash": "eDU85kUVL4EvtFNWLgzX7A=="
         }
       },
       "is_incremental": false,
@@ -297,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterHelpers.html",
-          "hash": "qXxhCUrrMB0H0W1Q14MT+g=="
+          "hash": "V5SSfghYzLis0zvuiKVigg=="
         }
       },
       "is_incremental": false,
@@ -309,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterLogger.LogLevel.html",
-          "hash": "xveZh5VfqTQYlvKdwZjJmg=="
+          "hash": "18gkGEA1IBLijMwI5DO5Gw=="
         }
       },
       "is_incremental": false,
@@ -321,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.BetterLogger.html",
-          "hash": "UJslhNty4H3h8/gEyZMv/A=="
+          "hash": "RUa9ANLFdXlEJInK1Erj7g=="
         }
       },
       "is_incremental": false,
@@ -333,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.FluentLogger.Style.html",
-          "hash": "QO6XPspKKvMXn/Nzj3ZW7A=="
+          "hash": "yiX5884X1JKHOrY8XhhuJg=="
         }
       },
       "is_incremental": false,
@@ -345,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Helpers.FluentLogger.html",
-          "hash": "9vVDpyJBHE8CiMrsyKhFyA=="
+          "hash": "Vz9tOiNO5CCnPq9GfEXulA=="
         }
       },
       "is_incremental": false,
@@ -365,11 +389,107 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Menus.MenuModuleBetterMods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Menus.MenuModuleBetterMods.html",
+          "hash": "fzfwtTRToBwzQZ0wbmAdkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Menus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Menus.html",
+          "hash": "/I5X//WPc3PWUJbShka+dw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.LevelModuleBetterDependencies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.LevelModuleBetterDependencies.html",
+          "hash": "1uXaIXPvv1QqKzxY4+IxEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Wully.Module.LevelModuleBetterEvents.yml",
       "output": {
         ".html": {
           "relative_path": "api/Wully.Module.LevelModuleBetterEvents.html",
-          "hash": "oDGRLww2AofjyCcbMg8YXA=="
+          "hash": "Q3BnuO28gAytU8L+FYKKRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.LevelModuleGlobalItemModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.LevelModuleGlobalItemModule.html",
+          "hash": "Tz9mxOJI8Z3FccxvoTc7ZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.LevelModuleMasterLevel.LoadedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.LevelModuleMasterLevel.LoadedEvent.html",
+          "hash": "GvItnJpOhQC3xdyXyeMH+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.LevelModuleMasterLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.LevelModuleMasterLevel.html",
+          "hash": "kbrgLi9SmH9wz52L6511Bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.ModDependency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.ModDependency.html",
+          "hash": "A0Mhqy6dCYGhY9KooiAPCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Module.ModManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Module.ModManifest.html",
+          "hash": "PZm+xZeYxPfj1pc6AIb1gw=="
         }
       },
       "is_incremental": false,
@@ -381,7 +501,55 @@
       "output": {
         ".html": {
           "relative_path": "api/Wully.Module.html",
-          "hash": "u8stGltj1ni/5YgOLE4oNg=="
+          "hash": "Did1yLJn4E4THAlB8V9aJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.RPUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.RPUtils.html",
+          "hash": "1yvUP5heesQJzDGNqHnq+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Render.CustomPass-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Render.CustomPass-1.html",
+          "hash": "FzM8bkit7HaK8TsZo5tM7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.Render.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.Render.html",
+          "hash": "u/w//YCzz/LiZpCxg8z8gA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Wully.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Wully.html",
+          "hash": "e+2L2gDpO+VtkcCFPoTasg=="
         }
       },
       "is_incremental": false,
@@ -393,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "QaQgAPb4r6AXAeKw0WTWqQ=="
+          "hash": "yCiac+TnBxXuhZyJO6VFjA=="
         }
       },
       "is_incremental": false,
@@ -405,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "goHOK6YPqDUZhCEN/N3Uaw=="
+          "hash": "MGarmjQr5b+hsNh/RrXyog=="
         }
       },
       "is_incremental": false,
@@ -417,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "AdOunfpqtCDBYTWfVoOjjg=="
+          "hash": "DNEnBoSNbbFVT6G6WNZGzg=="
         }
       },
       "is_incremental": false,
@@ -430,6 +598,50 @@
         ".html": {
           "relative_path": "articles/toc.html",
           "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dlldep.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/dlldep.PNG"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jsondependencyfound.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/jsondependencyfound.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jsondepmissing.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/jsondepmissing.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jsondepold.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/jsondepold.png"
         }
       },
       "is_incremental": false,
@@ -458,6 +670,39 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/manidupe.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/manidupe.PNG"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/maniversion.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/maniversion.PNG"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manivortex.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/manivortex.PNG"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "log_codes": [
         "InvalidFileLink"
       ],
@@ -466,7 +711,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "XYR7wiz+HBELmB1vsFklMw=="
+          "hash": "W2Gk3kfCpmb9Yy4sZNJNwA=="
         }
       },
       "is_incremental": false,
@@ -505,7 +750,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 31,
+          "total_file_count": 45,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

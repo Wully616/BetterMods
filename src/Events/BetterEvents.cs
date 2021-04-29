@@ -13,6 +13,7 @@ namespace Wully.Events {
 	public class BetterEvents {
 		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterEvents));
 
+
 		#region item hit events
 
 		#endregion

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using ThunderRoad;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Wully.Helpers {
 	/// </summary>
 	public class BetterHelpers {
 		private static BetterLogger log = BetterLogger.GetLogger(typeof(BetterHelpers));
+
 
 		/// <summary>
 		/// Returns true if the item isnt being held
@@ -293,6 +295,16 @@ namespace Wully.Helpers {
 				from item in Catalog.GetDataList(Catalog.Category.Item)
 				where ((ItemData)item).type == type
 				select item.id).ToList<string>();
+		}
+
+		/// <summary>
+		/// Get a list of ItemData
+		/// </summary>
+		/// <returns></returns>
+		public static List<ItemData> GetItemDataList() {
+			return (
+				from item in Catalog.GetDataList(Catalog.Category.Item)
+				select ((ItemData)item)).ToList<ItemData>();
 		}
 
 		/// <summary>
