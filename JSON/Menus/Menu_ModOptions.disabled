@@ -1,0 +1,13 @@
+{
+  "$type": "ThunderRoad.MenuData, Assembly-CSharp",
+  "id": "WullyBetterModsOptions",  
+    "saveFolder": "Bas",
+  "version": 1,
+  "order": 99.0,
+  "isDefault": false,
+  "iconAddress": "Bas.Item.Melee.Dagger.Common.Icon",
+  "prefabAddress": "Wully.Menu.BetterModsMenu",
+  "module": {
+    "$type": "Wully.Menus.MenuModuleBetterMods, !BetterMods"
+  }
+}

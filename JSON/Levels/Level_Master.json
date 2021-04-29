@@ -39,6 +39,11 @@
 		            "$type": "Wully.Module.LevelModuleBetterDependencies, !BetterMods",
 		            "enableLogging": true,
 		            "logLevel": "Info"
+	            },
+	            {
+		            "$type": "Wully.Module.LevelModuleMasterLevel, !BetterMods",
+		            "enableLogging": true,
+		            "logLevel": "Info"
 	            }
             ],
             "ranks": []

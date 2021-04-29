@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PlayerKillWithItem
+    <title>Class RPUtils
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PlayerKillWithItem
+    <meta name="title" content="Class RPUtils
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,13 +68,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Wully.Examples.PlayerKillWithItem">
+            <article class="content wrap" id="_content" data-uid="Wully.RPUtils">
   
   
-  <h1 id="Wully_Examples_PlayerKillWithItem" data-uid="Wully.Examples.PlayerKillWithItem" class="text-break">Class PlayerKillWithItem
+  <h1 id="Wully_RPUtils" data-uid="Wully.RPUtils" class="text-break">Class RPUtils
   </h1>
-  <div class="markdown level0 summary"><p>This is an example showing how to track if a player killed a creature with a certain item</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -83,7 +82,7 @@
     <div class="level2"><span class="xref">UnityEngine.Component</span></div>
     <div class="level3"><span class="xref">UnityEngine.Behaviour</span></div>
     <div class="level4"><span class="xref">UnityEngine.MonoBehaviour</span></div>
-    <div class="level5"><span class="xref">PlayerKillWithItem</span></div>
+    <div class="level5"><span class="xref">RPUtils</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -370,29 +369,47 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Wully.Examples.html">Wully.Examples</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Wully.html">Wully</a></h6>
   <h6><strong>Assembly</strong>: !BetterMods.dll</h6>
-  <h5 id="Wully_Examples_PlayerKillWithItem_syntax">Syntax</h5>
+  <h5 id="Wully_RPUtils_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PlayerKillWithItem : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public class RPUtils : MonoBehaviour</code></pre>
   </div>
-  <h3 id="fields">Fields
+  <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_Examples_PlayerKillWithItem_item.md&amp;value=---%0Auid%3A%20Wully.Examples.PlayerKillWithItem.item%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_RPUtils_GetRendererIndex_System_String_.md&amp;value=---%0Auid%3A%20Wully.RPUtils.GetRendererIndex(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Examples/PlayerKillWithItem.cs/#L17">View Source</a>
+    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Render/RPUtils.cs/#L17">View Source</a>
   </span>
-  <h4 id="Wully_Examples_PlayerKillWithItem_item" data-uid="Wully.Examples.PlayerKillWithItem.item">item</h4>
+  <a id="Wully_RPUtils_GetRendererIndex_" data-uid="Wully.RPUtils.GetRendererIndex*"></a>
+  <h4 id="Wully_RPUtils_GetRendererIndex_System_String_" data-uid="Wully.RPUtils.GetRendererIndex(System.String)">GetRendererIndex(String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Item item</code></pre>
+    <pre><code class="lang-csharp hljs">public static int GetRendererIndex(string name)</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -402,7 +419,111 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ThunderRoad.Item</span></td>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_RPUtils_TryGetFeature_System_String_UnityEngine_Rendering_Universal_ScriptableRendererFeature__UnityEngine_Rendering_Universal_ScriptableRendererData__.md&amp;value=---%0Auid%3A%20Wully.RPUtils.TryGetFeature(System.String%2CUnityEngine.Rendering.Universal.ScriptableRendererFeature%40%2CUnityEngine.Rendering.Universal.ScriptableRendererData%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Render/RPUtils.cs/#L30">View Source</a>
+  </span>
+  <a id="Wully_RPUtils_TryGetFeature_" data-uid="Wully.RPUtils.TryGetFeature*"></a>
+  <h4 id="Wully_RPUtils_TryGetFeature_System_String_UnityEngine_Rendering_Universal_ScriptableRendererFeature__UnityEngine_Rendering_Universal_ScriptableRendererData__" data-uid="Wully.RPUtils.TryGetFeature(System.String,UnityEngine.Rendering.Universal.ScriptableRendererFeature@,UnityEngine.Rendering.Universal.ScriptableRendererData@)">TryGetFeature(String, out ScriptableRendererFeature, out ScriptableRendererData)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetFeature(string name, out ScriptableRendererFeature feature, out ScriptableRendererData scriptableRendererData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">UnityEngine.Rendering.Universal.ScriptableRendererFeature</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">UnityEngine.Rendering.Universal.ScriptableRendererData</span></td>
+        <td><span class="parametername">scriptableRendererData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_RPUtils_TryGetScriptableRendererData_UnityEngine_Rendering_Universal_ScriptableRendererData__.md&amp;value=---%0Auid%3A%20Wully.RPUtils.TryGetScriptableRendererData(UnityEngine.Rendering.Universal.ScriptableRendererData%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Render/RPUtils.cs/#L10">View Source</a>
+  </span>
+  <a id="Wully_RPUtils_TryGetScriptableRendererData_" data-uid="Wully.RPUtils.TryGetScriptableRendererData*"></a>
+  <h4 id="Wully_RPUtils_TryGetScriptableRendererData_UnityEngine_Rendering_Universal_ScriptableRendererData__" data-uid="Wully.RPUtils.TryGetScriptableRendererData(UnityEngine.Rendering.Universal.ScriptableRendererData@)">TryGetScriptableRendererData(out ScriptableRendererData)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetScriptableRendererData(out ScriptableRendererData scriptableRendererData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Rendering.Universal.ScriptableRendererData</span></td>
+        <td><span class="parametername">scriptableRendererData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -415,10 +536,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_Examples_PlayerKillWithItem.md&amp;value=---%0Auid%3A%20Wully.Examples.PlayerKillWithItem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Wully616/BetterMods/new/0.0.5/apiSpec/new?filename=Wully_RPUtils.md&amp;value=---%0Auid%3A%20Wully.RPUtils%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Examples/PlayerKillWithItem.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Wully616/BetterMods/blob/0.0.5/src/Render/RPUtils.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

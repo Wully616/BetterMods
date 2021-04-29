@@ -1,6 +1,12 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Wully
+  name: Wully
+  href: api/Wully.html
+  commentId: N:Wully
+  fullName: Wully
+  nameWithType: Wully
 - uid: Wully.Events
   name: Wully.Events
   href: api/Wully.Events.html
@@ -2000,6 +2006,12 @@ references:
   isSpec: "True"
   fullName: Wully.Helpers.BetterHelpers.GetItemDataIdList
   nameWithType: BetterHelpers.GetItemDataIdList
+- uid: Wully.Helpers.BetterHelpers.GetItemDataList
+  name: GetItemDataList()
+  href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_GetItemDataList
+  commentId: M:Wully.Helpers.BetterHelpers.GetItemDataList
+  fullName: Wully.Helpers.BetterHelpers.GetItemDataList()
+  nameWithType: BetterHelpers.GetItemDataList()
 - uid: Wully.Helpers.BetterHelpers.GetItemDataList(ThunderRoad.ItemData.Type)
   name: GetItemDataList(ItemData.Type)
   href: api/Wully.Helpers.BetterHelpers.html#Wully_Helpers_BetterHelpers_GetItemDataList_ThunderRoad_ItemData_Type_
@@ -2885,6 +2897,63 @@ references:
   commentId: F:Wully.Helpers.FluentLogger.Style.size
   fullName: Wully.Helpers.FluentLogger.Style.size
   nameWithType: FluentLogger.Style.size
+- uid: Wully.Menus
+  name: Wully.Menus
+  href: api/Wully.Menus.html
+  commentId: N:Wully.Menus
+  fullName: Wully.Menus
+  nameWithType: Wully.Menus
+- uid: Wully.Menus.MenuModuleBetterMods
+  name: MenuModuleBetterMods
+  href: api/Wully.Menus.MenuModuleBetterMods.html
+  commentId: T:Wully.Menus.MenuModuleBetterMods
+  fullName: Wully.Menus.MenuModuleBetterMods
+  nameWithType: MenuModuleBetterMods
+- uid: Wully.Menus.MenuModuleBetterMods.current
+  name: current
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_current
+  commentId: F:Wully.Menus.MenuModuleBetterMods.current
+  fullName: Wully.Menus.MenuModuleBetterMods.current
+  nameWithType: MenuModuleBetterMods.current
+- uid: Wully.Menus.MenuModuleBetterMods.Init(ThunderRoad.MenuData,ThunderRoad.Menu)
+  name: Init(MenuData, Menu)
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_Init_ThunderRoad_MenuData_ThunderRoad_Menu_
+  commentId: M:Wully.Menus.MenuModuleBetterMods.Init(ThunderRoad.MenuData,ThunderRoad.Menu)
+  fullName: Wully.Menus.MenuModuleBetterMods.Init(ThunderRoad.MenuData, ThunderRoad.Menu)
+  nameWithType: MenuModuleBetterMods.Init(MenuData, Menu)
+- uid: Wully.Menus.MenuModuleBetterMods.Init*
+  name: Init
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_Init_
+  commentId: Overload:Wully.Menus.MenuModuleBetterMods.Init
+  isSpec: "True"
+  fullName: Wully.Menus.MenuModuleBetterMods.Init
+  nameWithType: MenuModuleBetterMods.Init
+- uid: Wully.Menus.MenuModuleBetterMods.OnShow(System.Boolean)
+  name: OnShow(Boolean)
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_OnShow_System_Boolean_
+  commentId: M:Wully.Menus.MenuModuleBetterMods.OnShow(System.Boolean)
+  fullName: Wully.Menus.MenuModuleBetterMods.OnShow(System.Boolean)
+  nameWithType: MenuModuleBetterMods.OnShow(Boolean)
+- uid: Wully.Menus.MenuModuleBetterMods.OnShow*
+  name: OnShow
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_OnShow_
+  commentId: Overload:Wully.Menus.MenuModuleBetterMods.OnShow
+  isSpec: "True"
+  fullName: Wully.Menus.MenuModuleBetterMods.OnShow
+  nameWithType: MenuModuleBetterMods.OnShow
+- uid: Wully.Menus.MenuModuleBetterMods.RefreshPage
+  name: RefreshPage()
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_RefreshPage
+  commentId: M:Wully.Menus.MenuModuleBetterMods.RefreshPage
+  fullName: Wully.Menus.MenuModuleBetterMods.RefreshPage()
+  nameWithType: MenuModuleBetterMods.RefreshPage()
+- uid: Wully.Menus.MenuModuleBetterMods.RefreshPage*
+  name: RefreshPage
+  href: api/Wully.Menus.MenuModuleBetterMods.html#Wully_Menus_MenuModuleBetterMods_RefreshPage_
+  commentId: Overload:Wully.Menus.MenuModuleBetterMods.RefreshPage
+  isSpec: "True"
+  fullName: Wully.Menus.MenuModuleBetterMods.RefreshPage
+  nameWithType: MenuModuleBetterMods.RefreshPage
 - uid: Wully.Module
   name: Wully.Module
   href: api/Wully.Module.html
@@ -3382,6 +3451,129 @@ references:
   isSpec: "True"
   fullName: Wully.Module.LevelModuleBetterEvents.Update
   nameWithType: LevelModuleBetterEvents.Update
+- uid: Wully.Module.LevelModuleGlobalItemModule
+  name: LevelModuleGlobalItemModule
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html
+  commentId: T:Wully.Module.LevelModuleGlobalItemModule
+  fullName: Wully.Module.LevelModuleGlobalItemModule
+  nameWithType: LevelModuleGlobalItemModule
+- uid: Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules
+  name: ApplyItemModules()
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_ApplyItemModules
+  commentId: M:Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules
+  fullName: Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules()
+  nameWithType: LevelModuleGlobalItemModule.ApplyItemModules()
+- uid: Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules*
+  name: ApplyItemModules
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_ApplyItemModules_
+  commentId: Overload:Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules
+  isSpec: "True"
+  fullName: Wully.Module.LevelModuleGlobalItemModule.ApplyItemModules
+  nameWithType: LevelModuleGlobalItemModule.ApplyItemModules
+- uid: Wully.Module.LevelModuleGlobalItemModule.enableLogging
+  name: enableLogging
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_enableLogging
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.enableLogging
+  fullName: Wully.Module.LevelModuleGlobalItemModule.enableLogging
+  nameWithType: LevelModuleGlobalItemModule.enableLogging
+- uid: Wully.Module.LevelModuleGlobalItemModule.itemTypes
+  name: itemTypes
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_itemTypes
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.itemTypes
+  fullName: Wully.Module.LevelModuleGlobalItemModule.itemTypes
+  nameWithType: LevelModuleGlobalItemModule.itemTypes
+- uid: Wully.Module.LevelModuleGlobalItemModule.local
+  name: local
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_local
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.local
+  fullName: Wully.Module.LevelModuleGlobalItemModule.local
+  nameWithType: LevelModuleGlobalItemModule.local
+- uid: Wully.Module.LevelModuleGlobalItemModule.log
+  name: log
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_log
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.log
+  fullName: Wully.Module.LevelModuleGlobalItemModule.log
+  nameWithType: LevelModuleGlobalItemModule.log
+- uid: Wully.Module.LevelModuleGlobalItemModule.logLevel
+  name: logLevel
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_logLevel
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.logLevel
+  fullName: Wully.Module.LevelModuleGlobalItemModule.logLevel
+  nameWithType: LevelModuleGlobalItemModule.logLevel
+- uid: Wully.Module.LevelModuleGlobalItemModule.modules
+  name: modules
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_modules
+  commentId: F:Wully.Module.LevelModuleGlobalItemModule.modules
+  fullName: Wully.Module.LevelModuleGlobalItemModule.modules
+  nameWithType: LevelModuleGlobalItemModule.modules
+- uid: Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine(ThunderRoad.Level)
+  name: OnLoadCoroutine(Level)
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_OnLoadCoroutine_ThunderRoad_Level_
+  commentId: M:Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine(ThunderRoad.Level)
+  fullName: Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine(ThunderRoad.Level)
+  nameWithType: LevelModuleGlobalItemModule.OnLoadCoroutine(Level)
+- uid: Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine*
+  name: OnLoadCoroutine
+  href: api/Wully.Module.LevelModuleGlobalItemModule.html#Wully_Module_LevelModuleGlobalItemModule_OnLoadCoroutine_
+  commentId: Overload:Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine
+  isSpec: "True"
+  fullName: Wully.Module.LevelModuleGlobalItemModule.OnLoadCoroutine
+  nameWithType: LevelModuleGlobalItemModule.OnLoadCoroutine
+- uid: Wully.Module.LevelModuleMasterLevel
+  name: LevelModuleMasterLevel
+  href: api/Wully.Module.LevelModuleMasterLevel.html
+  commentId: T:Wully.Module.LevelModuleMasterLevel
+  fullName: Wully.Module.LevelModuleMasterLevel
+  nameWithType: LevelModuleMasterLevel
+- uid: Wully.Module.LevelModuleMasterLevel.enableLogging
+  name: enableLogging
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_enableLogging
+  commentId: F:Wully.Module.LevelModuleMasterLevel.enableLogging
+  fullName: Wully.Module.LevelModuleMasterLevel.enableLogging
+  nameWithType: LevelModuleMasterLevel.enableLogging
+- uid: Wully.Module.LevelModuleMasterLevel.LoadedEvent
+  name: LevelModuleMasterLevel.LoadedEvent
+  href: api/Wully.Module.LevelModuleMasterLevel.LoadedEvent.html
+  commentId: T:Wully.Module.LevelModuleMasterLevel.LoadedEvent
+  fullName: Wully.Module.LevelModuleMasterLevel.LoadedEvent
+  nameWithType: LevelModuleMasterLevel.LoadedEvent
+- uid: Wully.Module.LevelModuleMasterLevel.local
+  name: local
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_local
+  commentId: F:Wully.Module.LevelModuleMasterLevel.local
+  fullName: Wully.Module.LevelModuleMasterLevel.local
+  nameWithType: LevelModuleMasterLevel.local
+- uid: Wully.Module.LevelModuleMasterLevel.logLevel
+  name: logLevel
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_logLevel
+  commentId: F:Wully.Module.LevelModuleMasterLevel.logLevel
+  fullName: Wully.Module.LevelModuleMasterLevel.logLevel
+  nameWithType: LevelModuleMasterLevel.logLevel
+- uid: Wully.Module.LevelModuleMasterLevel.masterLevel
+  name: masterLevel
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_masterLevel
+  commentId: F:Wully.Module.LevelModuleMasterLevel.masterLevel
+  fullName: Wully.Module.LevelModuleMasterLevel.masterLevel
+  nameWithType: LevelModuleMasterLevel.masterLevel
+- uid: Wully.Module.LevelModuleMasterLevel.OnLevelModuleLoaded
+  name: OnLevelModuleLoaded
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_OnLevelModuleLoaded
+  commentId: E:Wully.Module.LevelModuleMasterLevel.OnLevelModuleLoaded
+  fullName: Wully.Module.LevelModuleMasterLevel.OnLevelModuleLoaded
+  nameWithType: LevelModuleMasterLevel.OnLevelModuleLoaded
+- uid: Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine(ThunderRoad.Level)
+  name: OnLoadCoroutine(Level)
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_OnLoadCoroutine_ThunderRoad_Level_
+  commentId: M:Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine(ThunderRoad.Level)
+  fullName: Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine(ThunderRoad.Level)
+  nameWithType: LevelModuleMasterLevel.OnLoadCoroutine(Level)
+- uid: Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine*
+  name: OnLoadCoroutine
+  href: api/Wully.Module.LevelModuleMasterLevel.html#Wully_Module_LevelModuleMasterLevel_OnLoadCoroutine_
+  commentId: Overload:Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine
+  isSpec: "True"
+  fullName: Wully.Module.LevelModuleMasterLevel.OnLoadCoroutine
+  nameWithType: LevelModuleMasterLevel.OnLoadCoroutine
 - uid: Wully.Module.ModDependency
   name: ModDependency
   href: api/Wully.Module.ModDependency.html
@@ -3462,3 +3654,254 @@ references:
   isSpec: "True"
   fullName: Wully.Module.ModManifest.ToString
   nameWithType: ModManifest.ToString
+- uid: Wully.Render
+  name: Wully.Render
+  href: api/Wully.Render.html
+  commentId: N:Wully.Render
+  fullName: Wully.Render
+  nameWithType: Wully.Render
+- uid: Wully.Render.CustomPass`1
+  name: CustomPass<T>
+  href: api/Wully.Render.CustomPass-1.html
+  commentId: T:Wully.Render.CustomPass`1
+  name.vb: CustomPass(Of T)
+  fullName: Wully.Render.CustomPass<T>
+  fullName.vb: Wully.Render.CustomPass(Of T)
+  nameWithType: CustomPass<T>
+  nameWithType.vb: CustomPass(Of T)
+- uid: Wully.Render.CustomPass`1.Awake
+  name: Awake()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_Awake
+  commentId: M:Wully.Render.CustomPass`1.Awake
+  fullName: Wully.Render.CustomPass<T>.Awake()
+  fullName.vb: Wully.Render.CustomPass(Of T).Awake()
+  nameWithType: CustomPass<T>.Awake()
+  nameWithType.vb: CustomPass(Of T).Awake()
+- uid: Wully.Render.CustomPass`1.Awake*
+  name: Awake
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_Awake_
+  commentId: Overload:Wully.Render.CustomPass`1.Awake
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.Awake
+  fullName.vb: Wully.Render.CustomPass(Of T).Awake
+  nameWithType: CustomPass<T>.Awake
+  nameWithType.vb: CustomPass(Of T).Awake
+- uid: Wully.Render.CustomPass`1.CreateFeature
+  name: CreateFeature()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_CreateFeature
+  commentId: M:Wully.Render.CustomPass`1.CreateFeature
+  fullName: Wully.Render.CustomPass<T>.CreateFeature()
+  fullName.vb: Wully.Render.CustomPass(Of T).CreateFeature()
+  nameWithType: CustomPass<T>.CreateFeature()
+  nameWithType.vb: CustomPass(Of T).CreateFeature()
+- uid: Wully.Render.CustomPass`1.CreateFeature*
+  name: CreateFeature
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_CreateFeature_
+  commentId: Overload:Wully.Render.CustomPass`1.CreateFeature
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.CreateFeature
+  fullName.vb: Wully.Render.CustomPass(Of T).CreateFeature
+  nameWithType: CustomPass<T>.CreateFeature
+  nameWithType.vb: CustomPass(Of T).CreateFeature
+- uid: Wully.Render.CustomPass`1.DestroyFeature
+  name: DestroyFeature()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_DestroyFeature
+  commentId: M:Wully.Render.CustomPass`1.DestroyFeature
+  fullName: Wully.Render.CustomPass<T>.DestroyFeature()
+  fullName.vb: Wully.Render.CustomPass(Of T).DestroyFeature()
+  nameWithType: CustomPass<T>.DestroyFeature()
+  nameWithType.vb: CustomPass(Of T).DestroyFeature()
+- uid: Wully.Render.CustomPass`1.DestroyFeature*
+  name: DestroyFeature
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_DestroyFeature_
+  commentId: Overload:Wully.Render.CustomPass`1.DestroyFeature
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.DestroyFeature
+  fullName.vb: Wully.Render.CustomPass(Of T).DestroyFeature
+  nameWithType: CustomPass<T>.DestroyFeature
+  nameWithType.vb: CustomPass(Of T).DestroyFeature
+- uid: Wully.Render.CustomPass`1.DisableFeature
+  name: DisableFeature()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_DisableFeature
+  commentId: M:Wully.Render.CustomPass`1.DisableFeature
+  fullName: Wully.Render.CustomPass<T>.DisableFeature()
+  fullName.vb: Wully.Render.CustomPass(Of T).DisableFeature()
+  nameWithType: CustomPass<T>.DisableFeature()
+  nameWithType.vb: CustomPass(Of T).DisableFeature()
+- uid: Wully.Render.CustomPass`1.DisableFeature*
+  name: DisableFeature
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_DisableFeature_
+  commentId: Overload:Wully.Render.CustomPass`1.DisableFeature
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.DisableFeature
+  fullName.vb: Wully.Render.CustomPass(Of T).DisableFeature
+  nameWithType: CustomPass<T>.DisableFeature
+  nameWithType.vb: CustomPass(Of T).DisableFeature
+- uid: Wully.Render.CustomPass`1.EnableFeature
+  name: EnableFeature()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_EnableFeature
+  commentId: M:Wully.Render.CustomPass`1.EnableFeature
+  fullName: Wully.Render.CustomPass<T>.EnableFeature()
+  fullName.vb: Wully.Render.CustomPass(Of T).EnableFeature()
+  nameWithType: CustomPass<T>.EnableFeature()
+  nameWithType.vb: CustomPass(Of T).EnableFeature()
+- uid: Wully.Render.CustomPass`1.EnableFeature*
+  name: EnableFeature
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_EnableFeature_
+  commentId: Overload:Wully.Render.CustomPass`1.EnableFeature
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.EnableFeature
+  fullName.vb: Wully.Render.CustomPass(Of T).EnableFeature
+  nameWithType: CustomPass<T>.EnableFeature
+  nameWithType.vb: CustomPass(Of T).EnableFeature
+- uid: Wully.Render.CustomPass`1.feature
+  name: feature
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_feature
+  commentId: F:Wully.Render.CustomPass`1.feature
+  fullName: Wully.Render.CustomPass<T>.feature
+  fullName.vb: Wully.Render.CustomPass(Of T).feature
+  nameWithType: CustomPass<T>.feature
+  nameWithType.vb: CustomPass(Of T).feature
+- uid: Wully.Render.CustomPass`1.forwardRendererData
+  name: forwardRendererData
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_forwardRendererData
+  commentId: F:Wully.Render.CustomPass`1.forwardRendererData
+  fullName: Wully.Render.CustomPass<T>.forwardRendererData
+  fullName.vb: Wully.Render.CustomPass(Of T).forwardRendererData
+  nameWithType: CustomPass<T>.forwardRendererData
+  nameWithType.vb: CustomPass(Of T).forwardRendererData
+- uid: Wully.Render.CustomPass`1.log
+  name: log
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_log
+  commentId: F:Wully.Render.CustomPass`1.log
+  fullName: Wully.Render.CustomPass<T>.log
+  fullName.vb: Wully.Render.CustomPass(Of T).log
+  nameWithType: CustomPass<T>.log
+  nameWithType.vb: CustomPass(Of T).log
+- uid: Wully.Render.CustomPass`1.OnDestroy
+  name: OnDestroy()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnDestroy
+  commentId: M:Wully.Render.CustomPass`1.OnDestroy
+  fullName: Wully.Render.CustomPass<T>.OnDestroy()
+  fullName.vb: Wully.Render.CustomPass(Of T).OnDestroy()
+  nameWithType: CustomPass<T>.OnDestroy()
+  nameWithType.vb: CustomPass(Of T).OnDestroy()
+- uid: Wully.Render.CustomPass`1.OnDestroy*
+  name: OnDestroy
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnDestroy_
+  commentId: Overload:Wully.Render.CustomPass`1.OnDestroy
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.OnDestroy
+  fullName.vb: Wully.Render.CustomPass(Of T).OnDestroy
+  nameWithType: CustomPass<T>.OnDestroy
+  nameWithType.vb: CustomPass(Of T).OnDestroy
+- uid: Wully.Render.CustomPass`1.OnDisable
+  name: OnDisable()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnDisable
+  commentId: M:Wully.Render.CustomPass`1.OnDisable
+  fullName: Wully.Render.CustomPass<T>.OnDisable()
+  fullName.vb: Wully.Render.CustomPass(Of T).OnDisable()
+  nameWithType: CustomPass<T>.OnDisable()
+  nameWithType.vb: CustomPass(Of T).OnDisable()
+- uid: Wully.Render.CustomPass`1.OnDisable*
+  name: OnDisable
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnDisable_
+  commentId: Overload:Wully.Render.CustomPass`1.OnDisable
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.OnDisable
+  fullName.vb: Wully.Render.CustomPass(Of T).OnDisable
+  nameWithType: CustomPass<T>.OnDisable
+  nameWithType.vb: CustomPass(Of T).OnDisable
+- uid: Wully.Render.CustomPass`1.OnValidate
+  name: OnValidate()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnValidate
+  commentId: M:Wully.Render.CustomPass`1.OnValidate
+  fullName: Wully.Render.CustomPass<T>.OnValidate()
+  fullName.vb: Wully.Render.CustomPass(Of T).OnValidate()
+  nameWithType: CustomPass<T>.OnValidate()
+  nameWithType.vb: CustomPass(Of T).OnValidate()
+- uid: Wully.Render.CustomPass`1.OnValidate*
+  name: OnValidate
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_OnValidate_
+  commentId: Overload:Wully.Render.CustomPass`1.OnValidate
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.OnValidate
+  fullName.vb: Wully.Render.CustomPass(Of T).OnValidate
+  nameWithType: CustomPass<T>.OnValidate
+  nameWithType.vb: CustomPass(Of T).OnValidate
+- uid: Wully.Render.CustomPass`1.scriptableRendererData
+  name: scriptableRendererData
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_scriptableRendererData
+  commentId: F:Wully.Render.CustomPass`1.scriptableRendererData
+  fullName: Wully.Render.CustomPass<T>.scriptableRendererData
+  fullName.vb: Wully.Render.CustomPass(Of T).scriptableRendererData
+  nameWithType: CustomPass<T>.scriptableRendererData
+  nameWithType.vb: CustomPass(Of T).scriptableRendererData
+- uid: Wully.Render.CustomPass`1.UpdateSettings
+  name: UpdateSettings()
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_UpdateSettings
+  commentId: M:Wully.Render.CustomPass`1.UpdateSettings
+  fullName: Wully.Render.CustomPass<T>.UpdateSettings()
+  fullName.vb: Wully.Render.CustomPass(Of T).UpdateSettings()
+  nameWithType: CustomPass<T>.UpdateSettings()
+  nameWithType.vb: CustomPass(Of T).UpdateSettings()
+- uid: Wully.Render.CustomPass`1.UpdateSettings*
+  name: UpdateSettings
+  href: api/Wully.Render.CustomPass-1.html#Wully_Render_CustomPass_1_UpdateSettings_
+  commentId: Overload:Wully.Render.CustomPass`1.UpdateSettings
+  isSpec: "True"
+  fullName: Wully.Render.CustomPass<T>.UpdateSettings
+  fullName.vb: Wully.Render.CustomPass(Of T).UpdateSettings
+  nameWithType: CustomPass<T>.UpdateSettings
+  nameWithType.vb: CustomPass(Of T).UpdateSettings
+- uid: Wully.RPUtils
+  name: RPUtils
+  href: api/Wully.RPUtils.html
+  commentId: T:Wully.RPUtils
+  fullName: Wully.RPUtils
+  nameWithType: RPUtils
+- uid: Wully.RPUtils.GetRendererIndex(System.String)
+  name: GetRendererIndex(String)
+  href: api/Wully.RPUtils.html#Wully_RPUtils_GetRendererIndex_System_String_
+  commentId: M:Wully.RPUtils.GetRendererIndex(System.String)
+  fullName: Wully.RPUtils.GetRendererIndex(System.String)
+  nameWithType: RPUtils.GetRendererIndex(String)
+- uid: Wully.RPUtils.GetRendererIndex*
+  name: GetRendererIndex
+  href: api/Wully.RPUtils.html#Wully_RPUtils_GetRendererIndex_
+  commentId: Overload:Wully.RPUtils.GetRendererIndex
+  isSpec: "True"
+  fullName: Wully.RPUtils.GetRendererIndex
+  nameWithType: RPUtils.GetRendererIndex
+- uid: Wully.RPUtils.TryGetFeature(System.String,UnityEngine.Rendering.Universal.ScriptableRendererFeature@,UnityEngine.Rendering.Universal.ScriptableRendererData@)
+  name: TryGetFeature(String, out ScriptableRendererFeature, out ScriptableRendererData)
+  href: api/Wully.RPUtils.html#Wully_RPUtils_TryGetFeature_System_String_UnityEngine_Rendering_Universal_ScriptableRendererFeature__UnityEngine_Rendering_Universal_ScriptableRendererData__
+  commentId: M:Wully.RPUtils.TryGetFeature(System.String,UnityEngine.Rendering.Universal.ScriptableRendererFeature@,UnityEngine.Rendering.Universal.ScriptableRendererData@)
+  name.vb: TryGetFeature(String, ByRef ScriptableRendererFeature, ByRef ScriptableRendererData)
+  fullName: Wully.RPUtils.TryGetFeature(System.String, out UnityEngine.Rendering.Universal.ScriptableRendererFeature, out UnityEngine.Rendering.Universal.ScriptableRendererData)
+  fullName.vb: Wully.RPUtils.TryGetFeature(System.String, ByRef UnityEngine.Rendering.Universal.ScriptableRendererFeature, ByRef UnityEngine.Rendering.Universal.ScriptableRendererData)
+  nameWithType: RPUtils.TryGetFeature(String, out ScriptableRendererFeature, out ScriptableRendererData)
+  nameWithType.vb: RPUtils.TryGetFeature(String, ByRef ScriptableRendererFeature, ByRef ScriptableRendererData)
+- uid: Wully.RPUtils.TryGetFeature*
+  name: TryGetFeature
+  href: api/Wully.RPUtils.html#Wully_RPUtils_TryGetFeature_
+  commentId: Overload:Wully.RPUtils.TryGetFeature
+  isSpec: "True"
+  fullName: Wully.RPUtils.TryGetFeature
+  nameWithType: RPUtils.TryGetFeature
+- uid: Wully.RPUtils.TryGetScriptableRendererData(UnityEngine.Rendering.Universal.ScriptableRendererData@)
+  name: TryGetScriptableRendererData(out ScriptableRendererData)
+  href: api/Wully.RPUtils.html#Wully_RPUtils_TryGetScriptableRendererData_UnityEngine_Rendering_Universal_ScriptableRendererData__
+  commentId: M:Wully.RPUtils.TryGetScriptableRendererData(UnityEngine.Rendering.Universal.ScriptableRendererData@)
+  name.vb: TryGetScriptableRendererData(ByRef ScriptableRendererData)
+  fullName: Wully.RPUtils.TryGetScriptableRendererData(out UnityEngine.Rendering.Universal.ScriptableRendererData)
+  fullName.vb: Wully.RPUtils.TryGetScriptableRendererData(ByRef UnityEngine.Rendering.Universal.ScriptableRendererData)
+  nameWithType: RPUtils.TryGetScriptableRendererData(out ScriptableRendererData)
+  nameWithType.vb: RPUtils.TryGetScriptableRendererData(ByRef ScriptableRendererData)
+- uid: Wully.RPUtils.TryGetScriptableRendererData*
+  name: TryGetScriptableRendererData
+  href: api/Wully.RPUtils.html#Wully_RPUtils_TryGetScriptableRendererData_
+  commentId: Overload:Wully.RPUtils.TryGetScriptableRendererData
+  isSpec: "True"
+  fullName: Wully.RPUtils.TryGetScriptableRendererData
+  nameWithType: RPUtils.TryGetScriptableRendererData
