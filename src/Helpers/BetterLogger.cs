@@ -94,7 +94,6 @@ namespace Wully.Helpers {
 		}
 
 
-
 		/// <summary>
 		/// Gets a new instance of BetterLogger
 		/// </summary>
