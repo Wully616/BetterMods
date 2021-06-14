@@ -66,13 +66,15 @@ namespace Wully.Module {
 
 			if ( modules != null && modules.Count > 0 ) {
 				//add all of these modules to the Items in the catalog
-				try {
+
+				foreach ( ItemData itemData in GetItemDataList() ) {
+					if ( itemTypes != null && itemTypes.Count > 0 && !itemTypes.Contains(itemData.type) ) {
+						continue;
+					}
+
 					foreach ( ItemModule itemModule in modules ) {
-						foreach ( ItemData itemData in GetItemDataList() ) {
-							//skip if there is a itemtype filter specified
-							if (itemTypes != null && itemTypes.Count > 0 && !itemTypes.Contains(itemData.type)) {
-								continue;
-							}
+						//skip if there is a itemtype filter specified
+						try {
 							log.Info().Message($"Adding module {itemModule.type} to ItemData: {itemData.id}");
 							if ( itemData.modules != null ) {
 								itemData.modules.Add(itemModule);
@@ -80,16 +82,14 @@ namespace Wully.Module {
 								itemData.modules = new List<ItemModule>();
 								itemData.modules.Add(itemModule);
 							}
-							//refresh the catalog
-							itemData.OnCatalogRefresh();
-
+							
+						} catch ( Exception e ) {
+							log.Exception().Message($"Exception adding item module {itemModule.type}  to itemData {itemData.id}. {e.Message}");
 						}
 					}
-
-
-				} catch ( Exception e ) {
-					log.Exception().Message($"Exception adding item module to itemDatas. {e.Message}");
 				}
+				//refresh the catalog
+				Catalog.Refresh();
 			} else {
 				log.Warn().Message($"There are no global item modules in json");
 			}
