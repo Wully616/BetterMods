@@ -50,8 +50,6 @@ namespace Wully.Render {
 			//Create instance of our feature
 			this.feature = (ScriptableRendererFeature) ScriptableObject.CreateInstance(typeof(T));
 			if (feature) {
-				log.Info().Message($"Created feature!");
-				
 				featureName = gameObject.name;
 				this.feature.name = featureName;
 				//Set it to disabled initially
@@ -65,7 +63,7 @@ namespace Wully.Render {
 				this.scriptableRendererData?.rendererFeatures?.Add(feature);
 				//Mark SRD as dirty so it gets updated.
 				this.scriptableRendererData?.SetDirty();
-
+				log.Info().Message($"Created feature: {feature.name}");
 			} else {
 				log.Error().Message($"Unable to create feature!");
 			}
@@ -112,9 +110,8 @@ namespace Wully.Render {
 				}
 			}
 			UpdateSettings();
-			feature?.SetActive(true);
-			
-			
+			feature.SetActive(true);
+
 		}
 
 		public virtual void OnDestroy() {
